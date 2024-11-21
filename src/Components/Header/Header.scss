@@ -1,0 +1,63 @@
+.header {
+	padding: 7px 0;
+   
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    &__logo {
+        font-size: $fs-24;
+        font-weight: bold;
+        color: $red;
+    }
+
+    &__nav {
+        display: flex;
+
+		@include respond-to(mobile) {
+			display: none;
+		  }
+    }
+
+    &__list {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: #333;
+        font-size: 1rem;
+        transition: color 0.3s;
+
+        &:hover {
+            color: #ff3366;
+        }
+    }
+
+    &__button {
+        background-color: $blue;
+    }
+
+    &__menu {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+
+        @media (max-width: 768px) {
+            display: block;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

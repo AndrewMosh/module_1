@@ -1,0 +1,16 @@
+.button {
+	border: none;
+	border-radius: $border-radius;
+	padding: 16px;
+	color: #fff;
+	font-weight: bold;
+	letter-spacing: 2%;
+	cursor: pointer;
+	transition: $transition;
+	font-size: $fs-16;
+
+	&:hover {
+	  background-color: darken($blue, 10%);
+	}
+  }
+  
