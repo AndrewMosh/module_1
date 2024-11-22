@@ -15,7 +15,7 @@ export const CardSelection = () => {
                 </div>
                     <div className="cards-selection__cards">
                         {cards.map((card) => (
-                            <img key={card.id} src={card.image} alt={card.alt} className="cards-selection__card" />
+                            <img key={card.id} src={card.image} alt={card.alt} title={card.alt}  className="cards-selection__card" />
                         ))}
                     </div>
                 </div>

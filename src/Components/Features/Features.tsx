@@ -4,7 +4,7 @@ import illustration from '@assets/svg/features.svg';
 
 const Features = () => {
   return (
-    <section className='features'>
+    <section className='features' aria-label="Features Section">
       <div className='features__container'>
 		<div className='features__inner'>
 			<img src={illustration} alt="illustration" />
