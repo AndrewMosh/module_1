@@ -1,13 +1,13 @@
 import "./Header.scss";
 import { Link } from "react-router-dom";
-import Button from "../UI/Button/Button";
+import Button from "@components/UI/Button/Button";
 import { menu } from "./menu.utils";
 
 const Header = () => {
     return (
         <header className="header">
             <div className="header__container">
-                <div className="header__logo">NeoBank</div>
+                <Link to="/" className="header__logo">NeoBank</Link>
                 <nav className="header__nav">
                     <ul className="header__list">
                         {menu.map((item) => (

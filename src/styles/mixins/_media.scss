@@ -1,4 +1,4 @@
-@use '../settings/variables' as *;
+@use '../config/variables' as *;
 
 @mixin respond-to($breakpoint) {
 	@if $breakpoint == mobile {
