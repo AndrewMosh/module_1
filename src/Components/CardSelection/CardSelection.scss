@@ -26,6 +26,8 @@
 
         @include respond-to(mobile) {
             font-size: $fs-35;
+			line-height: $lh-40;
+			margin-bottom: 20px;
         }
     }
 
@@ -37,6 +39,10 @@
     &__button {
         background-color: $blue;
         margin-bottom: 40px;
+
+		@include respond-to(mobile) {
+			margin-bottom: 20px;
+        }
     }
 
     &__cards {

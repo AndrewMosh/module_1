@@ -64,10 +64,6 @@
             grid-template-columns: 1fr 1fr;
             justify-content: space-between;
         }
-
-        @media (max-width: 349px) {
-            grid-template-columns: 1fr;
-        }
     }
 
     &__row {
@@ -80,10 +76,18 @@
         color: $light-grey;
         padding-right: 20px;
         font-size: $fs-20;
+
+		@include respond-to(mobile) {
+            font-size: $fs-16;
+        }
     }
 
     &__rate {
         font-size: $fs-20;
+
+		@include respond-to(mobile) {
+            font-size: $fs-16;
+        }
     }
 
     &__bank {
