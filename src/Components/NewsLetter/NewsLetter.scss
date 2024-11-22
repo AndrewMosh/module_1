@@ -3,6 +3,10 @@
     line-height: normal;
     padding-bottom: 98px;
 
+	@include respond-to(mobile) {
+		padding: 48px 0;
+	}
+
     &__title {
         color: $orange;
         font-size: $fs-24;
