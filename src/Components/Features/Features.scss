@@ -12,11 +12,13 @@
 
 	&__inner {
 		margin: 0 auto;
+		font-family: 'Rubik';
 	}
 
 	&__title { 
 		font-size: $fs-35;
 		padding-bottom: 20px;
+		font-family:'Rubik Bold'; ;
 
 		@include respond-to(mobile) {
 			font-size: $fs-30;
@@ -25,9 +27,9 @@
 
 	&__subtitle {
 		font-size: $fs-16;
-		font-family: 'Ubuntu';
 		line-height: $lh-30;
 		padding-bottom: 20px;
+		color: $grey;
 	}
 
 	&__item {
@@ -37,6 +39,7 @@
 		background-size: 20px 20px; 
 		background-position: 0 center; 
 		font-size: $fs-16;
-		font-family: 'Ubuntu';
+		
+		color: $grey;
 	}
 }
