@@ -6,9 +6,7 @@
     }
 
     &__container {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
+        @include flex-wrapper();
         gap: 20px;
 
         @media (max-width: 1013px) {
@@ -52,8 +50,13 @@
         }
 
         @include respond-to(mobile) {
-            gap: 10px;
+            gap: $gap-10;
         }
+
+		img {
+			width: 100%;
+		
+		}
     }
 
     &__card {
