@@ -1,15 +1,12 @@
 :root {
-  font-family: "Ubuntu Bold";
+  font-family: 'Ubuntu Bold';
   font-weight: 400;
 }
-
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
   background-color: $bgColor;
-  line-height: $lh-50;;
+  line-height: $lh-50;
 }
-
-

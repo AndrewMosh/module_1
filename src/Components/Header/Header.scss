@@ -1,106 +1,106 @@
 .header {
-    padding: 7px 0;
+  padding: 7px 0;
 
-    &__container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0 auto;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  &__logo {
+    font-size: $fs-24;
+    font-weight: bold;
+    color: $red;
+  }
+
+  &__nav {
+    display: flex;
+
+    @include respond-to(mobile) {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: $bgColor;
+      flex-direction: column;
+      padding: 2rem;
+      transition: right 0.3s ease-in-out;
+      text-align: center;
     }
 
-    &__logo {
-        font-size: $fs-24;
-        font-weight: bold;
-        color: $red;
+    &--open {
+      @include respond-to(mobile) {
+        right: 0;
+      }
+    }
+  }
+
+  &__close {
+    display: none;
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    color: black;
+
+    @include respond-to(mobile) {
+      display: block;
     }
 
-    &__nav {
-        display: flex;
-
-        @include respond-to(mobile) {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 100%;
-            height: 100%;
-            background-color: $bgColor;
-            flex-direction: column;
-            padding: 2rem;
-            transition: right 0.3s ease-in-out;
-			text-align: center;
-        }
-
-        &--open {
-            @include respond-to(mobile) {
-                right: 0;
-            }
-        }
+    &:hover {
+      color: $red;
     }
 
-	&__close {
-		display: none;
-        align-self: flex-end;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        cursor: pointer;
-        margin-bottom: 1rem;
-		color:black;
+    &:focus {
+      outline: none;
+    }
+  }
 
-		@include respond-to(mobile) {
-			display: block;
-		}
+  &__list {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
-        &:hover {
-            color: $red;
-        }
+    @include respond-to(mobile) {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
 
-        &:focus {
-            outline: none;
-        }
+  &__link {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $purple;
+    }
+  }
+
+  &__button {
+    background-color: $blue;
+  }
+
+  &__menu {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    @include respond-to(mobile) {
+      display: block;
     }
 
-    &__list {
-        display: flex;
-        gap: 20px;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-
-        @include respond-to(mobile) {
-            flex-direction: column;
-            gap: 1.5rem;
-        }
+    &:focus {
+      outline: none;
     }
-
-    &__link {
-        text-decoration: none;
-        color: #333;
-        font-size: 1rem;
-        transition: color 0.3s;
-
-        &:hover {
-            color: $purple;
-        }
-    }
-
-    &__button {
-        background-color: $blue;
-    }
-
-    &__menu {
-        display: none;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        cursor: pointer;
-
-        @include respond-to(mobile) {
-            display: block;
-        }
-
-        &:focus {
-            outline: none;
-        }
-    }
+  }
 }

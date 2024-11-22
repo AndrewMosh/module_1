@@ -1,105 +1,113 @@
 .exchange-rates {
-    border-radius: $border-radius-28;
-    padding: 32px;
-    margin-bottom: 48px;
-    box-shadow: 0px 2px 4px 0px rgba(187, 187, 187, 0.2), 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
-    background: linear-gradient(0deg, rgba(178, 178, 178, 0.8) 8.055%, rgba(178, 178, 178, 0) 67.93%), rgba(244, 244, 244, 0.9);
-    line-height: normal;
+  border-radius: $border-radius-28;
+  padding: 32px;
+  margin-bottom: 48px;
+  box-shadow:
+    0px 2px 4px 0px rgba(187, 187, 187, 0.2),
+    0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(
+      0deg,
+      rgba(178, 178, 178, 0.8) 8.055%,
+      rgba(178, 178, 178, 0) 67.93%
+    ),
+    rgba(244, 244, 244, 0.9);
+  line-height: normal;
 
-    &__header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-family: "Ubuntu";
-        padding-bottom: 40px;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Ubuntu';
+    padding-bottom: 40px;
 
-        @include respond-to(tablet) {
-            flex-direction: column;
-        }
+    @include respond-to(tablet) {
+      flex-direction: column;
     }
+  }
 
-    &__title {
-        font-size: $fs-30;
+  &__title {
+    font-size: $fs-30;
 
-        @include respond-to(mobile) {
-            font-size: $fs-24;
-        }
+    @include respond-to(mobile) {
+      font-size: $fs-24;
     }
+  }
 
-    &__update {
-        @include respond-to(tablet) {
-            order: -1;
-            padding-bottom: 20px;
-        }
+  &__update {
+    @include respond-to(tablet) {
+      order: -1;
+      padding-bottom: 20px;
     }
+  }
 
-    &__subtitle {
-        font-size: $fs-20;
-        padding-bottom: 32px;
-        font-family: "Ubuntu Medium";
+  &__subtitle {
+    font-size: $fs-20;
+    padding-bottom: 32px;
+    font-family: 'Ubuntu Medium';
 
-        @include respond-to(mobile) {
-            font-size: $fs-16;
-        }
+    @include respond-to(mobile) {
+      font-size: $fs-16;
     }
+  }
 
-    &__inner {
-        display: flex;
-        justify-content: space-between;
-        padding-bottom: 35px;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 35px;
 
-        @include respond-to(tablet) {
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-        }
+    @include respond-to(tablet) {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
     }
+  }
 
-    &__table {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        column-gap: 32px;
+  &__table {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 32px;
 
-        @include respond-to(mobile) {
-            grid-template-columns: 1fr 1fr;
-            justify-content: space-between;
-        }
+    @include respond-to(mobile) {
+      grid-template-columns: 1fr 1fr;
+      justify-content: space-between;
     }
+  }
 
-    &__row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__currency {
+    color: $light-grey;
+    padding-right: 20px;
+    font-size: $fs-20;
+
+    @include respond-to(mobile) {
+      font-size: $fs-16;
     }
+  }
 
-    &__currency {
-        color: $light-grey;
-        padding-right: 20px;
-        font-size: $fs-20;
+  &__rate {
+    font-size: $fs-20;
 
-		@include respond-to(mobile) {
-            font-size: $fs-16;
-        }
+    @include respond-to(mobile) {
+      font-size: $fs-16;
     }
+  }
 
-    &__rate {
-        font-size: $fs-20;
-
-		@include respond-to(mobile) {
-            font-size: $fs-16;
-        }
+  &__bank {
+    @include respond-to(tablet) {
+      order: -1;
     }
+  }
 
-    &__bank {
-        @include respond-to(tablet) {
-            order: -1;
-        }
-    }
+  &__all {
+    color: white;
+    background: none;
+    font-family: 'Ubuntu bold';
 
-    &__all {
-        color: white;
-        background: none;
-        font-family: "Ubuntu bold";
-        cursor: pointer;
-    }
+    cursor: pointer;
+  }
 }

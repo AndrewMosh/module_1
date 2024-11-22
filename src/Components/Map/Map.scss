@@ -1,25 +1,25 @@
 .map {
-	text-align: center;
-	padding-bottom: 48px;
+  text-align: center;
+  padding-bottom: 48px;
 
-	&__title {
-		font-size: $fs-30;
-		padding-bottom: 8px;
-		font-family: 'Ubuntu Medium';
+  &__title {
+    font-size: $fs-30;
+    padding-bottom: 8px;
+    font-family: 'Ubuntu Medium';
 
-		@include respond-to(mobile) {
-			font-size: $fs-24;
-			line-height: $lh-40;
-		}
-	}
+    @include respond-to(mobile) {
+      font-size: $fs-24;
+      line-height: $lh-40;
+    }
+  }
 
-	&__subtitle {
-		font-size: $fs-16;
-		padding-bottom: 48px;
-		font-family: 'Ubuntu';
+  &__subtitle {
+    font-size: $fs-16;
+    padding-bottom: 48px;
+    font-family: 'Ubuntu';
 
-		@include respond-to(mobile) {
-			line-height: $lh-22;
-		}
-	}
+    @include respond-to(mobile) {
+      line-height: $lh-22;
+    }
+  }
 }

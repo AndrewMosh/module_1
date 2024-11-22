@@ -1,18 +1,17 @@
 @use '../config/variables' as *;
 
 @mixin respond-to($breakpoint) {
-	@if $breakpoint == mobile {
-	  @media (max-width: $sm) {
-		@content;
-	  }
-	} @else if $breakpoint == tablet {
-	  @media (max-width: $lg) {
-		@content;
-	  }
-	} @else if $breakpoint == desktop {
-	  @media (min-width: $xl) {
-		@content;
-	  }
-	}
+  @if $breakpoint == mobile {
+    @media (max-width: $sm) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media (max-width: $lg) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media (min-width: $xl) {
+      @content;
+    }
   }
-  
+}
