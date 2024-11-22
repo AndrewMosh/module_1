@@ -1,0 +1,20 @@
+.map {
+	text-align: center;
+	padding-bottom: 48px;
+
+	&__title {
+		font-size: $fs-30;
+		padding-bottom: 8px;
+		font-family: 'Ubuntu Medium';
+	}
+
+	&__subtitle {
+		font-size: $fs-16;
+		padding-bottom: 48px;
+		font-family: 'Ubuntu';
+
+		@include respond-to(mobile) {
+			line-height: $lh-22;
+		}
+	}
+}
