@@ -1,6 +1,7 @@
 import Home from "./pages/Home/Home"
 import {createBrowserRouter, RouterProvider, RouteObject } from "react-router-dom"
 import { CreditCard } from "@pages/CreditCard/CreditCard";
+import { NotFound } from "@pages/NotFound/NotFound";
 
 const routes: RouteObject[] = [
     {
@@ -13,7 +14,7 @@ const routes: RouteObject[] = [
 	},
 	{
 		path: "*",
-		element: <> здесь будет компонент NOT FOUND</>
+		element: <NotFound />,
 	}
 ];
 
