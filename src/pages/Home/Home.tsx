@@ -3,9 +3,7 @@ import { CardSelection } from "../../Components/CardSelection/CardSelection"
 export default function Home() {
 	return (
 		<Layout>
-
 			<CardSelection />
-
 		</Layout>
 	)
 }

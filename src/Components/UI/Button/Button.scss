@@ -9,6 +9,10 @@
 	transition: $transition;
 	font-size: $fs-16;
 
+	@include respond-to(mobile) {
+		padding: 10px;
+	  }
+
 	&:hover {
 	  background-color: $purple;
 	}
