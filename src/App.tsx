@@ -1,5 +1,6 @@
 import Home from "./pages/Home/Home"
-import {createBrowserRouter, Navigate, RouterProvider, RouteObject } from "react-router-dom"
+import {createBrowserRouter, RouterProvider, RouteObject } from "react-router-dom"
+import { CreditCard } from "@pages/CreditCard/CreditCard";
 
 const routes: RouteObject[] = [
     {
@@ -7,8 +8,12 @@ const routes: RouteObject[] = [
         element: <Home/>,
     },
 	{
+		path: "/credit-card",
+		element: <CreditCard />,
+	},
+	{
 		path: "*",
-		element: <Navigate to="/" />,
+		element: <> здесь будет компонент NOT FOUND</>
 	}
 ];
 
