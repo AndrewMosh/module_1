@@ -4,14 +4,16 @@ import { fMenu } from "./menu-footer.utils";
 import { Link } from "react-router-dom";
 
 export const Footer = () => {
+	const email: string = 'info@neoflex.ru'
+	const phone: string = '+7 (495) 984 25 13'
     return (
         <footer className="footer">
             <div className="footer__container">
                 <div className="footer__header">
                     <img src={logo} alt="logo" />
                     <div className="footer__adresses">
-                        <div className="footer__phone">+7 (495) 984 25 13</div>
-                        <div className="footer__email">info@neoflex.ru</div>
+                        <div className="footer__phone">{phone}</div>
+                        <div className="footer__email">{email}</div>
                     </div>
                 </div>
                 <ul className="footer__list">
