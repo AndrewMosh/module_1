@@ -80,8 +80,13 @@
     transition: color 0.3s;
 
     &:hover {
-      color: $purple;
+      color: $olive-active;
     }
+
+	&--active {
+		color: $olive-active;
+		font-weight: bold;
+	  }
   }
 
   &__button {

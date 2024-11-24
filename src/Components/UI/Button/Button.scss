@@ -13,7 +13,7 @@
     padding: 10px;
   }
 
-  &:hover {
-    background-color: $purple;
+  &:hover, &:disabled {
+    background-color: $blueHover;
   }
 }
