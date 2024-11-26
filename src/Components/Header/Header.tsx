@@ -1,7 +1,7 @@
 import './Header.scss';
 import { Link, NavLink } from 'react-router-dom';
 import Button from '@components/UI/Button/Button';
-import { menu } from './menu.utils';
+import { menu } from './menu.consts';
 import useMenuStore from '@store/useMenuStore';
 
 const Header = () => {
@@ -40,7 +40,7 @@ const Header = () => {
             ))}
           </ul>
         </nav>
-        <Button children="Online Bank" className="header__button" />
+        <Button className="header__button"> Online bank</Button>
         <button
           className="header__menu"
           aria-label="Open Menu"

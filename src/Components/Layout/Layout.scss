@@ -1,5 +1,5 @@
 .layout {
-  max-width: 1300px;
+  max-width: calc(1300px + 20px * 2);
   margin: 0 auto;
   padding: 0 20px;
   min-height: calc(100vh - 470px);

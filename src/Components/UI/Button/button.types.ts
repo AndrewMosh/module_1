@@ -1,5 +1,5 @@
 export type ButtonProps = {
-	children: string;
-	onClick?: () => void;
-	className?: string;
-}
+  children: React.ReactNode;
+  onClick?: () => void;
+  className?: string;
+};
