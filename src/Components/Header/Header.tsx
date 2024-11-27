@@ -2,7 +2,7 @@ import './Header.scss';
 import { Link, NavLink } from 'react-router-dom';
 import Button from '@components/UI/Button/Button';
 import { menu } from './menu.consts';
-import useMenuStore from '@store/useMenuStore';
+import useMenuStore from '@store/menuStore/useMenuStore';
 
 const Header = () => {
   const { isMenuOpen, toggleMenu, closeMenu } = useMenuStore();
