@@ -1,5 +1,8 @@
 import { Layout } from '@components/Layout/Layout';
+import { PlatinumCard } from '@components/PlatinumCard/PlatinumCard';
 
 export const CreditCard = () => {
-  return <Layout>здесь будет компонент для кредитных карт</Layout>;
+  return <Layout>
+	<PlatinumCard />
+  </Layout>;
 };
