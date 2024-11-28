@@ -1,9 +1,11 @@
 import './InfoSection.scss';
-import { AboutCard } from '@components/AboutCard/AboutCard';
+// import { AboutCard } from '@components/AboutCard/AboutCard';
+import { RatesAndConditions } from '@components/RatesAndConditions/RatesAnsConditions';
 export const InfoSection = () => {
   return (
     <div>
-      <AboutCard />
+      {/* <AboutCard /> */}
+      <RatesAndConditions />
     </div>
   );
 };

@@ -1,0 +1,33 @@
+.conditions {
+  font-family: 'Ubuntu Medium';
+  line-height: normal;
+
+  &__item {
+    display: flex;
+    padding: 24px 0;
+    gap: 20px;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgb(127, 146, 172);
+    }
+  }
+
+  &__title {
+    font-size: $fs-16;
+    flex: 1 0 25%;
+
+    @include respond-to(mobile) {
+      flex: 1 0 40%;
+    }
+  }
+
+  &__description {
+    font-size: $fs-16;
+    color: #434343;
+    flex: 1 0 75%;
+
+    @include respond-to(mobile) {
+      flex: 1 0 40%;
+    }
+  }
+}
