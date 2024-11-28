@@ -1,5 +1,5 @@
 import { CardSelection } from '@components/CardSelection/CardSelection';
-import ExchangeRates from '@components/ExchangeRates/ExchangeRates';
+// import ExchangeRates from '@components/ExchangeRates/ExchangeRates';
 import Features from '@components/Features/Features';
 import { Layout } from '@components/Layout/Layout';
 import { NewsLetter } from '@components/NewsLetter/NewsLetter';
@@ -10,7 +10,7 @@ export default function Home() {
     <Layout>
       <CardSelection />
       <Features />
-      <ExchangeRates />
+      {/* <ExchangeRates /> */}
       <Map />
       <NewsLetter />
     </Layout>

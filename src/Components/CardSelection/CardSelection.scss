@@ -37,7 +37,6 @@
   }
 
   &__button {
-    background-color: $blue;
     margin-bottom: 40px;
 
     @include respond-to(mobile) {

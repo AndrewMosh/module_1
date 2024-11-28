@@ -8,6 +8,7 @@
   cursor: pointer;
   transition: $transition;
   font-size: $fs-16;
+  background-color: $blue;
 
   @include respond-to(mobile) {
     padding: 10px;
