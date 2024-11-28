@@ -23,13 +23,19 @@
     flex-direction: column;
     gap: 32px;
 
+	@media (max-width: 767px) {
+		gap: 15px;
+	}
+
     @include respond-to(mobile) {
-      gap: 15px;
+     
       align-items: center;
     }
   }
 
   &__image {
+	text-align: end;
+	
     @include respond-to(mobile) {
       order: -1;
     }
