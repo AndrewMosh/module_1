@@ -1,6 +1,10 @@
 import { about_cards } from './about-card.consts';
 import { Card } from '@components/UI/Card/Card';
 import './AboutCard.scss';
+import {
+  evenColor,
+  oddColor__aboutCards,
+} from '@components/UI/Card/card.consts';
 
 export const AboutCard = () => {
   return (
@@ -8,7 +12,9 @@ export const AboutCard = () => {
       <div className="about-card__container">
         {about_cards.map((card) => (
           <Card
-            backgroundColor={card.id % 2 === 0 ? '#7F92ACB3' : '#EAECEE'}
+            backgroundColor={
+              card.id % 2 === 0 ? oddColor__aboutCards : evenColor
+            }
             icon={card.icon}
             title={card.title}
             description={card.description}

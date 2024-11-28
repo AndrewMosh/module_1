@@ -15,7 +15,7 @@
   }
 
   @include respond-to(mobile) {
-	flex: 1 0 100%;
+    flex: 1 0 100%;
   }
 
   &__icon {
@@ -37,15 +37,15 @@
   }
 
   &__offer {
-	font-size: $fs-16;
-	color:#434343E5;
-	font-family: 'Ubuntu';
-	padding-bottom: 22px;
-	height: 50px;
+    font-size: $fs-16;
+    color: #434343e5;
+    font-family: 'Ubuntu';
+    padding-bottom: 22px;
+    height: 50px;
   }
 
   &__percentage {
-	font-size: $fs-35;
-	font-family: 'Ubuntu Medium';
+    font-size: $fs-35;
+    font-family: 'Ubuntu Medium';
   }
 }

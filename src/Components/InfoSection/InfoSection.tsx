@@ -7,7 +7,7 @@ export const InfoSection = () => {
     <div>
       <AboutCard />
       {/* <RatesAndConditions /> */}
-	  <Cashback/>
+      <Cashback />
     </div>
   );
 };

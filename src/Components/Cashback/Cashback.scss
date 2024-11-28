@@ -1,11 +1,13 @@
 .cashback {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding-bottom: 49px;
 
-	&__container {
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
-		gap: 20px;
-		padding-bottom: 49px;
-	}
-	
+    @include respond-to(mobile) {
+      gap: 20px;
+    }
+  }
 }
