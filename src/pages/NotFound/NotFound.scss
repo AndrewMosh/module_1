@@ -42,7 +42,6 @@
 
   &__oops {
     font-size: $fs-30;
-    font-weight: 700;
 
     @include respond-to(mobile) {
       font-size: $fs-24;
@@ -51,7 +50,7 @@
 
   &__title {
     font-size: $fs-30;
-    font-weight: 500;
+    font-family: 'Ubuntu Medium';
 
     @include respond-to(mobile) {
       font-size: $fs-24;
