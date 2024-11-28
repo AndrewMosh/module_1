@@ -1,0 +1,13 @@
+.about-card {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding-bottom: 96px;
+
+    @include respond-to(mobile) {
+      flex-direction: column;
+    }
+  }
+}

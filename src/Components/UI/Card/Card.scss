@@ -1,0 +1,33 @@
+.card {
+  padding: 32px;
+  border-radius: 28px;
+  box-shadow:
+    0px 2px 4px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.2s ease;
+  flex: 1 0 30%;
+
+  @media (max-width: 932px) {
+    flex: 1 0 40%;
+  }
+
+  &__icon {
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    font-size: 30px;
+    font-family: 'Ubuntu Medium';
+    line-height: $lh-40;
+  }
+
+  &__description {
+    font-size: $fs-16;
+    font-family: 'Ubuntu';
+    letter-spacing: 2%;
+    line-height: 16px;
+  }
+}
