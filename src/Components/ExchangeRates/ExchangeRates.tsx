@@ -65,7 +65,9 @@ const ExchangeRates = () => {
                       <div className="exchange-rates__currency">
                         {currency}:
                       </div>
-                      <div className="exchange-rates__rate">{rate.toFixed(2)}</div>
+                      <div className="exchange-rates__rate">
+                        {rate.toFixed(2)}
+                      </div>
                     </div>
                   ))}
             </div>
