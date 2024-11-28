@@ -1,0 +1,81 @@
+.how-to-get {
+  padding-bottom: 44px;
+
+  &__title {
+    font-size: $fs-30;
+    text-align: center;
+    padding-bottom: 14px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    @media screen and (max-width: 765px) {
+      flex-wrap: wrap;
+    }
+
+    @include respond-to(mobile) {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    @media screen and (max-width: 765px) {
+      flex: 1 0 40%;
+    }
+
+    @include respond-to(mobile) {
+      flex: 1 0 100%;
+    }
+  }
+
+  &__number {
+    background-color: #d9d9d9;
+    border-radius: 50%;
+    width: 40px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: $fs-20;
+    font-family: 'Ubuntu Medium';
+
+    @include respond-to(mobile) {
+      font-size: $fs-16;
+    }
+  }
+
+  &__step {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+
+    @include respond-to(mobile) {
+      gap: 20px;
+    }
+  }
+
+  &__line {
+    height: 2px;
+    width: 100%;
+    border: none;
+    background-color: #80808033;
+    margin: 0;
+  }
+
+  &__text {
+    font-size: $fs-16;
+    font-family: 'Ubuntu Medium';
+    line-height: 23.58px;
+    max-width: 400px;
+    text-align: center;
+    padding-left: 10px;
+
+    @media screen and (max-width: 765px) {
+      max-width: 100%;
+    }
+  }
+}
