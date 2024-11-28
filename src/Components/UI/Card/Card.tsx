@@ -6,13 +6,17 @@ export const Card: React.FC<CardProps> = ({
   title,
   description,
   backgroundColor = '#EAECEE',
-  onClick,
+  percentage,
+  offer,
+  onClick
 }) => {
   return (
     <div className="card" style={{ backgroundColor }} onClick={onClick}>
-      <img src={icon} alt="icon" />
-      <h2 className="card__title">{title}</h2>
-      <p className="card__description">{description}</p>
+     {icon? <img src={icon} alt="icon" />: null} 
+     {title ? <h2 className="card__title">{title}</h2>: null} 
+	 {description ? <p className="card__description">{description}</p>: null}
+	 {offer ? <p className="card__offer">{offer}</p>: null}
+	 {percentage ? <p className="card__percentage">{percentage}</p>: null}
     </div>
   );
 };

@@ -8,9 +8,14 @@
   text-align: left;
   transition: transform 0.2s ease;
   flex: 1 0 30%;
+  line-height: normal;
 
   @media (max-width: 932px) {
     flex: 1 0 40%;
+  }
+
+  @include respond-to(mobile) {
+	flex: 1 0 100%;
   }
 
   &__icon {
@@ -29,5 +34,18 @@
     font-family: 'Ubuntu';
     letter-spacing: 2%;
     line-height: 16px;
+  }
+
+  &__offer {
+	font-size: $fs-16;
+	color:#434343E5;
+	font-family: 'Ubuntu';
+	padding-bottom: 22px;
+	height: 50px;
+  }
+
+  &__percentage {
+	font-size: $fs-35;
+	font-family: 'Ubuntu Medium';
   }
 }

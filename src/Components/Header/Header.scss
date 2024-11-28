@@ -28,6 +28,7 @@
       padding: 2rem;
       transition: right 0.3s ease-in-out;
       text-align: center;
+	  z-index: 1000;
     }
 
     &--open {

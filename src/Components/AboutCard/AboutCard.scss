@@ -8,6 +8,7 @@
 
     @include respond-to(mobile) {
       flex-direction: column;
+	  gap: 20px;
     }
   }
 }

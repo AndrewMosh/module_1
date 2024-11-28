@@ -37,6 +37,14 @@
       order: -1;
       padding: 0;
     }
+
+	img {
+		transform: rotate(10.00deg);
+
+		@media (max-width: 740px)  {
+			transform: rotate(0deg);
+		}
+	}
   }
 
   &__title {
