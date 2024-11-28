@@ -1,0 +1,53 @@
+.tooltip {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  font-family: 'Ubuntu Medium';
+
+  &:hover {
+    .tooltip__box {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__box {
+    position: absolute;
+    background-color: #3d3d3d;
+    color: #fff;
+    padding: 8px;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 2%;
+    z-index: 1000;
+    width: 170px;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.2s ease,
+      visibility 0.2s ease;
+  }
+
+  &__top {
+    bottom: 100%;
+    left: 50%;
+  }
+
+  &__bottom {
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  &__left {
+    top: 50%;
+    right: 100%;
+    transform: translate(-100%, -50%);
+  }
+
+  &__right {
+    top: 50%;
+    left: 100%;
+    transform: translate(0, -50%);
+  }
+}

@@ -2,6 +2,7 @@ import { offers } from './platinum.consts';
 import image from '@assets/images/platinum.png';
 import './PlatinumCard.scss';
 import Button from '@components/UI/Button/Button';
+import Tooltip from '@components/UI/Tooltip/Tooltip';
 
 export const PlatinumCard = () => {
   return (
@@ -15,12 +16,12 @@ export const PlatinumCard = () => {
           </p>
           <div className="platinum-card__offers">
             {offers.map((offer) => (
-              <div key={offer.id} className="platinum-card__offer">
+              <Tooltip content={offer.tooltip} position="bottom" key={offer.id}>
                 <p className="platinum-card__offer-title">{offer.offer}</p>
                 <p className="platinum-card__offer-percentage">
                   {offer.percentage}
                 </p>
-              </div>
+              </Tooltip>
             ))}
           </div>
           <Button className="platinum-card__button">Apply for card</Button>
