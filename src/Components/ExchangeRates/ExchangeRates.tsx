@@ -5,8 +5,8 @@ import { useEffect } from 'react';
 import { useCurrencyStore } from '@store/currencyStore/useCurrencyStore';
 import {
   baseCurrency,
-  requiredCurrencies,
-} from '@store/currencyStore/currency.consts';
+  requiredCurrencies, UPDATE_INTERVAL
+} from '@components/ExchangeRates/currency.consts';
 
 const ExchangeRates = () => {
   const today = formatDate(new Date());
@@ -14,6 +14,12 @@ const ExchangeRates = () => {
 
   useEffect(() => {
     fetchRates(baseCurrency, requiredCurrencies);
+
+    const intervalId = setInterval(() => {
+      fetchRates(baseCurrency, requiredCurrencies);
+    }, UPDATE_INTERVAL);
+
+    return () => clearInterval(intervalId);
   }, [baseCurrency, fetchRates]);
 
   const placeholderRows = requiredCurrencies.map((currency) => (
