@@ -1,3 +1,3 @@
-export const baseCurrency = 'RUB';
-export const requiredCurrencies = ['USD', 'CNY', 'CHF', 'JPY', 'TRY', 'EUR'];
-export const UPDATE_INTERVAL = 15 * 60 * 1000;
+export const baseCurrency: string = 'RUB';
+export const requiredCurrencies: string[] = ['USD', 'CNY', 'CHF', 'JPY', 'TRY', 'EUR'];
+export const UPDATE_INTERVAL: number = 15 * 60 * 1000;
