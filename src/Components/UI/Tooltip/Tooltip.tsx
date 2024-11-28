@@ -1,13 +1,10 @@
-import React, { useState } from "react";
-import { TooltipProps } from "./tooltip.types";
-import './Tooltips.scss'
-
-
-
+import React, { useState } from 'react';
+import { TooltipProps } from './tooltip.types';
+import './Tooltips.scss';
 
 const Tooltip: React.FC<TooltipProps> = ({
   content,
-  position = "bottom",
+  position = 'bottom',
   delay = 0,
   children,
 }) => {
@@ -25,12 +22,14 @@ const Tooltip: React.FC<TooltipProps> = ({
   };
 
   return (
-    <div className="tooltip" onMouseEnter={showTooltip} onMouseLeave={hideTooltip}>
+    <div
+      className="tooltip"
+      onMouseEnter={showTooltip}
+      onMouseLeave={hideTooltip}
+    >
       {children}
       {visible && (
-        <div className={`tooltip__box tooltip__${position}`}>
-          {content}
-        </div>
+        <div className={`tooltip__box tooltip__${position}`}>{content}</div>
       )}
     </div>
   );
