@@ -5,7 +5,8 @@ import { useEffect } from 'react';
 import { useCurrencyStore } from '@store/currencyStore/useCurrencyStore';
 import {
   baseCurrency,
-  requiredCurrencies, UPDATE_INTERVAL
+  requiredCurrencies,
+  UPDATE_INTERVAL,
 } from '@components/ExchangeRates/currency.consts';
 
 const ExchangeRates = () => {
