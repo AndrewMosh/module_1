@@ -1,0 +1,15 @@
+.faq {
+	padding-bottom: 48px;
+
+	&__title {
+		font-size: $fs-30;
+		padding: 32px 0;
+		line-height: 44.22px;
+
+		@include respond-to(mobile) {
+			font-size: $fs-24;
+			line-height: $lh-40;
+			padding: 20px 0;
+		}
+	}
+}

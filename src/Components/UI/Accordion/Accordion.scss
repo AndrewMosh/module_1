@@ -1,0 +1,55 @@
+.accordion {
+	line-height: normal;
+
+	&__item {
+	  margin-bottom: 8px;
+	  border: 1px solid #E2E8F0;
+	}
+  
+	&__title {
+	  display: flex;
+	  align-items: center; 
+	  justify-content: space-between; 
+	  gap:20px;
+	  padding: 32px;
+	  border: none;
+	  width: 100%;
+	  font-size: $fs-16;
+	  font-family: 'Ubuntu Medium';
+	  cursor: pointer;
+	  position: relative;
+
+	  @include respond-to(mobile) {
+		padding: 20px;
+		text-align: left;
+	  }
+	}
+  
+	&__icon {
+	  width: 12px; 
+	  height: 12px;
+	  transition: transform 0.3s ease-out;
+	}
+  
+	&__content {
+	  max-height: 0;
+	  overflow: hidden;
+	  transition: max-height 0.3s ease-out;
+	  background: transparent;
+	  color:$khaki;
+	  font-family: 'Ubuntu';
+	  line-height: 23.58px;
+	}
+  
+	&__content--open {
+	  max-height: 181px;
+	  padding: 32px;
+	  overflow: auto;
+	  transition: max-height 0.3s ease-in;
+
+	  @include respond-to(mobile) {
+		padding: 20px;
+	  }
+	}
+  }
+  
