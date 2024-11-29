@@ -1,0 +1,32 @@
+.tabs {
+  &__nav {
+    display: flex;
+    border-bottom: 2px solid #80808033;
+    gap: 32px;
+
+    @include respond-to(mobile) {
+      gap: 16px;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  }
+
+  &__tab {
+    padding: 11px 0;
+    white-space: nowrap;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: $khaki;
+
+    &--active {
+      border-bottom: 2px solid $khaki;
+      margin-bottom: -2px;
+    }
+  }
+
+  &__content {
+    padding: 20px;
+  }
+}

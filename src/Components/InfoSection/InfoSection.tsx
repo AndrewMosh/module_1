@@ -1,15 +1,13 @@
-// import { Cashback } from '@components/Cashback/Cashback';
 import './InfoSection.scss';
-// import { AboutCard } from '@components/AboutCard/AboutCard';
-// import { RatesAndConditions } from '@components/RatesAndConditions/RatesAnsConditions';
-import { Faq } from '@components/Faq/Faq';
+import { Tabs } from '@components/Tabs/Tabs';
+import { tabs } from './tabs.consts';
+import { useTabsStore } from '@store/tabsStore/useTabsStore';
 export const InfoSection = () => {
+  const activeTab = useTabsStore((state) => state.activeTab);
   return (
-    <div>
-      {/* <AboutCard /> */}
-      {/* <RatesAndConditions /> */}
-      {/* <Cashback /> */}
-      <Faq />
+    <div className="info">
+      <Tabs tabs={tabs} />
+      {tabs[activeTab]?.content}
     </div>
   );
 };
