@@ -1,0 +1,75 @@
+.slider {
+  max-width: 568px;
+  border: 1px solid #5b35d5;
+  border-radius: 10px;
+  padding: 24px;
+  line-height: normal;
+  font-family: 'Ubuntu Medium';
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-size: $fs-16;
+  }
+
+  &__value {
+    padding-bottom: 10px;
+  }
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__input {
+    width: 100%;
+    appearance: none;
+    height: 2px;
+    background: linear-gradient(to right, #5b35d5 0%, #e2e8f0 0%);
+    border-radius: 3px;
+    outline: none;
+    transition: background 0.3s ease;
+
+    &::-webkit-slider-thumb {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #5b35d5;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    &::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      background: #5b35d5;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    &::-ms-thumb {
+      width: 20px;
+      height: 20px;
+      background: #5b35d5;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
+
+  &__limits {
+    display: flex;
+    justify-content: space-between;
+    font-size: $fs-16;
+    color: #786d6d;
+    padding-top: 8px;
+  }
+
+  &__limit {
+    white-space: nowrap;
+  }
+}
