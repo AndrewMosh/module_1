@@ -1,6 +1,6 @@
 .slider {
   max-width: 568px;
-  border: 1px solid #5b35d5;
+  border: 1px solid $purpleSlider;
   border-radius: 10px;
   padding: 24px;
   line-height: normal;
@@ -30,7 +30,7 @@
     width: 100%;
     appearance: none;
     height: 2px;
-    background: linear-gradient(to right, #5b35d5 0%, #e2e8f0 0%);
+    background: linear-gradient(to right, $purpleSlider 0%, $greySlider 0%);
     border-radius: 3px;
     outline: none;
     transition: background 0.3s ease;
@@ -39,7 +39,7 @@
       appearance: none;
       width: 20px;
       height: 20px;
-      background: #5b35d5;
+      background: $purpleSlider;
       border-radius: 50%;
       cursor: pointer;
     }
@@ -47,7 +47,7 @@
     &::-moz-range-thumb {
       width: 20px;
       height: 20px;
-      background: #5b35d5;
+      background: $purpleSlider;
       border-radius: 50%;
       cursor: pointer;
     }
@@ -55,7 +55,7 @@
     &::-ms-thumb {
       width: 20px;
       height: 20px;
-      background: #5b35d5;
+      background: $purpleSlider;
       border-radius: 50%;
       cursor: pointer;
     }
