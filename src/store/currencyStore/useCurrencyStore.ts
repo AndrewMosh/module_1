@@ -2,7 +2,8 @@ import { create } from 'zustand';
 import axios from 'axios';
 import { CurrencyState } from './useCurrencyStore.types';
 
-const apiKey = import.meta.env.VITE_API_KEY;
+const apiKey = import.meta.env.VITE_API_KEY_RATES;
+const rates_api = import.meta.env.VITE_RATES_API;
 
 if (!apiKey) {
   console.error('API key отсутствует, проверьте файл .env');
@@ -14,7 +15,7 @@ export const useCurrencyStore = create<CurrencyState>((set) => ({
   error: null,
 
   fetchRates: async (baseCurrency: string, currencies: string[]) => {
-    const apiUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${baseCurrency}`;
+    const apiUrl = `${rates_api}${apiKey}/latest/${baseCurrency}`;
     set({ isLoading: true, error: null });
 
     try {

@@ -1,0 +1,148 @@
+.news {
+  padding-bottom: 64px;
+  text-align: center;
+  line-height: normal;
+
+  @include respond-to(mobile) {
+    padding: 48px 0;
+  }
+  &__title {
+    font-size: $fs-30;
+    font-family: 'Ubuntu';
+    padding-bottom: 18px;
+  }
+
+  &__text {
+    font-size: $fs-16;
+    font-family: 'Ubuntu';
+    color: #2d3748;
+  }
+  &__slider {
+    overflow: hidden;
+    position: relative;
+
+    @include respond-to(mobile) {
+      overflow-x: scroll;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 40px;
+    transition: transform 0.3s ease;
+
+    @media screen and (max-width: 1114px) {
+      gap: 0;
+    }
+  }
+
+  &__item {
+    flex: 0 0 calc(33.333% - 80px);
+    max-width: calc(33.333% - 80px);
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    color: black;
+    text-align: center;
+    box-sizing: border-box;
+    border:
+      1px solid rgba(187, 187, 187, 0.08),
+      rgba(187, 187, 187, 0.2);
+    border-radius: 28px;
+    box-shadow:
+      0px 2px 4px 0px rgba(0, 0, 0, 0.2),
+      0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+    background: white;
+    padding: 32px;
+    margin: 46px 20px;
+
+    @media screen and (max-width: 1114px) {
+      flex: 0 0 calc(50% - 40px);
+      max-width: calc(50% - 40px);
+    }
+
+    @include respond-to(mobile) {
+      padding: 20px;
+      margin: 20px 10px;
+      flex: 0 0 calc(100% - 40px);
+      max-width: calc(100% - 40px);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 32px;
+
+    @include respond-to(mobile) {
+      height: 80px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+
+    @include respond-to(mobile) {
+      display: none;
+    }
+  }
+
+  &__button {
+    background-color: #ffffff;
+    border: 1px solid #003cff;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #003cff;
+    font-size: $fs-16;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: #003cff;
+      color: #ffffff;
+    }
+
+    &--disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+
+  &__subtitle {
+    font-size: $fs-20;
+    margin-bottom: 32px;
+    height: 93px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Ubuntu Medium';
+    line-height: 23px;
+
+    @include respond-to(mobile) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__description {
+    font-size: $fs-16;
+    height: 96px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Ubuntu';
+    line-height: 23px;
+  }
+
+  &__error {
+    text-align: center;
+    color: red;
+  }
+}
