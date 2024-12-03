@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import axios from 'axios';
 import { NewsStore, NewsItem } from './useNewsStore.types';
 import { pages, endpoint } from './useNewsStore.consts';
+import { ApiError } from './useNewsStore.types';
 
 const apiKey = import.meta.env.VITE_API_KEY_NEWS;
 const news_api = import.meta.env.VITE_NEWS_API;
@@ -27,8 +28,7 @@ export const useNewsStore = create<NewsStore>((set) => ({
       );
 
       const filteredArticles = await Promise.all(
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        response.data.articles.map(async (article: any) => {
+        response.data.articles.map(async (article: NewsItem) => {
           const isImageValid = article.urlToImage
             ? await checkImageExists(article.urlToImage)
             : false;
@@ -52,10 +52,10 @@ export const useNewsStore = create<NewsStore>((set) => ({
         ),
         loading: false,
       });
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (error: any) {
+    } catch (error: unknown) {
+		const apiError = error as ApiError;
       set({
-        error: error.response?.data?.message || 'Failed to fetch news',
+        error: apiError.response?.data?.message || 'Failed to fetch news',
         loading: false,
       });
     }

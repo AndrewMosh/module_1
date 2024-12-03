@@ -1,7 +1,7 @@
 export type NewsItem = {
   title: string;
   description: string;
-  urlToImage: string;
+  urlToImage: string | null;
   url: string;
 };
 
@@ -11,3 +11,11 @@ export type NewsStore = {
   error: string | null;
   fetchNews: () => void;
 };
+
+export type ApiError = {
+	response?: {
+	  data?: {
+		message?: string;
+	  };
+	};
+  };
