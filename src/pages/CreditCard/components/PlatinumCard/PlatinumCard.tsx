@@ -1,8 +1,8 @@
 import { offers } from './platinum.consts';
 import image from '@assets/images/platinum.png';
 import './PlatinumCard.scss';
-import Button from '@components/UI/Button/Button';
-import Tooltip from '@components/UI/Tooltip/Tooltip';
+import Button from '@shared/UI/Button/Button';
+import Tooltip from '@shared/UI/Tooltip/Tooltip';
 
 export const PlatinumCard = () => {
   return (

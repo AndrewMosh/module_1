@@ -1,6 +1,6 @@
 import './Header.scss';
 import { Link, NavLink } from 'react-router-dom';
-import Button from '@components/UI/Button/Button';
+import Button from '@shared/UI/Button/Button';
 import { menu } from './menu.consts';
 import useMenuStore from '@store/menuStore/useMenuStore';
 

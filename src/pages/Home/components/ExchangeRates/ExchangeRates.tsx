@@ -7,7 +7,7 @@ import {
   baseCurrency,
   requiredCurrencies,
   UPDATE_INTERVAL,
-} from '@components/ExchangeRates/currency.consts';
+} from '@pages/Home/components/ExchangeRates/currency.consts';
 
 const ExchangeRates = () => {
   const today = formatDate(new Date());

@@ -1,7 +1,7 @@
-import card1 from '../../assets/images/cardImage1.jpg';
-import card2 from '../../assets/images/cardImage2.jpg';
-import card3 from '../../assets/images/cardImage3.jpg';
-import card4 from '../../assets/images/cardImage4.jpg';
+import card1 from '@assets/images/cardImage1.jpg';
+import card2 from '@assets/images/cardImage2.jpg';
+import card3 from '@assets/images/cardImage3.jpg';
+import card4 from '@assets/images/cardImage4.jpg';
 
 type TCard = {
   id: number;

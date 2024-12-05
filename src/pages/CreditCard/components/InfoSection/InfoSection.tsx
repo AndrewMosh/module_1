@@ -1,5 +1,5 @@
 import './InfoSection.scss';
-import { Tabs } from '@components/Tabs/Tabs';
+import { Tabs } from '@pages/CreditCard/components/Tabs/Tabs';
 import { tabs } from './tabs.consts';
 import { useTabsStore } from '@store/tabsStore/useTabsStore';
 export const InfoSection = () => {

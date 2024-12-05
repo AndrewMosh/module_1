@@ -1,6 +1,6 @@
 import { cards } from './Cards';
 import './CardSelection.scss';
-import Button from '../UI/Button/Button';
+import Button from '@shared/UI/Button/Button';
 
 export const CardSelection = () => {
   return (

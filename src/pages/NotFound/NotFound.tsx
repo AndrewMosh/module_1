@@ -1,5 +1,5 @@
-import { Layout } from '@components/Layout/Layout';
-import Button from '@components/UI/Button/Button';
+import { Layout } from '@shared/Layout/Layout';
+import Button from '@shared/UI/Button/Button';
 import notFound from '@assets/images/404.png';
 import './NotFound.scss';
 export const NotFound = () => {

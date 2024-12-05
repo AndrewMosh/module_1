@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './News.scss';
 import { useNewsStore } from '@store/newsStore/useNewsStore';
-import Spinner from '@components/Spinner/Spinner';
+import Spinner from '@shared/Spinner/Spinner';
 import { useCalcScrollWidth } from '@hooks/useCalcScrollWidth';
-import { UPDATE_INTERVAL } from '@components/ExchangeRates/currency.consts';
+import { UPDATE_INTERVAL } from '@pages/Home/components/ExchangeRates/currency.consts';
 
 export const News: React.FC = () => {
   const { news, loading, error, fetchNews } = useNewsStore();

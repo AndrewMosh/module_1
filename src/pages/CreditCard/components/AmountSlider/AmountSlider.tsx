@@ -3,7 +3,7 @@ import './AmountSlider.scss';
 import { useSliderStore } from '@store/sliderStore/useSliderStore';
 import { grey_slider, purple_slider } from './slider.consts';
 
-const Slider: React.FC = () => {
+export const AmountSlider: React.FC = () => {
   const { value, setValue } = useSliderStore();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,4 +46,4 @@ const Slider: React.FC = () => {
   );
 };
 
-export default Slider;
+

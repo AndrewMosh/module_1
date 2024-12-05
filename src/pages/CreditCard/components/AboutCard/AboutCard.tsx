@@ -1,10 +1,10 @@
 import { about_cards } from './about-card.consts';
-import { Card } from '@components/UI/Card/Card';
+import { Card } from '@shared/UI/Card/Card';
 import './AboutCard.scss';
 import {
   evenColor,
   oddColor__aboutCards,
-} from '@components/UI/Card/card.consts';
+} from '@shared/UI/Card/card.consts';
 
 export const AboutCard = () => {
   return (
