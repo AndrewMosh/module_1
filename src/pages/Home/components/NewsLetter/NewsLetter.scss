@@ -22,6 +22,17 @@
     font-size: $fs-35;
     font-family: 'Ubuntu';
     padding-bottom: 62px;
+
+	@include respond-to(mobile) {
+	  font-size: $fs-30;
+	  line-height: $lh-40;
+	  padding-bottom: 20px;
+	}
+  }
+
+  &__subscribed {
+	font-size: $fs-20;
+	color:$red;
   }
 
   &__form {
@@ -45,6 +56,10 @@
     display: flex;
     align-items: center;
     gap: 10px;
+
+	@include respond-to(mobile) {
+	  width: 100%;
+	}
   }
 
   &__email {
@@ -77,5 +92,11 @@
     @include respond-to(mobile) {
       align-self: flex-end;
     }
+  }
+
+  &__error {
+	color: red;
+	font-family: 'Ubuntu';
+	padding-top: 20px;
   }
 }
