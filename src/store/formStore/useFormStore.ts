@@ -1,5 +1,5 @@
-import { create } from "zustand";
-import axios from "axios";
+import { create } from 'zustand';
+import axios from 'axios';
 
 interface FormState {
   isLoading: boolean;
@@ -8,10 +8,15 @@ interface FormState {
 }
 
 interface FormStore {
-  forms: Record<string, FormState>; 
+  forms: Record<string, FormState>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  submitForm: (formName: string, data: Record<string, any>, endpoint: string) => Promise<void>;
-  resetFormState: (formName: string) => void; 
+  submitForm: (
+    formName: string,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    data: Record<string, any>,
+    endpoint: string,
+  ) => Promise<void>;
+  resetFormState: (formName: string) => void;
 }
 
 const useFormStore = create<FormStore>((set, get) => ({
@@ -28,7 +33,7 @@ const useFormStore = create<FormStore>((set, get) => ({
     });
 
     try {
-      const response = await axios.post(endpoint, data); 
+      const response = await axios.post(endpoint, data);
       console.log(`[${formName}] Response:`, response.data);
       set({
         forms: {
@@ -36,7 +41,7 @@ const useFormStore = create<FormStore>((set, get) => ({
           [formName]: { isLoading: false, success: true, error: null },
         },
       });
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error(`[${formName}] Error:`, error);
 
@@ -46,7 +51,7 @@ const useFormStore = create<FormStore>((set, get) => ({
           [formName]: {
             isLoading: false,
             success: false,
-            error: error.response?.data?.message || "Something went wrong",
+            error: error.response?.data?.message || 'Something went wrong',
           },
         },
       });

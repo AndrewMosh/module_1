@@ -53,7 +53,7 @@ export const useNewsStore = create<NewsStore>((set) => ({
         loading: false,
       });
     } catch (error: unknown) {
-		const apiError = error as ApiError;
+      const apiError = error as ApiError;
       set({
         error: apiError.response?.data?.message || 'Failed to fetch news',
         loading: false,

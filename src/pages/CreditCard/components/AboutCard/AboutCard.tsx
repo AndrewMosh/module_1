@@ -1,10 +1,7 @@
 import { about_cards } from './about-card.consts';
 import { Card } from '@shared/UI/Card/Card';
 import './AboutCard.scss';
-import {
-  evenColor,
-  oddColor__aboutCards,
-} from '@shared/UI/Card/card.consts';
+import { evenColor, oddColor__aboutCards } from '@shared/UI/Card/card.consts';
 
 export const AboutCard = () => {
   return (

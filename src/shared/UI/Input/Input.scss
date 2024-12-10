@@ -1,0 +1,94 @@
+.input {
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    font-size: $fs-16;
+    padding-bottom: 8px;
+    font-family: 'Ubuntu Medium';
+  }
+
+  &__required {
+    color: #ff0000;
+  }
+
+  &__wrapper {
+    position: relative;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 6px;
+    background: rgb(249, 245, 227);
+    box-sizing: border-box;
+  }
+
+  &__input {
+    padding: 13px 16px;
+    width: calc(100% + 4px);
+
+    @media (max-width: 345px) {
+      width: 90%;
+    }
+
+    &:focus {
+      border: $purpleSlider solid 2px;
+      border-radius: 6px;
+      margin: -2px;
+    }
+
+    &::placeholder {
+      color: #808080;
+      font-family: 'Ubuntu';
+    }
+  }
+
+  &__focused {
+    border: $purpleSlider solid 2px;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+
+  &__text--error,
+  &__date--error {
+    border: 2px solid #ff5631;
+    font-family: 'Ubuntu Medium';
+
+    &::after {
+      content: url(../../../assets/svg/error.svg);
+      position: absolute;
+      right: 14px;
+      top: 14px;
+    }
+  }
+
+  &__text--success,
+  &__date--success {
+    border: 2px solid rgba(128, 128, 128, 0.2);
+    &::after {
+      content: url(../../../assets/svg/success.svg);
+      position: absolute;
+      right: 14px;
+      top: 14px;
+    }
+  }
+
+  &__select {
+    width: 100%;
+    font-family: 'Ubuntu';
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 6px;
+    box-sizing: border-box;
+    background: rgb(249, 245, 227);
+    appearance: none;
+    background-image: url(../../../assets/svg/select.svg);
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px 16px;
+  }
+
+  &__error {
+    color: #ff5631;
+    font-size: $fs-16;
+    font-family: 'Ubuntu';
+    line-height: 16px;
+    padding-top: 5px;
+  }
+}

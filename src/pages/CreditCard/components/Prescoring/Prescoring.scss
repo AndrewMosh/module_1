@@ -1,0 +1,7 @@
+.prescoring {
+  padding-bottom: 96px;
+
+  @include respond-to(mobile) {
+    padding-bottom: 48px;
+  }
+}

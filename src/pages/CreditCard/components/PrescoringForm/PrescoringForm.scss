@@ -1,0 +1,24 @@
+.prescoring-form {
+  padding-top: 32px;
+  line-height: normal;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    font-family: 'Ubuntu Medium';
+    font-size: $fs-20;
+    margin-bottom: 26px;
+  }
+
+  &__fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+  }
+
+  &__button {
+    width: 148px;
+    margin-top: 24px;
+    align-self: flex-end;
+  }
+}

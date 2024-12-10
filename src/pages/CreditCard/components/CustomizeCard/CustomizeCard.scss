@@ -1,0 +1,66 @@
+.customize-card {
+  line-height: normal;
+  display: flex;
+
+  @include respond-to(mobile) {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__inner,
+  &__amount {
+    flex: 1 0 50%;
+  }
+
+  &__inner {
+    padding-right: 40px;
+    border-right: 1px dotted #80808066;
+
+    @include respond-to(mobile) {
+      border-right: none;
+      padding-right: 0;
+    }
+  }
+
+  &__amount {
+    padding-left: 40px;
+
+    @include respond-to(mobile) {
+      padding-left: 0;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 32px;
+
+    @media (max-width: 982px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__title {
+    font-size: $fs-30;
+  }
+
+  &__steps {
+    font-size: $fs-16;
+    font-family: 'Ubuntu Medium';
+  }
+
+  &__amount-title {
+    font-size: $fs-20;
+    padding-bottom: 16px;
+  }
+
+  &__value {
+    font-size: $fs-16;
+    font-family: 'Ubuntu';
+    padding-bottom: 16px;
+    border-bottom: 1px solid #80808033;
+    max-width: 220px;
+  }
+}

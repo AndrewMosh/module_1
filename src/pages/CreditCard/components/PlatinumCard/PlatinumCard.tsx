@@ -6,9 +6,9 @@ import Tooltip from '@shared/UI/Tooltip/Tooltip';
 import { scrollToAnchor } from '@utils/scrollToAnchor';
 
 export const PlatinumCard = () => {
-	const handleScroll = (id: string) => {
-		scrollToAnchor(id);
-	  };
+  const handleScroll = (id: string) => {
+    scrollToAnchor(id);
+  };
   return (
     <div className="platinum-card">
       <div className="platinum-card__container">
@@ -28,7 +28,12 @@ export const PlatinumCard = () => {
               </Tooltip>
             ))}
           </div>
-          <Button className="platinum-card__button" onClick={() => handleScroll("prescoring")}>Apply for card</Button>
+          <Button
+            className="platinum-card__button"
+            onClick={() => handleScroll('prescoring')}
+          >
+            Apply for card
+          </Button>
         </div>
         <div className="platinum-card__image">
           <img src={image} alt="card" />

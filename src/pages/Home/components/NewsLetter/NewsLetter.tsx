@@ -9,7 +9,7 @@ import { SubscriptionFormData, subscriptionSchema } from './subscription.types';
 
 export const NewsLetter = () => {
   const { isSubscribed, subscribe } = useSubscriptionStore();
-  
+
   const {
     register,
     handleSubmit,
@@ -21,8 +21,8 @@ export const NewsLetter = () => {
 
   const onSubmit = async (data: SubscriptionFormData) => {
     try {
-      await subscribe(data.email); 
-      reset(); 
+      await subscribe(data.email);
+      reset();
     } catch (err) {
       console.error('Subscription error:', err);
     }
@@ -53,9 +53,9 @@ export const NewsLetter = () => {
             </button>
           </form>
         )}
-		 {errors.email && (
-              <p className="newsletter__error">{errors.email.message}</p>
-            )}
+        {errors.email && (
+          <p className="newsletter__error">{errors.email.message}</p>
+        )}
       </div>
     </section>
   );

@@ -45,5 +45,3 @@ export const AmountSlider: React.FC = () => {
     </div>
   );
 };
-
-
