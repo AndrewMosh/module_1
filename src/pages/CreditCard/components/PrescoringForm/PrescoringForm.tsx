@@ -58,34 +58,38 @@ export const PrescoringForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="prescoring-form">
-      <h2 className="prescoring-form__title">Contact Information</h2>
-      <div className="prescoring-form__fields">
-        {formState.isLoading ? (
-          <Spinner />
-        ) : (
-          formFields.map(
-            ({ name, label, type, placeholder, options, required }) => (
-              <Input
-                key={name}
-                label={label}
-                type={type as 'text' | 'select' | 'date'}
-                placeholder={placeholder}
-                options={options}
-                error={errors[name as keyof FormData]?.message}
-                register={register(name as keyof FormData)}
-                required={required}
-                success={
-                  isValid(name as keyof FormData) &&
-                  isFieldDirty(name as keyof FormData)
-                }
-              />
-            ),
-          )
-        )}
-      </div>
-      <Button className="prescoring-form__button">Continue</Button>
-      {formState.success && <div>текст после успешного принятия</div>}
-    </form>
+	<>
+	{formState.isLoading && (
+		<div className="prescoring-form">
+		<Spinner />
+		</div>
+	) }
+	
+	{!formState.isLoading && !formState.success && <form onSubmit={handleSubmit(onSubmit)} className="prescoring-form">
+	<h2 className="prescoring-form__title">Contact Information</h2>
+	<div className="prescoring-form__fields">
+	  {formFields.map(
+		  ({ name, label, type, placeholder, options, required }) => (
+			<Input
+			  key={name}
+			  label={label}
+			  type={type as 'text' | 'select' | 'date'}
+			  placeholder={placeholder}
+			  options={options}
+			  error={errors[name as keyof FormData]?.message}
+			  register={register(name as keyof FormData)}
+			  required={required}
+			  success={
+				isValid(name as keyof FormData) &&
+				isFieldDirty(name as keyof FormData)
+			  }
+			/>
+		  ),
+	  )}
+	</div>
+	<Button className="prescoring-form__button">Continue</Button>
+  </form>} 
+  {formState.success && <div>форма успешно отправлена</div>}
+	</>
   );
 };
