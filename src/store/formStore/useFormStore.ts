@@ -1,19 +1,21 @@
 import { create } from 'zustand';
 import axios from 'axios';
+import { ApiError } from '@store/newsStore/useNewsStore.types';
+import { TOffers } from '@pages/CreditCard/components/Offers/offers.types';
+import { TData } from '@pages/CreditCard/components/PrescoringForm/form.types';
 
 interface FormState {
   isLoading: boolean;
   success: boolean;
   error: string | null;
+  data:TOffers[] | null;
 }
 
 interface FormStore {
   forms: Record<string, FormState>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   submitForm: (
     formName: string,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    data: Record<string, any>,
+    data: TData,
     endpoint: string,
   ) => Promise<void>;
   resetFormState: (formName: string) => void;
@@ -28,7 +30,7 @@ const useFormStore = create<FormStore>((set, get) => ({
     set({
       forms: {
         ...forms,
-        [formName]: { isLoading: true, success: false, error: null },
+        [formName]: { isLoading: true, success: false, error: null, data: null },
       },
     });
 
@@ -38,20 +40,20 @@ const useFormStore = create<FormStore>((set, get) => ({
       set({
         forms: {
           ...forms,
-          [formName]: { isLoading: false, success: true, error: null },
+          [formName]: { isLoading: false, success: true, error: null, data: response.data },
         },
       });
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (error: any) {
-      console.error(`[${formName}] Error:`, error);
 
+    } catch (error: unknown) {
+		const formError = error as ApiError;
       set({
         forms: {
           ...forms,
           [formName]: {
             isLoading: false,
             success: false,
-            error: error.response?.data?.message || 'Something went wrong',
+			data:null,
+            error: formError.response?.data?.message || 'Something went wrong, try again later',
           },
         },
       });
@@ -64,7 +66,7 @@ const useFormStore = create<FormStore>((set, get) => ({
     set({
       forms: {
         ...forms,
-        [formName]: { isLoading: false, success: false, error: null },
+        [formName]: { isLoading: false, success: false, error: null, data:null },
       },
     });
   },

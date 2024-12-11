@@ -7,7 +7,6 @@ export const isOlderThan18 = (dateString: string): boolean => {
   const dateParts = formattedDate.split('.');
   const date = new Date(`${dateParts[1]}/${dateParts[0]}/${dateParts[2]}`);
   if (isNaN(date.getTime())) {
-    console.error('Некорректная дата:', formattedDate);
     return false;
   }
 

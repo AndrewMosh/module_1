@@ -1,0 +1,33 @@
+.offers {
+	text-align: center;
+	line-height: normal;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
+    gap: 40px;
+
+	&__card {
+		&:hover {
+			border:2px solid $blue;
+			margin: -2px;
+		}
+	}
+
+	&__img {
+		padding-bottom: 32px;
+	}
+
+	p {
+		margin-bottom: 14px;
+		font-size: $fs-16;
+		font-family: 'Ubuntu Medium';
+	}
+
+	&__icon {
+		padding: 0 0 4px 5px;
+	}
+
+	&__button {
+		margin-top: 90px;
+		width:148px;
+	}
+}
