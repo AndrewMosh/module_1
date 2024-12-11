@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { formSchema, FormData, TData } from './form.types';
-import { Input } from '@shared/UI/Input/Input';
+import { DynamicInput } from '@shared/UI/DynamicInput/DynamicInput';
 import useFormStore from '@store/formStore/useFormStore';
 import { formEndpoint, formFields, formName } from './form.consts';
 import Spinner from '@shared/Spinner/Spinner';
@@ -73,7 +73,7 @@ export const PrescoringForm = () => {
             <div className="prescoring-form__fields">
               {formFields.map(
                 ({ name, label, type, placeholder, options, required }) => (
-                  <Input
+                  <DynamicInput
                     key={name}
                     label={label}
                     type={type as 'text' | 'select' | 'date'}

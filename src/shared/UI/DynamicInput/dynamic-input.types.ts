@@ -1,3 +1,5 @@
+import { UseFormRegisterReturn } from 'react-hook-form';
+
 export type InputProps = {
   label: string;
   type: 'text' | 'select' | 'date';
@@ -5,7 +7,6 @@ export type InputProps = {
   options?: { label: string; value: number }[];
   error?: string;
   success?: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  register: any;
+  register: UseFormRegisterReturn;
   required?: boolean;
 };
