@@ -8,7 +8,7 @@ interface FormState {
   isLoading: boolean;
   success: boolean;
   error: string | null;
-  data:TOffers[] | null;
+  data: TOffers[] | null;
 }
 
 interface FormStore {
@@ -30,7 +30,12 @@ const useFormStore = create<FormStore>((set, get) => ({
     set({
       forms: {
         ...forms,
-        [formName]: { isLoading: true, success: false, error: null, data: null },
+        [formName]: {
+          isLoading: true,
+          success: false,
+          error: null,
+          data: null,
+        },
       },
     });
 
@@ -40,20 +45,26 @@ const useFormStore = create<FormStore>((set, get) => ({
       set({
         forms: {
           ...forms,
-          [formName]: { isLoading: false, success: true, error: null, data: response.data },
+          [formName]: {
+            isLoading: false,
+            success: true,
+            error: null,
+            data: response.data,
+          },
         },
       });
-
     } catch (error: unknown) {
-		const formError = error as ApiError;
+      const formError = error as ApiError;
       set({
         forms: {
           ...forms,
           [formName]: {
             isLoading: false,
             success: false,
-			data:null,
-            error: formError.response?.data?.message || 'Something went wrong, try again later',
+            data: null,
+            error:
+              formError.response?.data?.message ||
+              'Something went wrong, try again later',
           },
         },
       });
@@ -66,7 +77,12 @@ const useFormStore = create<FormStore>((set, get) => ({
     set({
       forms: {
         ...forms,
-        [formName]: { isLoading: false, success: false, error: null, data:null },
+        [formName]: {
+          isLoading: false,
+          success: false,
+          error: null,
+          data: null,
+        },
       },
     });
   },

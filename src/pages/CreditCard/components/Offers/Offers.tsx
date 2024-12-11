@@ -34,12 +34,8 @@ export const Offers = () => {
             Monthly payment: {formatNumber({ value: offer.monthlyPayment })} ₽
           </p>
           <p>Your rate: {offer.rate}%</p>
-          <p>
-            Insurance included {renderIcon(offer.isInsuranceEnabled)}
-          </p>
-          <p>
-            Salary client {renderIcon(offer.isSalaryClient)}
-          </p>
+          <p>Insurance included {renderIcon(offer.isInsuranceEnabled)}</p>
+          <p>Salary client {renderIcon(offer.isSalaryClient)}</p>
           <Button className="offers__button">Select</Button>
         </CardBase>
       ))}

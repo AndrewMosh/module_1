@@ -14,7 +14,11 @@ export const PrescoringForm = () => {
   const { forms, submitForm } = useFormStore();
   const { value: amount } = useSliderStore();
 
-  const formState = forms[formName] || { isLoading: false, success: false, error: null };
+  const formState = forms[formName] || {
+    isLoading: false,
+    success: false,
+    error: null,
+  };
 
   const {
     register,
@@ -42,7 +46,9 @@ export const PrescoringForm = () => {
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     const termField = formFields.find((field) => field.name === 'term');
-    const termValue = termField?.options?.find((opt) => opt.label === data.term)?.value;
+    const termValue = termField?.options?.find(
+      (opt) => opt.label === data.term,
+    )?.value;
 
     const payload: TData = {
       ...data,
@@ -65,22 +71,29 @@ export const PrescoringForm = () => {
           <form onSubmit={handleSubmit(onSubmit)} className="prescoring-form">
             <h2 className="prescoring-form__title">Contact Information</h2>
             <div className="prescoring-form__fields">
-              {formFields.map(({ name, label, type, placeholder, options, required }) => (
-                <Input
-                  key={name}
-                  label={label}
-                  type={type as 'text' | 'select' | 'date'}
-                  placeholder={placeholder}
-                  options={options}
-                  error={errors[name as keyof FormData]?.message}
-                  register={register(name as keyof FormData)}
-                  required={required}
-                  success={isValid(name as keyof FormData) && isFieldDirty(name as keyof FormData)}
-                />
-              ))}
+              {formFields.map(
+                ({ name, label, type, placeholder, options, required }) => (
+                  <Input
+                    key={name}
+                    label={label}
+                    type={type as 'text' | 'select' | 'date'}
+                    placeholder={placeholder}
+                    options={options}
+                    error={errors[name as keyof FormData]?.message}
+                    register={register(name as keyof FormData)}
+                    required={required}
+                    success={
+                      isValid(name as keyof FormData) &&
+                      isFieldDirty(name as keyof FormData)
+                    }
+                  />
+                ),
+              )}
             </div>
             <Button className="prescoring-form__button">Continue</Button>
-            {formState.error && <p className="prescoring-form__error">{formState.error}</p>}
+            {formState.error && (
+              <p className="prescoring-form__error">{formState.error}</p>
+            )}
           </form>
         )
       )}

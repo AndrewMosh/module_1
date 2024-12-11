@@ -7,7 +7,7 @@ import useFormStore from '@store/formStore/useFormStore';
 import { Offers } from '../Offers/Offers';
 
 export const Prescoring = () => {
-	const { forms } = useFormStore();
+  const { forms } = useFormStore();
 
   const formState = forms[formName] || {
     isLoading: false,
@@ -17,11 +17,13 @@ export const Prescoring = () => {
 
   return (
     <div id="prescoring" className="prescoring">
-		{!formState.success && <CardBase>
-        <CustomizeCard />
-        <PrescoringForm />
-      </CardBase>}
-	  {formState.success && <Offers />}
+      {!formState.success && (
+        <CardBase>
+          <CustomizeCard />
+          <PrescoringForm />
+        </CardBase>
+      )}
+      {formState.success && <Offers />}
     </div>
   );
 };
