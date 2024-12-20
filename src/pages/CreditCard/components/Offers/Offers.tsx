@@ -1,3 +1,4 @@
+import { useState, useMemo } from 'react';
 import useFormStore from '@store/formStore/useFormStore';
 import { TOffers } from './offers.types';
 import { CardBase } from '@shared/UI/Card/CardBase/CardBase';
@@ -7,11 +8,18 @@ import error from '@assets/svg/error.svg';
 import Button from '@shared/UI/Button/Button';
 import './Offers.scss';
 import { formatNumber } from '@utils/formatNumber';
+import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
+import { SentToEmail } from '../SentToEmail/SentToEmail';
 
 export const Offers = () => {
+  const api = import.meta.env.VITE_BASE_URL || 'http://localhost:8080';
+  const [isSuccess, setSuccess] = useState(false);
   const { forms } = useFormStore();
   const offers: TOffers[] | null = forms.contactForm.data;
 
+  const [selectedOfferId, setSelectedOfferId] = useState<string | null>(null);
+  console.log(selectedOfferId);
   const renderIcon = (condition: boolean) => (
     <img
       className="offers__icon"
@@ -20,25 +28,82 @@ export const Offers = () => {
     />
   );
 
+  const handleCardClick = (offerId: string) => {
+    setSelectedOfferId((prevId) => (prevId === offerId ? null : offerId));
+  };
+
+  const offersWithIds = useMemo(() => {
+    return offers?.map((offer) => ({ ...offer, uniqueId: uuidv4() }));
+  }, [offers]);
+
+  const handleSubmit = () => {
+    if (selectedOfferId) {
+      const selectedOffer = offersWithIds?.find(
+        (offer) => offer.uniqueId === selectedOfferId,
+      );
+      if (selectedOffer) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { uniqueId, ...offerToSend } = selectedOffer;
+        axios
+          .post(`${api}/application/apply`, offerToSend)
+          .then((response) => {
+            if (response.status === 200) {
+              alert('Application approved successfully');
+            } else {
+              alert('Application not approved');
+            }
+          })
+          .catch(() => {
+            alert('Application not approved');
+		  }).finally(() => {
+			  localStorage.removeItem('formStore');
+			  setSuccess(true)
+		  });
+
+      }
+    }
+  };
+
   return (
-    <div className="offers">
-      {offers?.map((offer) => (
-        <CardBase key={offer.applicationId} className="offers__card">
-          <img src={pic} alt="offer" className="offers__img" />
-          <p>
-            Requested amount: {formatNumber({ value: offer.requestedAmount })} ₽
-          </p>
-          <p>Total amount: {formatNumber({ value: offer.totalAmount })} ₽</p>
-          <p>For {offer.term} months</p>
-          <p>
-            Monthly payment: {formatNumber({ value: offer.monthlyPayment })} ₽
-          </p>
-          <p>Your rate: {offer.rate}%</p>
-          <p>Insurance included {renderIcon(offer.isInsuranceEnabled)}</p>
-          <p>Salary client {renderIcon(offer.isSalaryClient)}</p>
-          <Button className="offers__button">Select</Button>
-        </CardBase>
-      ))}
-    </div>
+	<>
+   {isSuccess? <SentToEmail/>: <div className="offers">
+	{offersWithIds?.map((offer) => (
+	  <CardBase
+		key={offer.uniqueId}
+		className={
+		  selectedOfferId === offer.uniqueId
+			? 'offers__card--selected'
+			: 'offers__card'
+		}
+		onClick={() => {
+		  handleCardClick(offer.uniqueId);
+		}}
+	  >
+		<img src={pic} alt="offer" className="offers__img" />
+		<p>
+		  Requested amount: {formatNumber({ value: offer.requestedAmount })} ₽
+		</p>
+		<p>Total amount: {formatNumber({ value: offer.totalAmount })} ₽</p>
+		<p>For {offer.term} months</p>
+		<p>
+		  Monthly payment: {formatNumber({ value: offer.monthlyPayment })} ₽
+		</p>
+		<p>Your rate: {offer.rate}%</p>
+		<p>Insurance included {renderIcon(offer.isInsuranceEnabled)}</p>
+		<p>Salary client {renderIcon(offer.isSalaryClient)}</p>
+		<Button
+		  className="offers__button"
+		  onClick={
+			selectedOfferId === offer.uniqueId ? handleSubmit : undefined
+		  }
+		>
+		  {selectedOfferId === offer.uniqueId
+			? 'Continue registration'
+			: 'Select'}
+		</Button>
+	  </CardBase>
+	))}
+  </div>} 
+  </>
   );
 };

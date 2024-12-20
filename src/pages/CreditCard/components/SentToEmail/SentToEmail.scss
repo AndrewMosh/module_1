@@ -1,0 +1,23 @@
+.sent-to-email {
+	padding: 34px;
+	text-align: center;
+	border-radius: 10px;
+	border:1px solid $purple;
+	line-height: normal;
+	font-family: 'Ubuntu Medium';
+	letter-spacing: 2%;
+
+	@include respond-to(mobile) {
+		padding: 20px;
+	}
+
+	&__title {
+		font-size: $fs-30;
+		margin-bottom: 32px;		
+	}
+
+	&__text {
+		font-size: $fs-16;
+		color: #4F5665;
+	}
+}

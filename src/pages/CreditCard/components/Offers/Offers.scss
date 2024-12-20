@@ -6,11 +6,18 @@
   gap: 40px;
 
   &__card {
+
     &:hover {
       border: 2px solid $blue;
       margin: -2px;
     }
+	&--selected {
+		border: 2px solid $blue;
+		margin: -2px;
   }
+
+}
+
 
   &__img {
     padding-bottom: 32px;
@@ -28,6 +35,7 @@
 
   &__button {
     margin-top: 90px;
-    width: 148px;
+    min-width: 148px;
+	white-space: nowrap;
   }
 }

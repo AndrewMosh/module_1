@@ -10,7 +10,7 @@ import Button from '@shared/UI/Button/Button';
 import { useSliderStore } from '@store/sliderStore/useSliderStore';
 
 export const PrescoringForm = () => {
-  const api = import.meta.env.VITE_BASE_URL;
+  const api = import.meta.env.VITE_BASE_URL || 'http://localhost:8080';
   const { forms, submitForm } = useFormStore();
   const { value: amount } = useSliderStore();
 
