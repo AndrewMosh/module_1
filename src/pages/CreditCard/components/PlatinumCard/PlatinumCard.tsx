@@ -4,8 +4,18 @@ import './PlatinumCard.scss';
 import Button from '@shared/UI/Button/Button';
 import Tooltip from '@shared/UI/Tooltip/Tooltip';
 import { scrollToAnchor } from '@utils/scrollToAnchor';
+import useFormStore from '@store/formStore/useFormStore';
+import { formName } from '../PrescoringForm/form.consts';
 
 export const PlatinumCard = () => {
+	const { forms } = useFormStore();
+
+	 const formState = forms[formName] || {
+		isLoading: false,
+		success: false,
+		error: null,
+		data: null,
+	  };
   const handleScroll = (id: string) => {
     scrollToAnchor(id);
   };
@@ -32,7 +42,7 @@ export const PlatinumCard = () => {
             className="platinum-card__button"
             onClick={() => handleScroll('prescoring')}
           >
-            Apply for card
+           {formState.data ? 'Continue application' : ' Apply for card'}
           </Button>
         </div>
         <div className="platinum-card__image">

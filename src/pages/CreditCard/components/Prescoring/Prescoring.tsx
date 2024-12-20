@@ -37,7 +37,6 @@ export const Prescoring = () => {
         </CardBase>
       )}
       {formState.success && formState.data && <Offers />}
-	  {}
     </div>
   );
 };
