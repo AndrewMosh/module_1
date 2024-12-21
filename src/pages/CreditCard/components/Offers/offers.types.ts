@@ -7,5 +7,5 @@ export type TOffers = {
   isSalaryClient: boolean;
   rate: number;
   isInsuranceEnabled: boolean;
-  uniqueId?: string;	
+  uniqueId?: string;
 };

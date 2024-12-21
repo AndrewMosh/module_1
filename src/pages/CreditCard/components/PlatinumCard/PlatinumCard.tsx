@@ -8,14 +8,14 @@ import useFormStore from '@store/formStore/useFormStore';
 import { formName } from '../PrescoringForm/form.consts';
 
 export const PlatinumCard = () => {
-	const { forms } = useFormStore();
+  const { forms } = useFormStore();
 
-	 const formState = forms[formName] || {
-		isLoading: false,
-		success: false,
-		error: null,
-		data: null,
-	  };
+  const formState = forms[formName] || {
+    isLoading: false,
+    success: false,
+    error: null,
+    data: null,
+  };
   const handleScroll = (id: string) => {
     scrollToAnchor(id);
   };
@@ -42,7 +42,7 @@ export const PlatinumCard = () => {
             className="platinum-card__button"
             onClick={() => handleScroll('prescoring')}
           >
-           {formState.data ? 'Continue application' : ' Apply for card'}
+            {formState.data ? 'Continue application' : ' Apply for card'}
           </Button>
         </div>
         <div className="platinum-card__image">

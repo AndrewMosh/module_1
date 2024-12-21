@@ -1,20 +1,20 @@
 .decision {
-	height: 60vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	line-height: normal;
-	letter-spacing: 2%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: normal;
+  letter-spacing: 2%;
 
-	&__title {
-		font-size: 30px;
-		padding-bottom: 32px;
-	}
+  &__title {
+    font-size: 30px;
+    padding-bottom: 32px;
+  }
 
-	&__text {
-		color:#4F5665;
-		font-size: $fs-16;
-		font-family: 'Ubuntu Medium';
-	}
+  &__text {
+    color: #4f5665;
+    font-size: $fs-16;
+    font-family: 'Ubuntu Medium';
+  }
 }

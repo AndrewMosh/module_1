@@ -14,7 +14,7 @@ export const DynamicInput: React.FC<InputProps> = ({
   register,
   required,
   success,
-  className
+  className,
 }) => {
   const handleClassName = (type: string): string => {
     if (error) {

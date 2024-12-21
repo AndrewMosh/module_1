@@ -18,8 +18,8 @@ const routes: RouteObject[] = [
     element: <CreditCard />,
   },
   {
-	path: '/loan/:id',
-	element: <ScoringStep />,
+    path: '/loan/:id',
+    element: <ScoringStep />,
   },
   {
     path: '*',

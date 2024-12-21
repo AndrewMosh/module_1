@@ -19,7 +19,7 @@ interface FormStore {
     endpoint: string,
   ) => Promise<void>;
   resetFormState: (formName: string) => void;
-	restoreFormState: () => void;
+  restoreFormState: () => void;
 }
 
 const STORAGE_KEY = 'formStore';
@@ -46,64 +46,64 @@ const useFormStore = create<FormStore>((set, get) => ({
       const response = await axios.post(endpoint, data);
       console.log(`[${formName}] Response:`, response.data);
 
-		const updatedForms = {
-			...forms,
-			[formName]: {
-				isLoading: false,
-				success: true,
-				error: null,
-				data: response.data,
-			},
-		};
+      const updatedForms = {
+        ...forms,
+        [formName]: {
+          isLoading: false,
+          success: true,
+          error: null,
+          data: response.data,
+        },
+      };
 
-		set({ forms: updatedForms });
-		localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedForms));
+      set({ forms: updatedForms });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedForms));
     } catch (error: unknown) {
       const formError = error as ApiError;
 
-		const updatedForms = {
-			...forms,
-			[formName]: {
-				isLoading: false,
-				success: false,
-				data: null,
-				error:
-					formError.response?.data?.message ||
-					'Something went wrong, try again later',
-			},
-		};
+      const updatedForms = {
+        ...forms,
+        [formName]: {
+          isLoading: false,
+          success: false,
+          data: null,
+          error:
+            formError.response?.data?.message ||
+            'Something went wrong, try again later',
+        },
+      };
 
-		set({ forms: updatedForms });
-		localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedForms));
+      set({ forms: updatedForms });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedForms));
     }
   },
   resetFormState: (formName) => {
     const forms = get().forms;
 
-	  const updatedForms = {
-		  ...forms,
-		  [formName]: {
-			  isLoading: false,
-			  success: false,
-			  error: null,
-			  data: null,
-		  },
-	  };
+    const updatedForms = {
+      ...forms,
+      [formName]: {
+        isLoading: false,
+        success: false,
+        error: null,
+        data: null,
+      },
+    };
 
-	  set({ forms: updatedForms });
+    set({ forms: updatedForms });
 
-	  localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedForms));
-	},
-	restoreFormState: () => {
-		const savedForms = localStorage.getItem(STORAGE_KEY);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedForms));
+  },
+  restoreFormState: () => {
+    const savedForms = localStorage.getItem(STORAGE_KEY);
 
-		if (savedForms) {
-			try {
-				set({ forms: JSON.parse(savedForms) });
-			} catch (error) {
-				console.error('Failed to restore form state from Local Storage', error);
-			}
-		}
+    if (savedForms) {
+      try {
+        set({ forms: JSON.parse(savedForms) });
+      } catch (error) {
+        console.error('Failed to restore form state from Local Storage', error);
+      }
+    }
   },
 }));
 

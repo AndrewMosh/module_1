@@ -52,7 +52,8 @@ export const ScoringForm = ({ id }: { id: string }) => {
     const formFields = [...scoringFields, ...Employments];
     const field = formFields.find((field) => field.name === fieldName);
     return (
-      field?.options?.find((opt) => opt.label === fieldValue)?.value || fieldValue
+      field?.options?.find((opt) => opt.label === fieldValue)?.value ||
+      fieldValue
     );
   };
 
@@ -60,17 +61,23 @@ export const ScoringForm = ({ id }: { id: string }) => {
     const payload: TScore = {
       ...data,
       gender: getOptionValue('gender', data.gender) as TScore['gender'],
-      maritalStatus: getOptionValue('maritalStatus', data.maritalStatus) as TScore['maritalStatus'],
+      maritalStatus: getOptionValue(
+        'maritalStatus',
+        data.maritalStatus,
+      ) as TScore['maritalStatus'],
       dependentAmount: Number(data.dependentAmount),
-      employmentStatus: getOptionValue('employmentStatus', data.employmentStatus) as TScore['employmentStatus'],
+      employmentStatus: getOptionValue(
+        'employmentStatus',
+        data.employmentStatus,
+      ) as TScore['employmentStatus'],
       position: getOptionValue('position', data.position) as TScore['position'],
-	  workExperienceTotal: Number(data.workExperienceTotal),
-	  workExperienceCurrent: Number(data.workExperienceCurrent),
-	  employerINN: Number(data.employerINN),
-	  salary: Number(data.salary),
+      workExperienceTotal: Number(data.workExperienceTotal),
+      workExperienceCurrent: Number(data.workExperienceCurrent),
+      employerINN: Number(data.employerINN),
+      salary: Number(data.salary),
     };
 
-    await submitForm(formName, `${api}${formEndpoint}${id}`, payload );
+    await submitForm(formName, `${api}${formEndpoint}${id}`, payload);
   };
 
   const renderFields = (fields: typeof scoringFields | typeof Employments) =>
@@ -84,8 +91,11 @@ export const ScoringForm = ({ id }: { id: string }) => {
         error={errors[name as keyof scoreData]?.message}
         register={register(name as keyof scoreData)}
         required={required}
-        success={isValid(name as keyof scoreData) && isFieldDirty(name as keyof scoreData)}
-		className="scoring-form__field"
+        success={
+          isValid(name as keyof scoreData) &&
+          isFieldDirty(name as keyof scoreData)
+        }
+        className="scoring-form__field"
       />
     ));
 
@@ -107,21 +117,21 @@ export const ScoringForm = ({ id }: { id: string }) => {
         <h2 className="scoring-form__title">Continuation of the application</h2>
         <p className="scoring-form__subtitle">Step 2 of 5</p>
       </div>
-	  <div className="scoring-form__body">
-      <div className="scoring-form__fields">
-		<div className="scoring-form__scoring">
-        {renderFields(scoringFields)}
-		</div>
-		<h2 className="scoring-form__fields-title">Employment</h2>
-		<div className="scoring-form__employments">
-        {renderFields(Employments)}
-		</div>
+      <div className="scoring-form__body">
+        <div className="scoring-form__fields">
+          <div className="scoring-form__scoring">
+            {renderFields(scoringFields)}
+          </div>
+          <h2 className="scoring-form__fields-title">Employment</h2>
+          <div className="scoring-form__employments">
+            {renderFields(Employments)}
+          </div>
+        </div>
+        <Button className="scoring-form__button">Continue</Button>
       </div>
-      <Button className="scoring-form__button">Continue</Button>
-	  </div>
-      {formState.error && <p className="scoring-form__error">{formState.error}</p>}
+      {formState.error && (
+        <p className="scoring-form__error">{formState.error}</p>
+      )}
     </form>
   );
 };
-
-

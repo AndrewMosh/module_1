@@ -10,11 +10,11 @@ import Spinner from '@shared/Spinner/Spinner';
 
 export const Prescoring = () => {
   const { forms, restoreFormState } = useFormStore();
-  const [isRestored, setIsRestored] = useState(false); 
+  const [isRestored, setIsRestored] = useState(false);
 
   useEffect(() => {
     restoreFormState();
-    setIsRestored(true); 
+    setIsRestored(true);
   }, [restoreFormState]);
 
   const formState = forms[formName] || {
@@ -25,7 +25,7 @@ export const Prescoring = () => {
   };
 
   if (!isRestored) {
-    return <Spinner/>; 
+    return <Spinner />;
   }
 
   return (

@@ -49,7 +49,7 @@ export const Offers = () => {
   };
 
   if (isLoading) {
-    return <Spinner/>;
+    return <Spinner />;
   }
 
   if (isError) {
@@ -76,12 +76,16 @@ export const Offers = () => {
             >
               <img src={pic} alt="offer" className="offers__img" />
               <p>
-                Requested amount: {formatNumber({ value: offer.requestedAmount })} ₽
+                Requested amount:{' '}
+                {formatNumber({ value: offer.requestedAmount })} ₽
               </p>
-              <p>Total amount: {formatNumber({ value: offer.totalAmount })} ₽</p>
+              <p>
+                Total amount: {formatNumber({ value: offer.totalAmount })} ₽
+              </p>
               <p>For {offer.term} months</p>
               <p>
-                Monthly payment: {formatNumber({ value: offer.monthlyPayment })} ₽
+                Monthly payment: {formatNumber({ value: offer.monthlyPayment })}{' '}
+                ₽
               </p>
               <p>Your rate: {offer.rate}%</p>
               <p>Insurance included {renderIcon(offer.isInsuranceEnabled)}</p>
