@@ -4,7 +4,7 @@ import { DynamicInput } from '@shared/UI/DynamicInput/DynamicInput';
 import Spinner from '@shared/Spinner/Spinner';
 import './ScoringForm.scss';
 import Button from '@shared/UI/Button/Button';
-import { scoreData, scoreSchema, TScore } from './form.types';
+import { scoreData, scoreSchema} from './form.types';
 import {
   formName,
   formEndpoint,
@@ -16,6 +16,7 @@ import useScoringStore from '@store/scoringStore/useScoringStore';
 
 export const ScoringForm = ({ id }: { id: string }) => {
   const api = import.meta.env.VITE_BASE_URL || 'http://localhost:8080';
+  const account_key = import.meta.env.VITE_ACCOUNT_KEY;
   const { forms, submitForm } = useScoringStore();
 
   const formState = forms[formName] || {
@@ -58,27 +59,26 @@ export const ScoringForm = ({ id }: { id: string }) => {
   };
 
   const onSubmit: SubmitHandler<scoreData> = async (data) => {
-    const payload: TScore = {
-      ...data,
-      gender: getOptionValue('gender', data.gender) as TScore['gender'],
-      maritalStatus: getOptionValue(
-        'maritalStatus',
-        data.maritalStatus,
-      ) as TScore['maritalStatus'],
-      dependentAmount: Number(data.dependentAmount),
-      employmentStatus: getOptionValue(
-        'employmentStatus',
-        data.employmentStatus,
-      ) as TScore['employmentStatus'],
-      position: getOptionValue('position', data.position) as TScore['position'],
-      workExperienceTotal: Number(data.workExperienceTotal),
-      workExperienceCurrent: Number(data.workExperienceCurrent),
+  const payload = {
+    gender: getOptionValue('gender', data.gender) as 'MALE' | 'FEMALE',
+    maritalStatus: getOptionValue('maritalStatus', data.maritalStatus) as 'MARRIED' | 'DIVORCED' | 'SINGLE' | 'WIDOW_WIDOWER',
+    dependentAmount: Number(data.dependentAmount),
+    passportIssueDate: data.passportIssueDate,
+    passportIssueBranch: data.passportIssueBranch,
+    employment: {
+      employmentStatus: getOptionValue('employmentStatus', data.employmentStatus) as 'UNEMPLOYED' | 'SELF_EMPLOYED' | 'EMPLOYED' | 'BUSINESS_OWNER',
       employerINN: Number(data.employerINN),
       salary: Number(data.salary),
-    };
-
-    await submitForm(formName, `${api}${formEndpoint}${id}`, payload);
+      position: getOptionValue('position', data.position) as 'WORKER' | 'MID_MANAGER' | 'TOP_MANAGER' | 'OWNER',
+      workExperienceTotal: Number(data.workExperienceTotal),
+      workExperienceCurrent: Number(data.workExperienceCurrent),
+    },
+    account: account_key,
   };
+
+  await submitForm(formName, `${api}${formEndpoint}${id}`, payload);
+};
+
 
   const renderFields = (fields: typeof scoringFields | typeof Employments) =>
     fields.map(({ name, label, type, placeholder, options, required }) => (
