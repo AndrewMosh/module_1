@@ -72,7 +72,7 @@ export const PrescoringForm = () => {
             <h2 className="prescoring-form__title">Contact Information</h2>
             <div className="prescoring-form__fields">
               {formFields.map(
-                ({ name, label, type, placeholder, options, required }) => (
+                ({ name, label, type, placeholder, options, required, disabled }) => (
                   <DynamicInput
                     key={name}
                     label={label}
@@ -82,6 +82,7 @@ export const PrescoringForm = () => {
                     error={errors[name as keyof FormData]?.message}
                     register={register(name as keyof FormData)}
                     required={required}
+					disabled={disabled}
                     success={
                       isValid(name as keyof FormData) &&
                       isFieldDirty(name as keyof FormData)

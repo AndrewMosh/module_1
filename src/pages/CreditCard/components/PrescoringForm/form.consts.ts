@@ -9,6 +9,7 @@ type TForm = {
   options?: { label: string; value: number }[];
   required: boolean;
   success?: boolean;
+  disabled?: boolean;
 };
 
 const terms = [
@@ -47,6 +48,7 @@ export const formFields: TForm[] = [
     placeholder: terms[0].label,
     options: Object.values(terms),
     required: true,
+	disabled: true
   },
   {
     name: 'email',
