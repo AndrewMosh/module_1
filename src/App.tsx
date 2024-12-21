@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import { CreditCard } from '@pages/CreditCard/CreditCard';
 import { NotFound } from '@pages/NotFound/NotFound';
+import { ScoringStep } from '@pages/ScoringStep/ScoringStep';
 
 const routes: RouteObject[] = [
   {
@@ -13,8 +14,12 @@ const routes: RouteObject[] = [
     element: <Home />,
   },
   {
-    path: '/credit-card',
+    path: '/loan',
     element: <CreditCard />,
+  },
+  {
+	path: '/loan/:id',
+	element: <ScoringStep />,
   },
   {
     path: '*',

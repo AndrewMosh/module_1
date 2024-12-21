@@ -1,0 +1,49 @@
+.scoring-form {
+	line-height: normal;
+
+	&__header {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		padding-bottom: 41px;
+	}
+
+	&__title {
+		flex: 0 0 40%;
+		font-size: $fs-30;
+	}
+
+	&__subtitle {
+		font-size: $fs-16;
+		font-family: 'Ubuntu';
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__fields-title {
+		padding: 32px 0;
+		font-size: 20px;
+	}
+	
+	&__scoring, &__employments {
+		display: flex;
+		flex-wrap: wrap;
+		gap:15px
+	}
+
+
+
+	&__field {
+		width: 100%;
+		flex: 1 1 401px;
+	}
+
+	&__button {
+		margin-top: 20px;
+		align-self: flex-end;
+		width:148px
+	}
+}

@@ -3,12 +3,12 @@ import { SelectProps } from './select.types';
 export const Select: React.FC<SelectProps> = ({
   register,
   placeholder,
-  options,
+  options
 }) => {
   return (
     <>
-      <select {...register} className="input__select input__input">
-        <option value="" disabled>
+      <select {...register} className="input__select input__input" >
+        <option value="">
           {placeholder || 'Select an option'}
         </option>
         {options?.map((option) => (

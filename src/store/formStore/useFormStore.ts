@@ -27,7 +27,6 @@ const STORAGE_KEY = 'formStore';
 const useFormStore = create<FormStore>((set, get) => ({
   forms: {},
 
-	// Отправка формы с сохранением в Local Storage
   submitForm: async (formName, data, endpoint) => {
     const forms = get().forms;
 
@@ -58,8 +57,6 @@ const useFormStore = create<FormStore>((set, get) => ({
 		};
 
 		set({ forms: updatedForms });
-
-		// Сохранение в Local Storage
 		localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedForms));
     } catch (error: unknown) {
       const formError = error as ApiError;
@@ -77,13 +74,9 @@ const useFormStore = create<FormStore>((set, get) => ({
 		};
 
 		set({ forms: updatedForms });
-
-		// Сохранение в Local Storage ошибки (опционально)
 		localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedForms));
     }
   },
-
-	// Сброс состояния формы
   resetFormState: (formName) => {
     const forms = get().forms;
 
@@ -99,11 +92,8 @@ const useFormStore = create<FormStore>((set, get) => ({
 
 	  set({ forms: updatedForms });
 
-	  // Сохранение изменений в Local Storage
 	  localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedForms));
 	},
-
-	// Восстановление состояния форм из Local Storage
 	restoreFormState: () => {
 		const savedForms = localStorage.getItem(STORAGE_KEY);
 

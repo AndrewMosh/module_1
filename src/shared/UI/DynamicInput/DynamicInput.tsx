@@ -14,6 +14,7 @@ export const DynamicInput: React.FC<InputProps> = ({
   register,
   required,
   success,
+  className
 }) => {
   const handleClassName = (type: string): string => {
     if (error) {
@@ -25,7 +26,7 @@ export const DynamicInput: React.FC<InputProps> = ({
     return `input__wrapper`;
   };
   return (
-    <div className="input">
+    <div className={`input ${className}`}>
       <Label label={label} required={required} />
       {type === 'text' && (
         <div className={handleClassName('text')}>
