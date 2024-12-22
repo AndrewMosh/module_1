@@ -47,9 +47,15 @@
 		margin-top: 35px;
 	}
 
-	&__confirm-button, &__cancel-button, &__close-button {
-		width:96px;;
+	&__confirm-button, &__cancel-button {
+		width:96px;
 	}
+
+	&__close-button {
+		width:128px;
+	}
+
+	
 
 	&__confirm-button {
 		background-color: #D93737CC; 
