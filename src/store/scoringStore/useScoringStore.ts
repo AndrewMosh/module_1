@@ -15,6 +15,7 @@ interface FormStore {
     formName: string,
     endpoint: string,
     data: TScore,
+	id:string,
   ) => Promise<void>;
   resetFormState: (formName: string) => void;
 }
@@ -22,7 +23,7 @@ interface FormStore {
 const useScoringStore = create<FormStore>((set, get) => ({
   forms: {},
 
-  submitForm: async (formName, endpoint, data) => {
+  submitForm: async (formName, endpoint, data, id) => {
     const forms = get().forms;
 
     set({
@@ -37,8 +38,12 @@ const useScoringStore = create<FormStore>((set, get) => ({
     });
 
     try {
-      const response = await axios.put(endpoint, data);
-      console.log(`[${formName}] Response:`, response.data);
+     await axios.put(endpoint, data);
+
+      if (id) {
+        const stepData = { step2: true };
+        localStorage.setItem(id, JSON.stringify(stepData));
+      }
 
       set({
         forms: {

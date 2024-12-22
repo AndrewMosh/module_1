@@ -76,7 +76,7 @@ export const ScoringForm = ({ id }: { id: string }) => {
     account: account_key,
   };
 
-  await submitForm(formName, `${api}${formEndpoint}${id}`, payload);
+  await submitForm(formName, `${api}${formEndpoint}${id}`, payload, id);
 };
 
 
