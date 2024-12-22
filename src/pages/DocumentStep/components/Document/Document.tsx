@@ -17,16 +17,16 @@ export const Document = ({ id }: { id: string }) => {
   const { isAgreed, setAgreement } = useAgreementStore();
   const { updateStep } = useLocalStorageData(id, 'step3');
   const {setSuccess} = useSuccessResponseStore()
-  const [load, setLoad]= useState(false)
+  const [loadingComponent, setLoadingComponent]= useState(false)
 
   const handleSend = async () => {
-	setLoad(true)
+	setLoadingComponent(true)
     if (isAgreed) {
       try {
         await submitDocumentAgreement(id, true);
         updateStep('step3');
 		setSuccess(true)
-		setLoad(false)
+		setLoadingComponent(false)
       } catch (err) {
         if (err instanceof Error) {
           console.error(err.message);
@@ -35,7 +35,7 @@ export const Document = ({ id }: { id: string }) => {
     }
   };
 
-  if (loading || load) return <Spinner />;
+  if (loading || loadingComponent) return <Spinner />;
   
   if (error) return <p className="document__error">Error: {error}</p>;
 
