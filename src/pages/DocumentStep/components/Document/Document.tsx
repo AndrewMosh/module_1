@@ -7,25 +7,26 @@ import usePaymentSchedule from '../hooks/usePaymentSchedule';
 import Checkbox from '@shared/UI/Input/Checkbox/Checkbox';
 import DenyModal from '../DenyModal/DenyModal';
 import Spinner from '@shared/Spinner/Spinner';
+import useLocalStorageData from '@hooks/useLocalStorageData';
+import { submitDocumentAgreement } from './api/documentService';
+import { useSuccessResponseStore } from '@store/successResponseStore/useSuccessResponseStore';
+import { useState } from 'react';
 
 export const Document = ({ id }: { id: string }) => {
-  const api = import.meta.env.VITE_BASE_URL || 'http://localhost:8080';
   const { data, loading, error } = usePaymentSchedule(id);
   const { isAgreed, setAgreement } = useAgreementStore();
+  const { updateStep } = useLocalStorageData(id, 'step3');
+  const {setSuccess} = useSuccessResponseStore()
+  const [load, setLoad]= useState(false)
 
   const handleSend = async () => {
+	setLoad(true)
     if (isAgreed) {
       try {
-        const response = await fetch(`${api}/document/${id}`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ agreement: true }),
-        });
-
-        if (!response.ok) throw new Error('Failed to submit form');
-
-        // Обработка успешной отправки
-        console.log('Form submitted successfully');
+        await submitDocumentAgreement(id, true);
+        updateStep('step3');
+		setSuccess(true)
+		setLoad(false)
       } catch (err) {
         if (err instanceof Error) {
           console.error(err.message);
@@ -34,8 +35,10 @@ export const Document = ({ id }: { id: string }) => {
     }
   };
 
-  if (loading) return <Spinner/>;
+  if (loading || load) return <Spinner />;
+  
   if (error) return <p className="document__error">Error: {error}</p>;
+
   return (
     <div className="document">
       <div className="document__header">
@@ -50,7 +53,7 @@ export const Document = ({ id }: { id: string }) => {
             label="I agree with the payment schedule"
             checked={isAgreed}
             onChange={setAgreement}
-			className='document__checkbox'
+            className="document__checkbox"
           />
           <Button
             className="document__send"
@@ -60,12 +63,15 @@ export const Document = ({ id }: { id: string }) => {
             Send
           </Button>
         </div>
-		
       </div>
-	  <Checkbox label="I agree with the payment schedule"
-            checked={isAgreed}
-            onChange={setAgreement}
-			className='document__checkbox--mobile'/>
+      <Checkbox
+        label="I agree with the payment schedule"
+        checked={isAgreed}
+        onChange={setAgreement}
+        className="document__checkbox--mobile"
+      />
     </div>
   );
 };
+
+

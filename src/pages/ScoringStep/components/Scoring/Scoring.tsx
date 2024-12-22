@@ -11,7 +11,7 @@ import Spinner from '@shared/Spinner/Spinner';
 export const Scoring = () => {
   const { id } = useParams();
   const { forms } = useScoringStore();
-  const { complete, loading } = useLocalStorageData(id, 'step2'); 
+  const { complete, loading } = useLocalStorageData(id ?? '', 'step2'); 
 
   const formState = forms[formName] || {
     isLoading: false,
