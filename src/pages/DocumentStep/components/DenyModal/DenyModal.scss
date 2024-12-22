@@ -1,0 +1,80 @@
+.modal{
+	position: fixed; 
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000; 
+
+	&__deny-button {
+		background-color: #D93737CC;
+		width:96px;
+	  }
+
+	&__container {
+		background: #ffffff;
+	max-width: 448px; 
+	width: 90%; 
+	position: relative; 
+	padding: 16px;
+	}
+
+	&__title {
+		font-family: 'Ubuntu Medium';
+		padding-bottom: 16px;
+
+	}
+
+	&__text {
+		font-size: 16px;
+		font-family: 'Ubuntu';
+	}
+
+	&__error-message {
+		color: red; 
+		font-size: 0.875rem; 
+		margin-bottom: 10px; 
+	}
+
+	&__modal-actions {
+		display: flex; 
+		justify-content: flex-end;
+		gap: 40px; 
+		margin-top: 35px;
+	}
+
+	&__confirm-button, &__cancel-button, &__close-button {
+		width:96px;;
+	}
+
+	&__confirm-button {
+		background-color: #D93737CC; 
+		color: #ffffff;
+		font-weight: bold;
+  
+		&:hover {
+		  background-color: #c62828;
+		}
+  
+		&:disabled {
+		  background-color: #ccc;
+		  cursor: not-allowed;
+		}
+	  }	
+
+	}
+  
+
+  
+	
+	
+
+	  
+  
+	 
+  
+	

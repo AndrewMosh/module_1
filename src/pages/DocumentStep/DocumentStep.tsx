@@ -17,7 +17,7 @@ export const DocumentStep = () => {
   return (
     <Layout>
       {complete && <Formed />}
-      {!complete && (
+      {!complete && !loading && (
         <div className="scoring">
           <CardBase>{id ? <Document id={id} /> : null}</CardBase>
         </div>

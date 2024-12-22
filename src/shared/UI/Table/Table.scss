@@ -1,0 +1,67 @@
+/* Основной стиль таблицы */
+.table {
+  width: 100%;
+  font-family: 'Ubuntu Medium'; ;
+  letter-spacing: 2%;
+  font-size: 12px;
+
+  &__header {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+	color:#4A5568;
+	text-transform: uppercase;
+	padding: 18px 0;
+	border-bottom: 1px solid #E2E8F0;
+	
+  }
+
+  &__column-header {
+    cursor: pointer;
+    position: relative;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+
+	img {
+		padding: 0 0 6px 6px;
+	}
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    border-bottom: 1px solid #E2E8F0;
+	padding: 18px 0;
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
+
+  &__cell {
+
+
+    @media (max-width: 768px) {
+      display: block;
+      padding-left: 50%;
+      position: relative;
+      text-align: right;
+
+      &::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        top: 10px;
+      }
+    }
+  }
+}
