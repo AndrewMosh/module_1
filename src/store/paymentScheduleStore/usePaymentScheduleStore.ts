@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { TSchedule } from './paymentSchedule.types';
 
 interface PaymentScheduleState {
-  data: TSchedule[]; 
+  data: TSchedule[];
   loading: boolean;
   error: string | null;
   fetchPaymentSchedule: (id: string) => Promise<void>;

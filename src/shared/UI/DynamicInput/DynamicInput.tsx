@@ -15,7 +15,7 @@ export const DynamicInput: React.FC<InputProps> = ({
   required,
   success,
   className,
-  disabled
+  disabled,
 }) => {
   const handleClassName = (type: string): string => {
     if (error) {
@@ -39,7 +39,7 @@ export const DynamicInput: React.FC<InputProps> = ({
           register={register}
           placeholder={placeholder}
           options={options}
-		  disabled={disabled}
+          disabled={disabled}
         />
       )}
       {type === 'date' && (

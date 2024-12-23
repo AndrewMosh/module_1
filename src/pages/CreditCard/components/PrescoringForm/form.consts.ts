@@ -48,7 +48,7 @@ export const formFields: TForm[] = [
     placeholder: terms[0].label,
     options: Object.values(terms),
     required: true,
-	disabled: true
+    disabled: true,
   },
   {
     name: 'email',

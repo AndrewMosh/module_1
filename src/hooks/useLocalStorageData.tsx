@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useLocalStorageData = (key:string, stepKey:string) => {
+const useLocalStorageData = (key: string, stepKey: string) => {
   const [complete, setComplete] = useState(false);
   const [loading, setLoading] = useState(true);
 

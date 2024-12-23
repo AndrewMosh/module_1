@@ -5,9 +5,13 @@ const Button: React.FC<ButtonProps> = ({
   children,
   onClick,
   className = '',
-  disabled
+  disabled,
 }) => (
-  <button className={`button ${className}`} onClick={onClick} disabled={disabled}> 
+  <button
+    className={`button ${className}`}
+    onClick={onClick}
+    disabled={disabled}
+  >
     {children}
   </button>
 );

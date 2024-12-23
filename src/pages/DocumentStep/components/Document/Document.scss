@@ -1,76 +1,74 @@
 .document {
-	line-height: normal;
-	&__header {
-		display: flex;
-		align-items: center;
-		letter-spacing: 2%;
-		padding-bottom: 83px;
+  line-height: normal;
+  &__header {
+    display: flex;
+    align-items: center;
+    letter-spacing: 2%;
+    padding-bottom: 83px;
 
-		@media (max-width: 768px) {
-			flex-direction: column;
-			padding-bottom: 20px;
-			
-		  }
-	}
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding-bottom: 20px;
+    }
+  }
 
-	&__title {
-		flex: 0 0 30%;
-		font-size: $fs-30;
+  &__title {
+    flex: 0 0 30%;
+    font-size: $fs-30;
 
-		@media (max-width: 768px) {
-			flex: 0 0 100%;
-			text-align: center;
-		  }
-	}
+    @media (max-width: 768px) {
+      flex: 0 0 100%;
+      text-align: center;
+    }
+  }
 
-	&__subtitle {
-		font-size: $fs-16;
-		font-family: 'Ubuntu Medium';
-	}
+  &__subtitle {
+    font-size: $fs-16;
+    font-family: 'Ubuntu Medium';
+  }
 
-	&__footer {
-		display: flex;
-		justify-content: space-between;
-		margin-top: 43px;
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 43px;
+  }
 
-	}
+  &__send {
+    width: 96px;
+  }
 
-	&__send {
-		width: 96px;
-	}
+  &__deny {
+    background-color: #d93737cc;
+  }
 
-	&__deny {
-		background-color: #D93737CC;
-	}
+  &__accept {
+    display: flex;
+    gap: 40px;
+  }
 
-	&__accept {
-		display: flex;
-		gap:40px;
-	}
+  &__checkbox {
+    display: flex;
+    align-items: center;
 
-	&__checkbox {
-		display: flex;
-		align-items: center;
+    &--mobile {
+      display: none;
+      @media (max-width: 768px) {
+        display: flex;
+        padding: 20px 0 0 5px;
+      }
+    }
 
-		&--mobile {
-			display: none;
-			@media (max-width: 768px) {
-				display: flex;
-				padding: 20px 0 0 5px;
-			  }
-		}
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
 
-		@media (max-width: 768px) {
-			display: none;
-		  }
-	}
-
-	&__nodata, &__error {
-		min-height:30vh;
-		display:flex;
-		align-items: center;
-		justify-content: center;
-		color:red;
-	}
-
+  &__nodata,
+  &__error {
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+  }
 }

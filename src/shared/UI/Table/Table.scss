@@ -1,18 +1,17 @@
 /* Основной стиль таблицы */
 .table {
   width: 100%;
-  font-family: 'Ubuntu Medium'; ;
+  font-family: 'Ubuntu Medium';
   letter-spacing: 2%;
   font-size: 12px;
 
   &__header {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-	color:#4A5568;
-	text-transform: uppercase;
-	padding: 18px 0;
-	border-bottom: 1px solid #E2E8F0;
-	
+    color: #4a5568;
+    text-transform: uppercase;
+    padding: 18px 0;
+    border-bottom: 1px solid #e2e8f0;
   }
 
   &__column-header {
@@ -23,9 +22,9 @@
       display: none;
     }
 
-	img {
-		padding: 0 0 6px 6px;
-	}
+    img {
+      padding: 0 0 6px 6px;
+    }
   }
 
   &__body {
@@ -40,16 +39,14 @@
   &__row {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    border-bottom: 1px solid #E2E8F0;
-	padding: 18px 0;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 18px 0;
     @media (max-width: 768px) {
       display: block;
     }
   }
 
   &__cell {
-
-
     @media (max-width: 768px) {
       display: block;
       padding-left: 50%;

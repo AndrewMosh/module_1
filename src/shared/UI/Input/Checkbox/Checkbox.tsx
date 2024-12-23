@@ -1,5 +1,5 @@
-import React from "react";
-import "./Checkbox.scss";
+import React from 'react';
+import './Checkbox.scss';
 
 interface CheckboxProps {
   label: string;
@@ -8,7 +8,12 @@ interface CheckboxProps {
   className: string;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({ label, checked, onChange, className }) => {
+export const Checkbox: React.FC<CheckboxProps> = ({
+  label,
+  checked,
+  onChange,
+  className,
+}) => {
   return (
     <div className={`checkbox ${className}`}>
       <input
@@ -16,7 +21,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({ label, checked, onChange, cl
         id="agreement"
         checked={checked}
         onChange={(e) => onChange(e.target.checked)}
-		className="checkbox__input"
+        className="checkbox__input"
       />
       <label htmlFor="agreement">{label}</label>
     </div>

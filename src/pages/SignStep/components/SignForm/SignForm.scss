@@ -1,0 +1,80 @@
+.sign {
+  line-height: normal;
+  font-family: 'Ubuntu Medium';
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 32px;
+
+    @include respond-to(mobile) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  &__title {
+    flex: 0 0 35%;
+    font-size: $fs-30;
+  }
+
+  &__step {
+    font-size: $fs-16;
+    font-family: 'Ubuntu';
+  }
+
+  &__text {
+    font-size: 20px;
+    color: #4f5665;
+    padding-bottom: 32px;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include respond-to(mobile) {
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 20px;
+    }
+  }
+
+  &__document {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: black;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__submit {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+
+    @include respond-to(mobile) {
+      flex-direction: column;
+      text-align: center;
+      gap: 20px;
+    }
+  }
+
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__button {
+    width: 160px;
+  }
+}

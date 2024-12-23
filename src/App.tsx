@@ -9,6 +9,7 @@ import { NotFound } from '@pages/NotFound/NotFound';
 import { ScoringStep } from '@pages/ScoringStep/ScoringStep';
 import { DocumentStep } from '@pages/DocumentStep/DocumentStep';
 import { SignStep } from '@pages/SignStep/SignStep';
+import { CodeStep } from '@pages/CodeStep/CodeStep';
 
 const routes: RouteObject[] = [
   {
@@ -24,12 +25,16 @@ const routes: RouteObject[] = [
     element: <ScoringStep />,
   },
   {
-	path: '/loan/:id/document',
-	element: <DocumentStep />,
+    path: '/loan/:id/document',
+    element: <DocumentStep />,
   },
   {
-	path:'/loan/:id/document/sign',
-	element:<SignStep/>
+    path: '/loan/:id/document/sign',
+    element: <SignStep />,
+  },
+  {
+    path: '/loan/:id/code',
+    element: <CodeStep />,
   },
   {
     path: '*',

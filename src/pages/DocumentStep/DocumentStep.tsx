@@ -7,11 +7,10 @@ import { Formed } from './components/Formed/Formed';
 import { useDocumentStore } from '@store/documetStore/useDocumentStore';
 import useLocalStorageData from '@hooks/useLocalStorageData';
 
-
 export const DocumentStep = () => {
   const { id } = useParams();
   const { isSuccess } = useDocumentStore();
-  const {complete, loading} = useLocalStorageData(id ?? '', 'step3')
+  const { complete, loading } = useLocalStorageData(id ?? '', 'step3');
 
   if (loading) {
     return <Spinner />;
@@ -19,9 +18,9 @@ export const DocumentStep = () => {
 
   return (
     <Layout>
-      {complete &&  <Formed />}
+      {complete && <Formed />}
 
-      {!isSuccess  && !complete && (
+      {!isSuccess && !complete && (
         <div className="scoring">
           <CardBase>{id ? <Document id={id} /> : null}</CardBase>
         </div>

@@ -1,0 +1,18 @@
+.completed {
+  display: flex;
+  flex-direction: column;
+  min-height: 60vh;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  padding: 40px 0;
+
+  &__success {
+	height: auto;
+  }
+
+  &__button {
+    margin-top: 32px;
+    width: 268px;
+  }
+}

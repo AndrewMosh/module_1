@@ -1,0 +1,44 @@
+.code {
+  display: flex;
+  align-items: center;
+  min-height: 50vh;
+  justify-content: center;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__label {
+    font-size: $fs-30;
+    text-align: center;
+  }
+
+  &__inputs {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__input {
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid #3182ce;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+
+    &:focus {
+      border-color: $red;
+    }
+  }
+
+  &__error {
+    color: #ff5631;
+    font-size: $fs-16;
+    font-family: 'Ubuntu Medium';
+  }
+}

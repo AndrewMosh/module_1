@@ -1,4 +1,4 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Document.scss';
 import Button from '@shared/UI/Button/Button';
 import Table from '@shared/UI/Table/Table';
@@ -10,38 +10,44 @@ import { usePaymentScheduleStore } from '@store/paymentScheduleStore/usePaymentS
 import { useDocumentStore } from '@store/documetStore/useDocumentStore';
 
 export const Document = ({ id }: { id: string }) => {
-	const [isLoaded, setIsLoaded] = useState(false);
-  const { isAgreed, setAgreement,loading:isSending, error, sendAgreement } =
-    useDocumentStore();
+  const [isLoaded, setIsLoaded] = useState(false);
+  const {
+    isAgreed,
+    setAgreement,
+    loading: isSending,
+    error,
+    sendAgreement,
+  } = useDocumentStore();
 
-	const { data, loading:isFetching,  fetchPaymentSchedule } = usePaymentScheduleStore();
+  const {
+    data,
+    loading: isFetching,
+    fetchPaymentSchedule,
+  } = usePaymentScheduleStore();
 
-	console.log(data);
+  console.log(data);
 
-	useEffect(() => {
-		const fetchData = async () => {
-		  await fetchPaymentSchedule(id);
-		  setIsLoaded(true);
-		};
-	
-		fetchData();
-	  }, [id, fetchPaymentSchedule]);
+  useEffect(() => {
+    const fetchData = async () => {
+      await fetchPaymentSchedule(id);
+      setIsLoaded(true);
+    };
 
-  
+    fetchData();
+  }, [id, fetchPaymentSchedule]);
 
   const handleSend = async () => {
     if (isAgreed) {
       await sendAgreement(id);
     }
-
   };
-
 
   if (isSending || isFetching || !isLoaded) return <Spinner />;
   if (error) return <p className="document__error">Error: {error}</p>;
-  if (isLoaded && data.length === 0) return <p className="document__nodata">No data found on application {id}</p>;
-
-
+  if (isLoaded && data.length === 0)
+    return (
+      <p className="document__nodata">No data found on application {id}</p>
+    );
 
   return (
     <div className="document">

@@ -37,7 +37,9 @@ const DenyModal: React.FC<{ id: string }> = ({ id }) => {
             {!isSuccess ? (
               <>
                 <h2 className="modal__title">Deny application</h2>
-                <p className="modal__text">Are you sure you want to cancel this application?</p>
+                <p className="modal__text">
+                  Are you sure you want to cancel this application?
+                </p>
                 {error && <p className="modal__error-message">{error}</p>}
                 <div className="modal__modal-actions">
                   <Button
@@ -47,10 +49,7 @@ const DenyModal: React.FC<{ id: string }> = ({ id }) => {
                   >
                     Deny
                   </Button>
-                  <Button
-                    className="modal__cancel-button"
-                    onClick={closeModal}
-                  >
+                  <Button className="modal__cancel-button" onClick={closeModal}>
                     Cancel
                   </Button>
                 </div>
@@ -60,7 +59,10 @@ const DenyModal: React.FC<{ id: string }> = ({ id }) => {
                 <h2 className="modal__title">Deny application</h2>
                 <p className="modal__text">Your application has been denied!</p>
                 <div className="modal__modal-actions">
-                  <Button className="modal__close-button" onClick={closeAndNavigate}>
+                  <Button
+                    className="modal__close-button"
+                    onClick={closeAndNavigate}
+                  >
                     Go Home
                   </Button>
                 </div>

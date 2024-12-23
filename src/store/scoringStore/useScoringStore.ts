@@ -16,7 +16,7 @@ interface FormStore {
     formName: string,
     endpoint: string,
     data: TScore,
-	id:string,
+    id: string,
   ) => Promise<void>;
   resetFormState: (formName: string) => void;
 }
@@ -39,10 +39,10 @@ const useScoringStore = create<FormStore>((set, get) => ({
     });
 
     try {
-     await axios.put(endpoint, data);
+      await axios.put(endpoint, data);
 
       if (id) {
-		useStepStore.getState().updateStep(id, 'step2');
+        useStepStore.getState().updateStep(id, 'step2');
       }
 
       set({

@@ -1,12 +1,11 @@
 import { create } from 'zustand';
 import { useStepStore } from '@store/updateStep/useStepStore';
 
-
 interface DocumentState {
   isAgreed: boolean;
   loading: boolean;
   error: string | null;
-  isSuccess:boolean;
+  isSuccess: boolean;
   setAgreement: (agreed: boolean) => void;
   sendAgreement: (id: string) => Promise<void>;
 }
@@ -17,10 +16,10 @@ export const useDocumentStore = create<DocumentState>((set) => ({
   isAgreed: false,
   loading: false,
   error: null,
-  isSuccess:false,
+  isSuccess: false,
 
   setAgreement: (agreed) => set({ isAgreed: agreed }),
-  
+
   sendAgreement: async (id) => {
     set({ loading: true, error: null });
     try {
@@ -30,9 +29,9 @@ export const useDocumentStore = create<DocumentState>((set) => ({
         body: JSON.stringify({ agreement: true }),
       });
 
-	  if (response.ok) {
-        useStepStore.getState().updateStep(id, "step3");
-		set({isSuccess:true})
+      if (response.ok) {
+        useStepStore.getState().updateStep(id, 'step3');
+        set({ isSuccess: true });
       } else {
         throw new Error('Failed to submit agreement');
       }

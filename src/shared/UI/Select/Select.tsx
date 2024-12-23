@@ -4,12 +4,14 @@ export const Select: React.FC<SelectProps> = ({
   register,
   placeholder,
   options,
-  disabled
+  disabled,
 }) => {
   return (
     <>
       <select {...register} className="input__select input__input">
-        <option value="" disabled={disabled}>{placeholder || ''}</option>
+        <option value="" disabled={disabled}>
+          {placeholder || ''}
+        </option>
         {options?.map((option) => (
           <option key={option.value} value={option.label}>
             {option.label}

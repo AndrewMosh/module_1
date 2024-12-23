@@ -10,5 +10,5 @@ export type InputProps = {
   register: UseFormRegisterReturn;
   required?: boolean;
   className?: string;
-  disabled?:boolean;
+  disabled?: boolean;
 };
