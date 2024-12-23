@@ -5,12 +5,12 @@ import useLocalStorageData from '@hooks/useLocalStorageData';
 import Spinner from '@shared/Spinner/Spinner';
 import { CardBase } from '@shared/UI/Card/CardBase/CardBase';
 import { Formed } from './components/Formed/Formed';
-import { useSuccessResponseStore } from '@store/successResponseStore/useSuccessResponseStore';
+import { useDocumentStore } from '@store/documetStore/useDocumentStore';
 
 export const DocumentStep = () => {
   const { id } = useParams();
   const { complete, loading } = useLocalStorageData(id ?? '', 'step3');
-  const { isSuccess } = useSuccessResponseStore();
+  const { isSuccess } = useDocumentStore();
 
   if (loading) {
     return <Spinner />;

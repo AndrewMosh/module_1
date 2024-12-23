@@ -1,46 +1,40 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './DenyModal.scss';
-import Button from "@shared/UI/Button/Button";
-import { denyApplication } from "./api/applicationService";
+import Button from '@shared/UI/Button/Button';
+import { useModalStore } from '@store/modalStore/useModalStore';
 
 const DenyModal: React.FC<{ id: string }> = ({ id }) => {
-  const [showModal, setShowModal] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState(false);
+  const {
+    showModal,
+    isSuccess,
+    loading,
+    error,
+    openModal,
+    closeModal,
+    denyApplication,
+  } = useModalStore();
   const navigate = useNavigate();
 
   const handleDeny = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      await denyApplication(id);
-      setSuccess(true);
-    } catch (err) {
-      if (err instanceof Error) {
-        setError(err.message);
-      }
-    } finally {
-      setLoading(false);
-    }
+    await denyApplication(id);
   };
 
   const closeAndNavigate = () => {
-    setShowModal(false);
-    navigate("/");
+    closeModal();
+    navigate('/');
   };
 
   return (
     <>
-      <Button className="modal__deny-button" onClick={() => setShowModal(true)}>
+      <Button className="modal__deny-button" onClick={openModal}>
         Deny
       </Button>
 
       {showModal && (
         <div className="modal">
           <div className="modal__container">
-            {!success ? (
+            {!isSuccess ? (
               <>
                 <h2 className="modal__title">Deny application</h2>
                 <p className="modal__text">Are you sure you want to cancel this application?</p>
@@ -55,7 +49,7 @@ const DenyModal: React.FC<{ id: string }> = ({ id }) => {
                   </Button>
                   <Button
                     className="modal__cancel-button"
-                    onClick={() => setShowModal(false)}
+                    onClick={closeModal}
                   >
                     Cancel
                   </Button>

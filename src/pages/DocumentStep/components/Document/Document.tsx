@@ -1,42 +1,33 @@
+import  { useEffect } from 'react';
 import './Document.scss';
 import Button from '@shared/UI/Button/Button';
 import Table from '@shared/UI/Table/Table';
 import { columns } from './document.consts';
-import { useAgreementStore } from '@store/agreementStore/useAgreementStore';
-import usePaymentSchedule from '../hooks/usePaymentSchedule';
 import Checkbox from '@shared/UI/Input/Checkbox/Checkbox';
 import DenyModal from '../DenyModal/DenyModal';
 import Spinner from '@shared/Spinner/Spinner';
-import useLocalStorageData from '@hooks/useLocalStorageData';
-import { submitDocumentAgreement } from './api/documentService';
-import { useSuccessResponseStore } from '@store/successResponseStore/useSuccessResponseStore';
-import { useState } from 'react';
+import { usePaymentScheduleStore } from '@store/paymentScheduleStore/usePaymentScheduleStore';
+import { useDocumentStore } from '@store/documetStore/useDocumentStore';
 
 export const Document = ({ id }: { id: string }) => {
-  const { data, loading, error } = usePaymentSchedule(id);
-  const { isAgreed, setAgreement } = useAgreementStore();
-  const { updateStep } = useLocalStorageData(id, 'step3');
-  const {setSuccess} = useSuccessResponseStore()
-  const [loadingComponent, setLoadingComponent]= useState(false)
+  const { isAgreed, setAgreement,loading:isSending, error, sendAgreement } =
+    useDocumentStore();
+
+	const { data, loading:isFetching,  fetchPaymentSchedule } = usePaymentScheduleStore();
+
+	useEffect(() => {
+	  fetchPaymentSchedule(id);
+	}, [id, fetchPaymentSchedule]);
+
+  
 
   const handleSend = async () => {
-	setLoadingComponent(true)
     if (isAgreed) {
-      try {
-        await submitDocumentAgreement(id, true);
-        updateStep('step3');
-		setSuccess(true)
-		setLoadingComponent(false)
-      } catch (err) {
-        if (err instanceof Error) {
-          console.error(err.message);
-        }
-      }
+      await sendAgreement(id);
     }
   };
 
-  if (loading || loadingComponent) return <Spinner />;
-  
+  if (isSending || isFetching) return <Spinner />;
   if (error) return <p className="document__error">Error: {error}</p>;
 
   return (
@@ -45,7 +36,7 @@ export const Document = ({ id }: { id: string }) => {
         <h2 className="document__title">Payment Schedule</h2>
         <p className="document__steps">Step 3 of 5</p>
       </div>
-      <Table columns={columns} data={data} />
+      <Table columns={columns} data={data || []} />
       <div className="document__footer">
         <DenyModal id={id} />
         <div className="document__accept">
@@ -73,5 +64,3 @@ export const Document = ({ id }: { id: string }) => {
     </div>
   );
 };
-
-
