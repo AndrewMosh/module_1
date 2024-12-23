@@ -1,4 +1,6 @@
 import { create } from 'zustand';
+import { useStepStore } from '@store/updateStep/useStepStore';
+
 
 interface DocumentState {
   isAgreed: boolean;
@@ -6,7 +8,6 @@ interface DocumentState {
   error: string | null;
   isSuccess:boolean;
   setAgreement: (agreed: boolean) => void;
-  fetchData: (id: string) => Promise<void>;
   sendAgreement: (id: string) => Promise<void>;
 }
 
@@ -19,22 +20,7 @@ export const useDocumentStore = create<DocumentState>((set) => ({
   isSuccess:false,
 
   setAgreement: (agreed) => set({ isAgreed: agreed }),
-
-  fetchData: async (id) => {
-    set({ loading: true, error: null });
-    try {
-      const response = await fetch(`${apiUrl}/document/${id}`);
-      if (!response.ok) throw new Error('Failed to fetch data');
-    } catch (err) {
-      if (err instanceof Error) {
-        set({ error: err.message });
-      }
-    } finally {
-      set({ loading: false, isSuccess:true });
-
-    }
-  },
-
+  
   sendAgreement: async (id) => {
     set({ loading: true, error: null });
     try {
@@ -44,7 +30,12 @@ export const useDocumentStore = create<DocumentState>((set) => ({
         body: JSON.stringify({ agreement: true }),
       });
 
-      if (!response.ok) throw new Error('Failed to submit agreement');
+	  if (response.ok) {
+        useStepStore.getState().updateStep(id, "step3");
+		set({isSuccess:true})
+      } else {
+        throw new Error('Failed to submit agreement');
+      }
     } catch (err) {
       if (err instanceof Error) {
         set({ error: err.message });

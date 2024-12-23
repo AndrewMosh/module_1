@@ -65,7 +65,11 @@
 		  }
 	}
 
-	&__error {
+	&__nodata, &__error {
+		min-height:30vh;
+		display:flex;
+		align-items: center;
+		justify-content: center;
 		color:red;
 	}
 

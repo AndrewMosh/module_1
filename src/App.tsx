@@ -8,6 +8,7 @@ import { CreditCard } from '@pages/CreditCard/CreditCard';
 import { NotFound } from '@pages/NotFound/NotFound';
 import { ScoringStep } from '@pages/ScoringStep/ScoringStep';
 import { DocumentStep } from '@pages/DocumentStep/DocumentStep';
+import { SignStep } from '@pages/SignStep/SignStep';
 
 const routes: RouteObject[] = [
   {
@@ -25,6 +26,10 @@ const routes: RouteObject[] = [
   {
 	path: '/loan/:id/document',
 	element: <DocumentStep />,
+  },
+  {
+	path:'/loan/:id/document/sign',
+	element:<SignStep/>
   },
   {
     path: '*',

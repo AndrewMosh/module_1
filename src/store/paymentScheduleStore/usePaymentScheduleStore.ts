@@ -1,8 +1,8 @@
 import { create } from 'zustand';
+import { TSchedule } from './paymentSchedule.types';
 
 interface PaymentScheduleState {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data: any[]; 
+  data: TSchedule[]; 
   loading: boolean;
   error: string | null;
   fetchPaymentSchedule: (id: string) => Promise<void>;

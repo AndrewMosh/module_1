@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import axios from 'axios';
 import { ApiError } from '@store/newsStore/useNewsStore.types';
 import { TScore } from '@pages/ScoringStep/components/ScoringForm/form.types';
+import { useStepStore } from '@store/updateStep/useStepStore';
 
 interface FormState {
   isLoading: boolean;
@@ -41,8 +42,7 @@ const useScoringStore = create<FormStore>((set, get) => ({
      await axios.put(endpoint, data);
 
       if (id) {
-        const stepData = { step2: true };
-        localStorage.setItem(id, JSON.stringify(stepData));
+		useStepStore.getState().updateStep(id, 'step2');
       }
 
       set({
