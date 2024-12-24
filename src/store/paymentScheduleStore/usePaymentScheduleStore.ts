@@ -1,14 +1,6 @@
 import { create } from 'zustand';
-import { TSchedule } from './paymentSchedule.types';
-
-interface PaymentScheduleState {
-  data: TSchedule[];
-  loading: boolean;
-  error: string | null;
-  fetchPaymentSchedule: (id: string) => Promise<void>;
-}
-
-const apiUrl = import.meta.env.VITE_BASE_URL || 'http://localhost:8080';
+import { PaymentScheduleState } from './paymentSchedule.types';
+import { apiUrl } from '@shared/api/api.consts';
 
 export const usePaymentScheduleStore = create<PaymentScheduleState>((set) => ({
   data: [],

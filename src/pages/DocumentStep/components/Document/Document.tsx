@@ -25,8 +25,6 @@ export const Document = ({ id }: { id: string }) => {
     fetchPaymentSchedule,
   } = usePaymentScheduleStore();
 
-  console.log(data);
-
   useEffect(() => {
     const fetchData = async () => {
       await fetchPaymentSchedule(id);

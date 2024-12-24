@@ -1,16 +1,8 @@
 import { create } from 'zustand';
 import { useStepStore } from '@store/updateStep/useStepStore';
+import { apiUrl } from '@shared/api/api.consts';
+import { DocumentState } from './document.types';
 
-interface DocumentState {
-  isAgreed: boolean;
-  loading: boolean;
-  error: string | null;
-  isSuccess: boolean;
-  setAgreement: (agreed: boolean) => void;
-  sendAgreement: (id: string) => Promise<void>;
-}
-
-const apiUrl = import.meta.env.VITE_BASE_URL || 'http://localhost:8080';
 
 export const useDocumentStore = create<DocumentState>((set) => ({
   isAgreed: false,

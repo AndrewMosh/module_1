@@ -1,10 +1,6 @@
 import { create } from 'zustand';
+import { MenuStore } from './menu.types';
 
-type MenuStore = {
-  isMenuOpen: boolean;
-  toggleMenu: () => void;
-  closeMenu: () => void;
-};
 
 const useMenuStore = create<MenuStore>((set) => ({
   isMenuOpen: false,

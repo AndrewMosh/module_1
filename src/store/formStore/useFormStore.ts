@@ -1,15 +1,10 @@
 import { create } from 'zustand';
 import axios from 'axios';
 import { ApiError } from '@store/newsStore/useNewsStore.types';
-import { TOffers } from '@pages/CreditCard/components/Offers/offers.types';
 import { TData } from '@pages/CreditCard/components/PrescoringForm/form.types';
+import { FormState } from './form.types';
 
-interface FormState {
-  isLoading: boolean;
-  success: boolean;
-  error: string | null;
-  data: TOffers[] | null;
-}
+
 
 interface FormStore {
   forms: Record<string, FormState>;
@@ -44,7 +39,6 @@ const useFormStore = create<FormStore>((set, get) => ({
 
     try {
       const response = await axios.post(endpoint, data);
-      console.log(`[${formName}] Response:`, response.data);
 
       const updatedForms = {
         ...forms,

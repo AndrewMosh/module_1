@@ -12,9 +12,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { SentToEmail } from '../SentToEmail/SentToEmail';
 import useOffersStore from '@store/applicationStore/useOffersStore';
 import Spinner from '@shared/Spinner/Spinner';
+import { apiUrl } from '@shared/api/api.consts';
 
 export const Offers = () => {
-  const api = import.meta.env.VITE_BASE_URL || 'http://localhost:8080';
   const { forms } = useFormStore();
   const offers: TOffers[] | null = forms.contactForm.data;
   const {
@@ -44,7 +44,7 @@ export const Offers = () => {
 
   const handleSubmit = () => {
     if (offersWithIds) {
-      submitOffer(api, offersWithIds);
+      submitOffer(apiUrl, offersWithIds);
     }
   };
 

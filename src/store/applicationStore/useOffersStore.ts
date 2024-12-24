@@ -1,19 +1,6 @@
 import { create } from 'zustand';
 import axios from 'axios';
-import { TOffers } from '@pages/CreditCard/components/Offers/offers.types';
-
-interface OffersStore {
-  selectedOfferId: string | null;
-  isSuccess: boolean;
-  isLoading: boolean;
-  isError: boolean;
-  submitOffer: (
-    apiUrl: string | undefined,
-    offers: TOffers[] | null,
-  ) => Promise<void>;
-  setSelectedOfferId: (id: string) => void;
-  setSuccess: (value: boolean) => void;
-}
+import { OffersStore } from './offers.types';
 
 const useOffersStore = create<OffersStore>((set, get) => ({
   selectedOfferId: null,
@@ -48,9 +35,10 @@ const useOffersStore = create<OffersStore>((set, get) => ({
           } else {
             set({ isError: true });
           }
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
-          set({ isError: true });
+			if (error instanceof Error) {
+				set({ isError: true });
+			}
         } finally {
           localStorage.removeItem('formStore');
         }

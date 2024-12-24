@@ -1,15 +1,8 @@
 import { useStepStore } from '@store/updateStep/useStepStore';
 import { create } from 'zustand';
+import { CodeState } from './code.types';
+import { apiUrl } from '@shared/api/api.consts';
 
-interface CodeState {
-  code: string[];
-  error: string | null;
-  loading: boolean;
-  isSuccess: boolean;
-  setCode: (index: number, value: string) => void;
-  clearCode: () => void;
-  sendCode: (applicationId: string) => Promise<void>;
-}
 
 export const useCodeStore = create<CodeState>((set, get) => ({
   code: ['', '', '', ''],
@@ -24,25 +17,23 @@ export const useCodeStore = create<CodeState>((set, get) => ({
     }),
   clearCode: () => set({ code: ['', '', '', ''], isSuccess: false }),
   sendCode: async (id) => {
-    const api = import.meta.env.VITE_BASE_URL || 'http://localhost:8080';
+    
     set({ loading: true, error: null, isSuccess: false });
     const { code } = get();
-    const confirmationCode = code.join(''); // объединяем код в строку
+    const confirmationCode = code.join('');
 
     try {
-      const response = await fetch(`${api}/document/${id}/sign/code`, {
+      const response = await fetch(`${apiUrl}/document/${id}/sign/code`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        // теперь отправляем строку вместо объекта
         body: JSON.stringify(confirmationCode), 
       });
 
       if (response.ok) {
         useStepStore.getState().updateStep(id, 'step5');
       } else {
-        console.log(response);
         throw new Error('Invalid confirmation code');
       }
 

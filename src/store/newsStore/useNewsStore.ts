@@ -3,9 +3,9 @@ import axios from 'axios';
 import { NewsStore, NewsItem } from './useNewsStore.types';
 import { pages, endpoint } from './useNewsStore.consts';
 import { ApiError } from './useNewsStore.types';
+import { news_api, newsKey } from '@shared/api/api.consts';
 
-const apiKey = import.meta.env.VITE_API_KEY_NEWS;
-const news_api = import.meta.env.VITE_NEWS_API;
+
 
 async function checkImageExists(url: string): Promise<boolean> {
   try {
@@ -24,7 +24,7 @@ export const useNewsStore = create<NewsStore>((set) => ({
     set({ loading: true, error: null });
     try {
       const response = await axios.get(
-        `${news_api}${endpoint}&pageSize=${pages}&apiKey=${apiKey}`,
+        `${news_api}${endpoint}&pageSize=${pages}&apiKey=${newsKey}`,
       );
 
       const filteredArticles = await Promise.all(

@@ -1,25 +1,9 @@
 import { create } from 'zustand';
 import axios from 'axios';
 import { ApiError } from '@store/newsStore/useNewsStore.types';
-import { TScore } from '@pages/ScoringStep/components/ScoringForm/form.types';
 import { useStepStore } from '@store/updateStep/useStepStore';
+import { FormStore } from './scoring.types';
 
-interface FormState {
-  isLoading: boolean;
-  success: boolean;
-  error: string | null;
-}
-
-interface FormStore {
-  forms: Record<string, FormState>;
-  submitForm: (
-    formName: string,
-    endpoint: string,
-    data: TScore,
-    id: string,
-  ) => Promise<void>;
-  resetFormState: (formName: string) => void;
-}
 
 const useScoringStore = create<FormStore>((set, get) => ({
   forms: {},

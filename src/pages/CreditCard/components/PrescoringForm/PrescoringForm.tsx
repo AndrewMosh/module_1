@@ -8,9 +8,9 @@ import Spinner from '@shared/Spinner/Spinner';
 import './PrescoringForm.scss';
 import Button from '@shared/UI/Button/Button';
 import { useSliderStore } from '@store/sliderStore/useSliderStore';
+import { apiUrl } from '@shared/api/api.consts';
 
 export const PrescoringForm = () => {
-  const api = import.meta.env.VITE_BASE_URL || 'http://localhost:8080';
   const { forms, submitForm } = useFormStore();
   const { value: amount } = useSliderStore();
 
@@ -57,7 +57,7 @@ export const PrescoringForm = () => {
       amount,
     };
 
-    await submitForm(formName, payload, `${api}${formEndpoint}`);
+    await submitForm(formName, payload, `${apiUrl}${formEndpoint}`);
   };
 
   return (

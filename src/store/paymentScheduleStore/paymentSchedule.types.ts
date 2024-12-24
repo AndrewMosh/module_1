@@ -1,4 +1,4 @@
-export type TSchedule = {
+type TSchedule = {
   date: string | Date;
   debtPayment: number;
   interestPayment: number;
@@ -6,3 +6,11 @@ export type TSchedule = {
   remainingDebt: number;
   totalPayment: number;
 };
+
+
+export interface PaymentScheduleState {
+  data: TSchedule[];
+  loading: boolean;
+  error: string | null;
+  fetchPaymentSchedule: (id: string) => Promise<void>;
+}

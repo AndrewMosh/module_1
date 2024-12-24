@@ -1,15 +1,8 @@
 import { create } from 'zustand';
 import axios from 'axios';
 import { useStepStore } from '@store/updateStep/useStepStore';
+import { DocumentState } from './sign.types';
 
-interface DocumentState {
-  isAgreed: boolean;
-  isLoading: boolean;
-  error: string | null;
-  isSuccess: boolean;
-  setAgreement: (value: boolean) => void;
-  submitAgreement: (api: string, id: string) => Promise<void>;
-}
 
 export const useSignStore = create<DocumentState>((set) => ({
   isAgreed: false,
@@ -24,12 +17,14 @@ export const useSignStore = create<DocumentState>((set) => ({
       await axios.post(url, { agreed: true });
       useStepStore.getState().updateStep(id, 'step4');
       set({ isLoading: false, isSuccess: true });
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (error: any) {
-      set({
-        isLoading: false,
-        error: error.response?.data?.message || 'Something went wrong',
-      });
+    } catch (error) {
+	  if (axios.isAxiosError(error)) {
+		set({
+			isLoading: false,
+			error: error.response?.data?.message || 'Something went wrong',
+		  });
+	  }
+     
     }
   },
 }));

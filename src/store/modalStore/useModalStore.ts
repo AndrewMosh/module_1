@@ -1,16 +1,7 @@
+import { apiUrl } from '@shared/api/api.consts';
 import { create } from 'zustand';
+import { ModalState } from './modal.types';
 
-interface ModalState {
-  showModal: boolean;
-  isSuccess: boolean;
-  loading: boolean;
-  error: string | null;
-  openModal: () => void;
-  closeModal: () => void;
-  denyApplication: (id: string) => Promise<void>;
-}
-
-const apiUrl = import.meta.env.VITE_BASE_URL || 'http://localhost:8080';
 
 export const useModalStore = create<ModalState>((set) => ({
   showModal: false,
