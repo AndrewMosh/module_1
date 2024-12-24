@@ -27,7 +27,7 @@ export const scoreSchema = z.object({
     ),
   passportIssueBranch: z
     .string()
-    .length(7, 'The series must be 6 characters long')
+    .length(7, 'The series must be 7 characters long')
     .regex(
       passportSeriesRegex,
       'The series must contain only digits or a hyphen',

@@ -1,10 +1,6 @@
 import { TScore } from "@pages/ScoringStep/components/ScoringForm/form.types";
+import { FormState } from "@store/prescoringStore/prescoring.types";
 
-interface FormState {
-  isLoading: boolean;
-  success: boolean;
-  error: string | null;
-}
 
 export interface FormStore {
   forms: Record<string, FormState>;

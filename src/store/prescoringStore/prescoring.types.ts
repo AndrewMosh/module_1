@@ -4,5 +4,5 @@ export interface FormState {
 	isLoading: boolean;
 	success: boolean;
 	error: string | null;
-	data: TOffers[] | null;
+	data?: TOffers[] | null;
   }

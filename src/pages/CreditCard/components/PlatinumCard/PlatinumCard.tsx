@@ -4,11 +4,11 @@ import './PlatinumCard.scss';
 import Button from '@shared/UI/Button/Button';
 import Tooltip from '@shared/UI/Tooltip/Tooltip';
 import { scrollToAnchor } from '@utils/scrollToAnchor';
-import useFormStore from '@store/formStore/useFormStore';
+import usePrescoringStore from '@store/prescoringStore/usePrescoringStore';
 import { formName } from '../PrescoringForm/form.consts';
 
 export const PlatinumCard = () => {
-  const { forms } = useFormStore();
+  const { forms } = usePrescoringStore();
 
   const formState = forms[formName] || {
     isLoading: false,

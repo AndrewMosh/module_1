@@ -4,12 +4,12 @@ import { CardBase } from '@shared/UI/Card/CardBase/CardBase';
 import './Prescoring.scss';
 import { CustomizeCard } from '../CustomizeCard/CustomizeCard';
 import { formName } from '../PrescoringForm/form.consts';
-import useFormStore from '@store/formStore/useFormStore';
+import usePrescoringStore from '@store/prescoringStore/usePrescoringStore';
 import { Offers } from '../Offers/Offers';
 import Spinner from '@shared/Spinner/Spinner';
 
 export const Prescoring = () => {
-  const { forms, restoreFormState } = useFormStore();
+  const { forms, restoreFormState } = usePrescoringStore();
   const [isRestored, setIsRestored] = useState(false);
 
   useEffect(() => {

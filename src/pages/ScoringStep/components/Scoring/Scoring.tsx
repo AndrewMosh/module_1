@@ -7,11 +7,14 @@ import { formName } from '../ScoringForm/form.consts';
 import { WaitForDecision } from '@pages/ScoringStep/components/WaitForDecision/WaitForDecision';
 import useLocalStorageData from '@hooks/useLocalStorageData';
 import Spinner from '@shared/Spinner/Spinner';
+import useApplicationData from '@hooks/useApplicationData';
 
 export const Scoring = () => {
   const { id } = useParams();
   const { forms } = useScoringStore();
   const { complete, loading } = useLocalStorageData(id ?? '', 'step2');
+  const { loading:isLoading, error} = useApplicationData(id ?? '');
+  
 
   const formState = forms[formName] || {
     isLoading: false,
@@ -20,19 +23,20 @@ export const Scoring = () => {
     data: null,
   };
 
-  if (loading) {
+  if (loading || isLoading) {
     return <Spinner />;
   }
 
   return (
     <>
       {complete && <WaitForDecision />}
-      {!formState.success && !complete && (
+      {!formState.success && !complete && !error && (
         <div className="scoring">
           <CardBase>{id ? <ScoringForm id={id} /> : null}</CardBase>
         </div>
       )}
       {formState.success && <WaitForDecision />}
+	  {error && <div className="scoring__error">Error: {error}</div>}
     </>
   );
 };

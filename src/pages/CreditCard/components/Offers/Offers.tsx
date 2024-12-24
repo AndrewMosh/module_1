@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import useFormStore from '@store/formStore/useFormStore';
+import usePrescoringStore from '@store/prescoringStore/usePrescoringStore';
 import { TOffers } from './offers.types';
 import { CardBase } from '@shared/UI/Card/CardBase/CardBase';
 import pic from '@assets/images/offer.png';
@@ -10,13 +10,13 @@ import './Offers.scss';
 import { formatNumber } from '@utils/formatNumber';
 import { v4 as uuidv4 } from 'uuid';
 import { SentToEmail } from '../SentToEmail/SentToEmail';
-import useOffersStore from '@store/applicationStore/useOffersStore';
+import useOffersStore from '@store/offersStore/useOffersStore';
 import Spinner from '@shared/Spinner/Spinner';
 import { apiUrl } from '@shared/api/api.consts';
 
 export const Offers = () => {
-  const { forms } = useFormStore();
-  const offers: TOffers[] | null = forms.contactForm.data;
+  const { forms } = usePrescoringStore();
+  const offers: TOffers[] | null = forms.contactForm.data ?? null;
   const {
     setSelectedOfferId,
     selectedOfferId,

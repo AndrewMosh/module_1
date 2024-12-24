@@ -2,7 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { formSchema, FormData, TData } from './form.types';
 import { DynamicInput } from '@shared/UI/DynamicInput/DynamicInput';
-import useFormStore from '@store/formStore/useFormStore';
+import usePrescoringStore from '@store/prescoringStore/usePrescoringStore';
 import { formEndpoint, formFields, formName } from './form.consts';
 import Spinner from '@shared/Spinner/Spinner';
 import './PrescoringForm.scss';
@@ -11,7 +11,7 @@ import { useSliderStore } from '@store/sliderStore/useSliderStore';
 import { apiUrl } from '@shared/api/api.consts';
 
 export const PrescoringForm = () => {
-  const { forms, submitForm } = useFormStore();
+  const { forms, submitForm } = usePrescoringStore();
   const { value: amount } = useSliderStore();
 
   const formState = forms[formName] || {
