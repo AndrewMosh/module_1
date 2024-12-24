@@ -5,11 +5,11 @@ import {
   RouteObject,
 } from 'react-router-dom';
 import { CreditCard } from '@pages/CreditCard/CreditCard';
-import { NotFound } from '@pages/NotFound/NotFound';
 import { ScoringStep } from '@pages/ScoringStep/ScoringStep';
 import { DocumentStep } from '@pages/DocumentStep/DocumentStep';
 import { SignStep } from '@pages/SignStep/SignStep';
 import { CodeStep } from '@pages/CodeStep/CodeStep';
+import { NotFoundPage } from '@pages/NotFoundPage/NotFoundPage';
 
 const routes: RouteObject[] = [
   {
@@ -38,7 +38,7 @@ const routes: RouteObject[] = [
   },
   {
     path: '*',
-    element: <NotFound />,
+    element: <NotFoundPage />,
   },
 ];
 

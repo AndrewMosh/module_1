@@ -5,35 +5,34 @@ import Spinner from '@shared/Spinner/Spinner';
 import { CardBase } from '@shared/UI/Card/CardBase/CardBase';
 import { Formed } from './components/Formed/Formed';
 import { useDocumentStore } from '@store/documetStore/useDocumentStore';
-import useLocalStorageData from '@hooks/useLocalStorageData';
 import useApplicationData from '@hooks/useApplicationData';
+import { NotFound } from '@pages/NotFoundPage/components/NotFound/NotFound';
 
 
 
 export const DocumentStep = () => {
   const { id } = useParams();
   const { isSuccess } = useDocumentStore();
-  const { complete, loading } = useLocalStorageData(id ?? '', 'step3');
-  const { loading:isLoading, status } = useApplicationData(id ?? '');
+  const { loading:isLoading, data } = useApplicationData(id ?? '');
 
  
 
-  if (loading || isLoading) {
+  if (isLoading) {
     return <Spinner />;
   }
 
   
   return (
     <Layout>
-      {complete && <Formed />}
+      {data?.statusHistory && data.statusHistory.length > 3   && <NotFound/>}
 
-      {!isSuccess && !complete && status!=='CLIENT_DENIED' && (
+      {!isSuccess && data?.statusHistory.length===3 && (
         <div className="scoring">
           <CardBase>{id ? <Document id={id} /> : null}</CardBase>
         </div>
       )}
       {isSuccess && <Formed />}
-	  {status==='CLIENT_DENIED' && <div className="document__error">Application was denied by the client</div>}
+	  {data?.status==='CLIENT_DENIED' && <div className="document__error">Application was denied by the client</div>}
     </Layout>
   );
 };

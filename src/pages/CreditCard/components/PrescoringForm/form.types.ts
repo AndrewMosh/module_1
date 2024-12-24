@@ -47,4 +47,5 @@ export type TData = {
   passportNumber: string;
   term: number | string;
   amount: number;
+  account?: string;
 };

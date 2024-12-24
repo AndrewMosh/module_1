@@ -1,28 +1,27 @@
 import { Layout } from '@shared/Layout/Layout';
 import { SignForm } from './components/SignForm/SignForm';
 import { useParams } from 'react-router-dom';
-import useLocalStorageData from '@hooks/useLocalStorageData';
 import Spinner from '@shared/Spinner/Spinner';
 import { useSignStore } from '@store/signStore/useSignStore';
 import { Signed } from './components/Signed/Signed';
 import useApplicationData from '@hooks/useApplicationData';
+import { NotFound } from '@pages/NotFoundPage/components/NotFound/NotFound';
 
 export const SignStep = () => {
   const { id } = useParams();
-  const { complete, loading } = useLocalStorageData(id ?? '', 'step4');
   const { isSuccess } = useSignStore();
-  const { loading:isLoading, error, status} = useApplicationData(id ?? '');
+  const { loading:isLoading, error, data} = useApplicationData(id ?? '');
 
-  if (loading || isLoading) {
+  if (isLoading) {
     return <Spinner />;
   }
-  const statusInDemand= 'DOCUMENT_CREATED'
+
   return (
     <Layout>
-      {complete && <Signed />}
-      {id && !isSuccess && !complete && !error && status===statusInDemand ? <SignForm id={id} /> : null}
+      {data?.statusHistory && data.statusHistory.length > 11 &&   <NotFound />}
+      {id && !isSuccess  && !error && data?.statusHistory.length === 11 ? <SignForm id={id} /> : null}
       {isSuccess && <Signed />}
-	  {error || status!== statusInDemand &&  <div className="sign__error2">Документы еще не подписаны или заявка была отклонена</div>}
+	  {error && <div className="sign__error2">Document has not been created or your application has been denied</div>}
     </Layout>
   );
 };

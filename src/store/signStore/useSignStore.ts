@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import axios from 'axios';
-import { useStepStore } from '@store/updateStep/useStepStore';
 import { DocumentState } from './sign.types';
 
 
@@ -15,7 +14,6 @@ export const useSignStore = create<DocumentState>((set) => ({
     try {
       const url = `${api}/document/${id}/sign`;
       await axios.post(url, { agreed: true });
-      useStepStore.getState().updateStep(id, 'step4');
       set({ isLoading: false, isSuccess: true });
     } catch (error) {
 	  if (axios.isAxiosError(error)) {

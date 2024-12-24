@@ -1,10 +1,8 @@
-import { Layout } from '@shared/Layout/Layout';
 import Button from '@shared/UI/Button/Button';
 import notFound from '@assets/images/404.png';
 import './NotFound.scss';
 export const NotFound = () => {
   return (
-    <Layout>
       <div className="not-found">
         <div className="not-found__container">
           <div className="not-found__inner">
@@ -25,6 +23,5 @@ export const NotFound = () => {
           </div>
         </div>
       </div>
-    </Layout>
   );
 };

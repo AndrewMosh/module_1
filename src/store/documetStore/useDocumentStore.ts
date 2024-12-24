@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { useStepStore } from '@store/updateStep/useStepStore';
 import { apiUrl } from '@shared/api/api.consts';
 import { DocumentState } from './document.types';
 
@@ -22,7 +21,6 @@ export const useDocumentStore = create<DocumentState>((set) => ({
       });
 
       if (response.ok) {
-        useStepStore.getState().updateStep(id, 'step3');
         set({ isSuccess: true });
       } else {
         throw new Error('Failed to submit agreement');

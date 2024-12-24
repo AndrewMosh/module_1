@@ -1,14 +1,13 @@
 import { create } from 'zustand';
 import axios from 'axios';
 import { ApiError } from '@store/newsStore/useNewsStore.types';
-import { useStepStore } from '@store/updateStep/useStepStore';
 import { FormStore } from './scoring.types';
 
 
 const useScoringStore = create<FormStore>((set, get) => ({
   forms: {},
 
-  submitForm: async (formName, endpoint, data, id) => {
+  submitForm: async (formName, endpoint, data) => {
     const forms = get().forms;
 
     set({
@@ -25,9 +24,6 @@ const useScoringStore = create<FormStore>((set, get) => ({
     try {
       await axios.put(endpoint, data);
 
-      if (id) {
-        useStepStore.getState().updateStep(id, 'step2');
-      }
 
       set({
         forms: {

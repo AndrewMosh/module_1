@@ -1,4 +1,3 @@
-import { useStepStore } from '@store/updateStep/useStepStore';
 import { create } from 'zustand';
 import { CodeState } from './code.types';
 import { apiUrl } from '@shared/api/api.consts';
@@ -23,19 +22,13 @@ export const useCodeStore = create<CodeState>((set, get) => ({
     const confirmationCode = code.join('');
 
     try {
-      const response = await fetch(`${apiUrl}/document/${id}/sign/code`, {
+       await fetch(`${apiUrl}/document/${id}/sign/code`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(confirmationCode), 
       });
-
-      if (response.ok) {
-        useStepStore.getState().updateStep(id, 'step5');
-      } else {
-        throw new Error('Invalid confirmation code');
-      }
 
       set({ loading: false, isSuccess: true });
     } catch (error) {
