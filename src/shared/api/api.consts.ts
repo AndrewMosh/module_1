@@ -4,4 +4,3 @@ export const rates_api = import.meta.env.VITE_RATES_API;
 export const newsKey = import.meta.env.VITE_API_KEY_NEWS;
 export const news_api = import.meta.env.VITE_NEWS_API;
 
-

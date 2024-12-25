@@ -19,7 +19,7 @@ export const CodeStep = () => {
   const statusInDemand = 'CREDIT_ISSUED'
   return (
     <Layout>
-      {data?.status===statusInDemand && <NotFound />}
+      {data?.status!==prevStatus && <NotFound />}
       {id &&  !isSuccess && data?.sesCode && !data?.signDate ? <CodeInput id={id} /> : null}
       {isSuccess &&  data?.status!==statusInDemand && <Completed />}
 	  {error || data?.status!==statusInDemand && data?.status!==prevStatus &&   <div className="code__error2">Document has not been created or been denied</div>}

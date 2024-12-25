@@ -16,9 +16,11 @@ export const SignStep = () => {
     return <Spinner />;
   }
 
+  const isSigned = data?.sesCode || data?.signDate || data?.status==='CREDIT_ISSUED' || data?.status==='CC_APPROVED' || data?.status==='APPROVED' || data?.status==='DENIED' || data?.status==='CLIENT_DENIED' || data?.status==='CC_DENIED' || data?.status==='PREAPPROVED';
+
   return (
     <Layout>
-      {data?.sesCode &&   <NotFound />}
+      {isSigned  &&   <NotFound />}
 
       {id && data?.status==='DOCUMENT_CREATED' && !isSuccess && !data?.sesCode &&<SignForm id={id} /> }
       {isSuccess && <Signed />}
