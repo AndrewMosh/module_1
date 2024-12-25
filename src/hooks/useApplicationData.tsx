@@ -2,13 +2,16 @@ import { useApplicationStore } from '@store/applicationStore/useApplicationStore
 import { useEffect } from 'react';
 
 const useApplicationData = (id: number | string) => {
-  const { data, loading, error, fetchApplication } = useApplicationStore();
+  const { data, loading, error, fetchApplication, initialized } = useApplicationStore();
 
   useEffect(() => {
-    fetchApplication(id); 
-  }, [id, fetchApplication]);
+	if (id) {
+		fetchApplication(id); 
+	}
+    
+  }, [id]);
 
-  return { data, loading, error };
+  return { data, loading, error, initialized };
 };
 
 export default useApplicationData;

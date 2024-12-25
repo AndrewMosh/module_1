@@ -10,16 +10,17 @@ import { NotFound } from '@pages/NotFoundPage/components/NotFound/NotFound';
 export const SignStep = () => {
   const { id } = useParams();
   const { isSuccess } = useSignStore();
-  const { loading:isLoading, error, data} = useApplicationData(id ?? '');
+  const { loading:isLoading, error, data, initialized} = useApplicationData(id ?? '');
 
-  if (isLoading) {
+  if (isLoading || !initialized) {
     return <Spinner />;
   }
 
   return (
     <Layout>
-      {data?.statusHistory && data.statusHistory.length > 11 &&   <NotFound />}
-      {id && !isSuccess  && !error && data?.statusHistory.length === 11 ? <SignForm id={id} /> : null}
+      {data?.sesCode &&   <NotFound />}
+
+      {id && data?.status==='DOCUMENT_CREATED' && !isSuccess && !data?.sesCode &&<SignForm id={id} /> }
       {isSuccess && <Signed />}
 	  {error && <div className="sign__error2">Document has not been created or your application has been denied</div>}
     </Layout>

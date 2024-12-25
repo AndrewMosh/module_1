@@ -12,6 +12,7 @@ export interface TData {
   credit: null;
   id: number | string;
   sesCode: null | string;
+  signDate: null | string;
   status: string;
   statusHistory: StatusHistory[];
 }
@@ -20,5 +21,6 @@ export interface ApplicationState {
   data:  null | TData;
   loading: boolean;
   error: string | null;
+  initialized: boolean;
   fetchApplication: (id: number | string) => Promise<void>;
 }

@@ -13,9 +13,9 @@ export const NotFound = () => {
             </div>
             <Button
               className="not-found__button"
-              onClick={() => window.history.back()}
+              onClick={() => { window.location.href = '/'; }}
             >
-              Go back
+              Home
             </Button>
           </div>
           <div className="not-found__image">

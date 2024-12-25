@@ -10,31 +10,37 @@ import useApplicationData from '@hooks/useApplicationData';
 import { NotFound } from '@pages/NotFoundPage/components/NotFound/NotFound';
 
 export const Scoring = () => {
-  const { id } = useParams();
-  const { forms } = useScoringStore();
-  const { loading: isLoading, error, data } = useApplicationData(id ?? '');
-
-  const formState = forms[formName] || {
-    isLoading: false,
-    success: false,
-    error: null,
-    data: null,
+	const { id } = useParams();
+	const { forms } = useScoringStore();
+	const { loading: isLoading, error, data, initialized } = useApplicationData(id ?? '');
+  
+	const formState = forms[formName] || {
+	  isLoading: false,
+	  success: false,
+	  error: null,
+	  data: null,
+	};
+  
+	if (isLoading || !initialized) {
+	  return <Spinner />;
+	}
+  
+	if (error) {
+	  return <div className="scoring__error">Error: {error}</div>;
+	}
+  
+	if (!isLoading && data?.status !== 'APPROVED') {
+	  return <NotFound />;
+	}
+  
+	return (
+	  <div className="scoring">
+		{formState.success ? (
+		  <WaitForDecision />
+		) : (
+		  <CardBase>{id ? <ScoringForm id={id} /> : null}</CardBase>
+		)}
+	  </div>
+	);
   };
-
-  if (isLoading) {
-    return <Spinner />;
-  }
-
-  return (
-    <>
-      {data?.statusHistory && data.statusHistory.length > 2 && <NotFound />}
-      {!formState.success && data?.statusHistory.length===2 && !error && (
-        <div className="scoring">
-          <CardBase>{id ? <ScoringForm id={id} /> : null}</CardBase>
-        </div>
-      )}
-      {formState.success && <WaitForDecision />}
-      {error && <div className="scoring__error">Error: {error}</div>}
-    </>
-  );
-};
+  

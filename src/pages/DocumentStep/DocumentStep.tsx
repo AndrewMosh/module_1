@@ -13,20 +13,20 @@ import { NotFound } from '@pages/NotFoundPage/components/NotFound/NotFound';
 export const DocumentStep = () => {
   const { id } = useParams();
   const { isSuccess } = useDocumentStore();
-  const { loading:isLoading, data } = useApplicationData(id ?? '');
+  const { loading:isLoading, data, initialized } = useApplicationData(id ?? '');
 
  
 
-  if (isLoading) {
+  if (isLoading || !initialized) {
     return <Spinner />;
   }
 
   
   return (
     <Layout>
-      {data?.statusHistory && data.statusHistory.length > 3   && <NotFound/>}
+      {data?.status!=='CC_APPROVED' && !isSuccess && <NotFound/>}
 
-      {!isSuccess && data?.statusHistory.length===3 && (
+      {data?.status==='CC_APPROVED' && !isSuccess && (
         <div className="scoring">
           <CardBase>{id ? <Document id={id} /> : null}</CardBase>
         </div>
