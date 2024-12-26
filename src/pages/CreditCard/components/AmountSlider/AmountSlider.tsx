@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './AmountSlider.scss';
 import { useSliderStore } from '@store/sliderStore/useSliderStore';
-import { grey_slider, purple_slider } from './slider.consts';
+import { useSliderBackground } from './hooks/useSliderBackground';
 
 export const AmountSlider: React.FC = () => {
   const { value, setValue } = useSliderStore();
@@ -11,15 +11,7 @@ export const AmountSlider: React.FC = () => {
     setValue(newValue);
   };
 
-  useEffect(() => {
-    const rangeInput = document.querySelector(
-      '.slider__input',
-    ) as HTMLInputElement;
-    if (rangeInput) {
-      const percent = ((value - 15000) / (600000 - 15000)) * 100;
-      rangeInput.style.background = `linear-gradient(to right, ${purple_slider} ${percent}%, ${grey_slider} ${percent}%)`;
-    }
-  }, [value]);
+  useSliderBackground(value); 
 
   return (
     <div className="slider">

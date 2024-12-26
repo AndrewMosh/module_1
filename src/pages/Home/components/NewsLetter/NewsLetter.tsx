@@ -1,31 +1,17 @@
+import './NewsLetter.scss';
 import mail from '@assets/svg/email.svg';
 import message from '@assets/svg/message.svg';
-import './NewsLetter.scss';
-import useSubscriptionStore from '@store/subscribtionStore/useSubscriptionStore';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { subscribed } from './NewsLetter.consts';
-import { SubscriptionFormData, subscriptionSchema } from './subscription.types';
+import useSubscription from './hooks/useSubscription';
+import useFormValidation from './hooks/useFormValidation';
 
 export const NewsLetter = () => {
-  const { isSubscribed, subscribe } = useSubscriptionStore();
+  const { isSubscribed, isSubmitting, handleSubscribe } = useSubscription();
+  const { register, handleSubmit, errors, reset } = useFormValidation();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<SubscriptionFormData>({
-    resolver: zodResolver(subscriptionSchema),
-  });
-
-  const onSubmit = async (data: SubscriptionFormData) => {
-    try {
-      await subscribe(data.email);
-      reset();
-    } catch (err) {
-      console.error('Subscription error:', err);
-    }
+  const onSubmit = async (data: { email: string }) => {
+    await handleSubscribe(data.email);
+    reset();
   };
 
   return (
@@ -48,14 +34,16 @@ export const NewsLetter = () => {
                 placeholder="Your email"
               />
             </div>
-            <button className="newsletter__button">
+            <button
+              className="newsletter__button"
+              disabled={isSubmitting}
+            >
               <img src={message} alt="send" /> Subscribe
             </button>
           </form>
         )}
-        {errors.email && (
-          <p className="newsletter__error">{errors.email.message}</p>
-        )}
+
+        {errors.email && <p className="newsletter__error">{errors.email.message}</p>}
       </div>
     </section>
   );
