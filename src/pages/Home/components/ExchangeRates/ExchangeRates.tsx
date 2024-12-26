@@ -1,46 +1,28 @@
 import './ExchangeRates.scss';
 import bank from '@assets/svg/bank.svg';
-import { formatDate } from '@utils/formatDate';
-import { useEffect } from 'react';
+import { baseCurrency, requiredCurrencies, UPDATE_INTERVAL } from '@pages/Home/components/ExchangeRates/currency.consts';
+import useFetchExchangeRates from './hooks/useFetchExchangeRates';
 import { useCurrencyStore } from '@store/currencyStore/useCurrencyStore';
-import {
-  baseCurrency,
-  requiredCurrencies,
-  UPDATE_INTERVAL,
-} from '@pages/Home/components/ExchangeRates/currency.consts';
+import { formatDate } from '@utils/formatDate';
+
 
 const ExchangeRates = () => {
   const today = formatDate(new Date());
-  const { rates, isLoading, error, fetchRates } = useCurrencyStore();
+  const { rates, isLoading, error } = useCurrencyStore();
 
-  useEffect(() => {
-    fetchRates(baseCurrency, requiredCurrencies);
-
-    const intervalId = setInterval(() => {
-      fetchRates(baseCurrency, requiredCurrencies);
-    }, UPDATE_INTERVAL);
-
-    return () => clearInterval(intervalId);
-  }, [baseCurrency, fetchRates]);
+  useFetchExchangeRates(baseCurrency, requiredCurrencies, UPDATE_INTERVAL);
 
   const placeholderRows = requiredCurrencies.map((currency) => (
-    <div
-      key={currency}
-      className="exchange-rates__row exchange-rates__row--loading"
-    >
+    <div key={currency} className="exchange-rates__row exchange-rates__row--loading">
       <div className="exchange-rates__currency">{currency}:</div>
-      <div className="exchange-rates__rate exchange-rates__rate--loading">
-        Loading...
-      </div>
+      <div className="exchange-rates__rate exchange-rates__rate--loading">Loading...</div>
     </div>
   ));
 
   return (
     <section className="exchange-rates">
       <div className="exchange-rates__header">
-        <h2 className="exchange-rates__title">
-          Exchange rate in internet bank
-        </h2>
+        <h2 className="exchange-rates__title">Exchange rate in internet bank</h2>
         <span className="exchange-rates__update">
           Update every 15 minutes, {today}
         </span>
@@ -62,12 +44,8 @@ const ExchangeRates = () => {
                 ? placeholderRows
                 : Object.entries(rates).map(([currency, rate]) => (
                     <div key={currency} className="exchange-rates__row">
-                      <div className="exchange-rates__currency">
-                        {currency}:
-                      </div>
-                      <div className="exchange-rates__rate">
-                        {rate.toFixed(2)}
-                      </div>
+                      <div className="exchange-rates__currency">{currency}:</div>
+                      <div className="exchange-rates__rate">{rate.toFixed(2)}</div>
                     </div>
                   ))}
             </div>

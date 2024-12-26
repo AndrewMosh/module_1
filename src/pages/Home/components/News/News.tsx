@@ -1,42 +1,22 @@
-import React, { useEffect, useState } from 'react';
 import './News.scss';
 import { useNewsStore } from '@store/newsStore/useNewsStore';
 import Spinner from '@shared/Spinner/Spinner';
-import { useCalcScrollWidth } from '@hooks/useCalcScrollWidth';
-import { UPDATE_INTERVAL } from '@pages/Home/components/ExchangeRates/currency.consts';
+import useFetchNews from './hooks/useFetchNews';
+import usePagination from './hooks/usePagination';
+import useNewsSliderStyle from './hooks/useNewsSliderStyle';
+
 
 export const News: React.FC = () => {
-  const { news, loading, error, fetchNews } = useNewsStore();
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const { news, loading, error } = useNewsStore();
 
-  const calcScrollWidth = useCalcScrollWidth();
+  useFetchNews();
 
-  useEffect(() => {
-    fetchNews();
-
-    const intervalId = setInterval(() => {
-      fetchNews();
-    }, UPDATE_INTERVAL);
-
-    return () => clearInterval(intervalId);
-  }, []);
-
-  const handleNext = () => {
-    if (currentIndex < news.length - 1) {
-      setCurrentIndex((prevIndex) => prevIndex + 1);
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex((prevIndex) => prevIndex - 1);
-    }
-  };
+  const { currentIndex, handleNext, handlePrev } = usePagination(0, news.length - 1);
+  const sliderStyle = useNewsSliderStyle(currentIndex);
 
   if (loading) return <Spinner />;
   if (error) return <div className="news__error">{error}</div>;
-  if (!news.length)
-    return <div className="news__error">No news available :(</div>;
+  if (!news.length) return <div className="news__error">No news available :(</div>;
 
   return (
     <div className="news">
@@ -49,9 +29,7 @@ export const News: React.FC = () => {
       <div className="news__slider">
         <div
           className="news__wrapper"
-          style={{
-            transform: `translateX(-${currentIndex * calcScrollWidth}%)`,
-          }}
+          style={sliderStyle}
         >
           {news.map((item, index) => (
             <a
