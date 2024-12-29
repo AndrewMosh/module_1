@@ -1,6 +1,6 @@
 import React from 'react';
 import './AmountSlider.scss';
-import { useSliderStore } from '@store/sliderStore/useSliderStore';
+import { useSliderStore } from '@store';
 import { useSliderBackground } from './hooks/useSliderBackground';
 
 export const AmountSlider: React.FC = () => {

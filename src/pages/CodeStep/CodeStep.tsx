@@ -1,11 +1,9 @@
-import { Layout } from '@shared/Layout/Layout';
+import { Layout, Spinner, useApplicationData } from '@shared';
 import { CodeInput } from './components/CodeInput/CodeInput';
 import { useParams } from 'react-router-dom';
-import Spinner from '@shared/Spinner/Spinner';
 import { Completed } from './components/Completed/Completed';
-import { useCodeStore } from '@store/codeStore/useCodeStore';
-import useApplicationData from '@shared/hooks/useApplicationData';
-import { NotFound } from '@pages/NotFoundPage/components/NotFound/NotFound';
+import { useCodeStore } from '@store';
+import { NotFound } from '@pages';
 
 export const CodeStep = () => {
   const { id } = useParams();

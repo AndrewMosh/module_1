@@ -1,11 +1,8 @@
-import { Layout } from '@shared/Layout/Layout';
+import { Layout, Spinner, CardBase, useApplicationData  } from '@shared';
 import { Document } from './components/Document/Document';
 import { useParams } from 'react-router-dom';
-import Spinner from '@shared/Spinner/Spinner';
-import { CardBase } from '@shared/UI/Card/CardBase/CardBase';
 import { Formed } from './components/Formed/Formed';
-import { useDocumentStore } from '@store/documetStore/useDocumentStore';
-import useApplicationData from '@shared/hooks/useApplicationData';
+import { useDocumentStore } from '@store';
 import { NotFound } from '@pages/NotFoundPage/components/NotFound/NotFound';
 
 export const DocumentStep = () => {

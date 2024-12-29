@@ -1,6 +1,6 @@
 import './Cashback.scss';
 import { cashback } from './cashback.consts';
-import { Card } from '@shared/UI/Card/Card';
+import { Card } from '@shared';
 import { evenColor, oddColor_cashback } from '@shared/UI/Card/card.consts';
 
 export const Cashback = () => {

@@ -1,10 +1,10 @@
-import ExchangeRates from '@pages/Home/components/ExchangeRates/ExchangeRates';
-import Features from '@pages/Home/components/Features/Features';
-import { Layout } from '@shared/Layout/Layout';
-import { NewsLetter } from '@pages/Home/components/NewsLetter/NewsLetter';
-import { Map } from '@pages/Home/components/Map/Map';
-import { News } from '@pages/Home/components/News/News';
-import { CardSelection } from '@pages/Home/components/CardSelection/CardSelection';
+import ExchangeRates from './components/ExchangeRates/ExchangeRates';
+import Features from './components/Features/Features';
+import { Layout } from '@shared';
+import { NewsLetter } from './components/NewsLetter/NewsLetter';
+import { Map } from './components/Map/Map';
+import { News } from './components/News/News';
+import { CardSelection } from './components/CardSelection/CardSelection';
 
 export default function Home() {
   return (

@@ -1,4 +1,4 @@
-import { useCalcScrollWidth } from '@pages/Home/components/News/hooks/useCalcScrollWidth';
+import { useCalcScrollWidth } from './useCalcScrollWidth';
 
 const useNewsSliderStyle = (currentIndex: number) => {
   const calcScrollWidth = useCalcScrollWidth();

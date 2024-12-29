@@ -1,5 +1,5 @@
-import { Layout } from "@shared/Layout/Layout";
-import { NotFound } from "./components/NotFound/NotFound";
+import { Layout } from "@shared";
+import { NotFound } from "@pages";
 
 export const NotFoundPage = () => {
   return (

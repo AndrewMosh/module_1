@@ -1,6 +1,5 @@
-import Header from '@shared/Header/Header';
+import { Footer, Header } from '@shared';
 import './Layout.scss';
-import { Footer } from '@shared/Footer/Footer';
 
 export const Layout = ({ children }: { children: React.ReactNode }) => (
   <>

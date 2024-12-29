@@ -1,7 +1,7 @@
 import './InfoSection.scss';
 import { Tabs } from '@pages/CreditCard/components/Tabs/Tabs';
 import { tabs } from './tabs.consts';
-import { useTabsStore } from '@store/tabsStore/useTabsStore';
+import { useTabsStore } from '@store';
 export const InfoSection = () => {
   const activeTab = useTabsStore((state) => state.activeTab);
   return (

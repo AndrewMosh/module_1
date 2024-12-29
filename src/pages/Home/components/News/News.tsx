@@ -1,6 +1,6 @@
 import './News.scss';
-import { useNewsStore } from '@store/newsStore/useNewsStore';
-import Spinner from '@shared/Spinner/Spinner';
+import { useNewsStore } from '@store';
+import {Spinner} from '@shared';
 import useFetchNews from './hooks/useFetchNews';
 import usePagination from './hooks/usePagination';
 import useNewsSliderStyle from './hooks/useNewsSliderStyle';

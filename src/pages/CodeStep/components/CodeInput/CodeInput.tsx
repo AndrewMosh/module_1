@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import './CodeInput.scss';
-import { useCodeStore } from '@store/codeStore/useCodeStore';
-import Spinner from '@shared/Spinner/Spinner';
+import { useCodeStore } from '@store';
+import {Spinner} from '@shared';
 
 export const CodeInput = ({ id }: { id: string }) => {
   const { code, setCode, sendCode, error, loading } = useCodeStore();

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './DenyModal.scss';
-import Button from '@shared/UI/Button/Button';
-import { useModalStore } from '@store/modalStore/useModalStore';
+import {Button} from '@shared';
+import { useModalStore } from '@store';
 
 const DenyModal: React.FC<{ id: string }> = ({ id }) => {
   const {

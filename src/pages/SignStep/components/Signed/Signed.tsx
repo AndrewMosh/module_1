@@ -1,4 +1,4 @@
-import { Success } from '@shared/SuccessComponent/Success';
+import { Success } from '@shared';
 export const Signed = () => {
   return (
     <Success

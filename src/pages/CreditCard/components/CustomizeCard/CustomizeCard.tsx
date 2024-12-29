@@ -1,6 +1,6 @@
 import './CustomizeCard.scss';
 import { AmountSlider } from '../AmountSlider/AmountSlider';
-import { useSliderStore } from '@store/sliderStore/useSliderStore';
+import { useSliderStore } from '@store';
 import { formatNumber } from '@utils/formatNumber';
 
 export const CustomizeCard = () => {

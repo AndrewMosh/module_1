@@ -1,13 +1,11 @@
 import { useParams } from 'react-router-dom';
 import './Scoring.scss';
-import { CardBase } from '@shared/UI/Card/CardBase/CardBase';
+import { CardBase, Spinner, useApplicationData } from '@shared';
 import { ScoringForm } from '../ScoringForm/ScoringForm';
-import useScoringStore from '@store/scoringStore/useScoringStore';
+import {useScoringStore} from '@store';
 import { formName } from '../ScoringForm/form.consts';
 import { WaitForDecision } from '@pages/ScoringStep/components/WaitForDecision/WaitForDecision';
-import Spinner from '@shared/Spinner/Spinner';
-import useApplicationData from '@shared/hooks/useApplicationData';
-import { NotFound } from '@pages/NotFoundPage/components/NotFound/NotFound';
+import { NotFound } from '@pages';
 
 export const Scoring = () => {
   const { id } = useParams();

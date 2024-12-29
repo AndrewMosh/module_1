@@ -1,4 +1,4 @@
-import Button from '@shared/UI/Button/Button';
+import {Button} from '@shared';
 import notFound from '@assets/images/404.png';
 import './NotFound.scss';
 export const NotFound = () => {

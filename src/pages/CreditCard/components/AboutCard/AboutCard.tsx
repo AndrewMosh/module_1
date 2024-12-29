@@ -1,5 +1,5 @@
 import { about_cards } from './about-card.consts';
-import { Card } from '@shared/UI/Card/Card';
+import { Card } from '@shared';
 import './AboutCard.scss';
 import { useCardColors } from './hooks/useCardColors';
 

@@ -1,13 +1,9 @@
 import { useEffect, useState } from 'react';
 import './Document.scss';
-import Button from '@shared/UI/Button/Button';
-import Table from '@shared/UI/Table/Table';
+import {Button,Table, Checkbox, Spinner }from '@shared';
 import { columns } from './document.consts';
-import Checkbox from '@shared/UI/Input/Checkbox/Checkbox';
 import DenyModal from '../DenyModal/DenyModal';
-import Spinner from '@shared/Spinner/Spinner';
-import { usePaymentScheduleStore } from '@store/paymentScheduleStore/usePaymentScheduleStore';
-import { useDocumentStore } from '@store/documetStore/useDocumentStore';
+import { usePaymentScheduleStore, useDocumentStore } from '@store';
 
 export const Document = ({ id }: { id: string }) => {
   const [isLoaded, setIsLoaded] = useState(false);

@@ -1,6 +1,5 @@
 import offer from '@assets/images/offer.png';
-import { Success } from '@shared/SuccessComponent/Success';
-import Button from '@shared/UI/Button/Button';
+import { Success, Button } from '@shared';
 import { useNavigate } from 'react-router-dom';
 import './Completed.scss';
 export const Completed = () => {

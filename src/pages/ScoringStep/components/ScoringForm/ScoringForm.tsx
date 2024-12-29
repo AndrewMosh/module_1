@@ -1,9 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { DynamicInput } from '@shared/UI/DynamicInput/DynamicInput';
-import Spinner from '@shared/Spinner/Spinner';
+import { DynamicInput, Spinner, Button } from '@shared';
 import './ScoringForm.scss';
-import Button from '@shared/UI/Button/Button';
 import { scoreData, scoreSchema } from './form.types';
 import {
   formName,

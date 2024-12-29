@@ -1,4 +1,4 @@
-import { Accordion } from '@shared/UI/Accordion/Accordion';
+import { Accordion } from '@shared';
 import './Faq.scss';
 import { card_issue, card_use } from './faq.consts';
 

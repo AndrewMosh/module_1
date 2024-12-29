@@ -2,7 +2,7 @@ import './ExchangeRates.scss';
 import bank from '@assets/svg/bank.svg';
 import { baseCurrency, requiredCurrencies, UPDATE_INTERVAL } from '@pages/Home/components/ExchangeRates/currency.consts';
 import useFetchExchangeRates from './hooks/useFetchExchangeRates';
-import { useCurrencyStore } from '@store/currencyStore/useCurrencyStore';
+import { useCurrencyStore } from '@store';
 import { formatDate } from '@utils/formatDate';
 
 
