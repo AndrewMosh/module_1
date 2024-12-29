@@ -8,7 +8,7 @@ export const AboutCard = () => {
     <div className="about-card">
       <div className="about-card__container">
         {about_cards.map((card) => {
-          const backgroundColor = useCardColors(card.id); 
+          const backgroundColor = useCardColors(card.id);
           return (
             <Card
               backgroundColor={backgroundColor}

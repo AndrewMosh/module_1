@@ -3,7 +3,6 @@ import axios from 'axios';
 import { CurrencyState } from './useCurrencyStore.types';
 import { rates_api, ratesKey } from '@shared';
 
-
 export const useCurrencyStore = create<CurrencyState>((set) => ({
   rates: null,
   isLoading: false,

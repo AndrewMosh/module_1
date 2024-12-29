@@ -1,9 +1,9 @@
 import { offers } from './platinum.consts';
 import image from '@assets/images/platinum.png';
 import './PlatinumCard.scss';
-import {Button, Tooltip} from '@shared';
+import { Button, Tooltip } from '@shared';
 import { scrollToAnchor } from '@utils/scrollToAnchor';
-import {usePrescoringStore} from '@store';
+import { usePrescoringStore } from '@store';
 import { formName } from '../PrescoringForm/form.consts';
 
 export const PlatinumCard = () => {

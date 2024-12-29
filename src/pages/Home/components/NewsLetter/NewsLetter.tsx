@@ -34,16 +34,15 @@ export const NewsLetter = () => {
                 placeholder="Your email"
               />
             </div>
-            <button
-              className="newsletter__button"
-              disabled={isSubmitting}
-            >
+            <button className="newsletter__button" disabled={isSubmitting}>
               <img src={message} alt="send" /> Subscribe
             </button>
           </form>
         )}
 
-        {errors.email && <p className="newsletter__error">{errors.email.message}</p>}
+        {errors.email && (
+          <p className="newsletter__error">{errors.email.message}</p>
+        )}
       </div>
     </section>
   );

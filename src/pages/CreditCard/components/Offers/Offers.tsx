@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
-import {usePrescoringStore, useOffersStore} from '@store';
+import { usePrescoringStore, useOffersStore } from '@store';
 import { TOffers } from './offers.types';
-import { CardBase, Spinner, apiUrl, Button   } from '@shared';
+import { CardBase, Spinner, apiUrl, Button } from '@shared';
 import pic from '@assets/images/offer.png';
 import success from '@assets/svg/success.svg';
 import error from '@assets/svg/error.svg';
@@ -9,7 +9,6 @@ import './Offers.scss';
 import { formatNumber } from '@utils/formatNumber';
 import { v4 as uuidv4 } from 'uuid';
 import { SentToEmail } from '@pages';
-
 
 export const Offers = () => {
   const { forms } = usePrescoringStore();

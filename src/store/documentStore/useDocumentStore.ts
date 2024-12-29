@@ -2,7 +2,6 @@ import { create } from 'zustand';
 import { apiUrl } from '@shared';
 import { DocumentState } from './document.types';
 
-
 export const useDocumentStore = create<DocumentState>((set) => ({
   isAgreed: false,
   loading: false,

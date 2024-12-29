@@ -2,7 +2,6 @@ import { apiUrl } from '@shared';
 import { create } from 'zustand';
 import { ModalState } from './modal.types';
 
-
 export const useModalStore = create<ModalState>((set) => ({
   showModal: false,
   isSuccess: false,

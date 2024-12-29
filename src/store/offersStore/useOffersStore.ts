@@ -36,9 +36,9 @@ const useOffersStore = create<OffersStore>((set, get) => ({
             set({ isError: true });
           }
         } catch (error) {
-			if (error instanceof Error) {
-				set({ isError: true });
-			}
+          if (error instanceof Error) {
+            set({ isError: true });
+          }
         } finally {
           localStorage.removeItem('formStore');
         }

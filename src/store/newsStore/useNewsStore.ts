@@ -5,8 +5,6 @@ import { pages, endpoint } from './useNewsStore.consts';
 import { ApiError } from './useNewsStore.types';
 import { news_api, newsKey } from '@shared';
 
-
-
 async function checkImageExists(url: string): Promise<boolean> {
   try {
     const response = await fetch(url, { method: 'HEAD' });

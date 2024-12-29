@@ -2,7 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { formSchema, FormData, TData } from './form.types';
 import { DynamicInput, Spinner, Button, apiUrl } from '@shared';
-import {usePrescoringStore, useSliderStore } from '@store';
+import { usePrescoringStore, useSliderStore } from '@store';
 import { formEndpoint, formFields, formName } from './form.consts';
 import './PrescoringForm.scss';
 

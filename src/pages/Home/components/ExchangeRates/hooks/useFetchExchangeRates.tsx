@@ -1,7 +1,11 @@
 import { useEffect } from 'react';
 import { useCurrencyStore } from '@store';
 
-const useFetchExchangeRates = (baseCurrency: string, requiredCurrencies: string[], updateInterval: number) => {
+const useFetchExchangeRates = (
+  baseCurrency: string,
+  requiredCurrencies: string[],
+  updateInterval: number,
+) => {
   const { fetchRates } = useCurrencyStore();
 
   useEffect(() => {

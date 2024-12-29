@@ -36,16 +36,17 @@
     }
   }
 
-  &__error, &__error2 {
+  &__error,
+  &__error2 {
     color: #ff5631;
     font-size: $fs-16;
     font-family: 'Ubuntu Medium';
   }
 
   &__error2 {
-	min-height: 30vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    min-height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

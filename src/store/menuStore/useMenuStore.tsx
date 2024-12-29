@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import { MenuStore } from './menu.types';
 
-
 const useMenuStore = create<MenuStore>((set) => ({
   isMenuOpen: false,
   toggleMenu: () =>

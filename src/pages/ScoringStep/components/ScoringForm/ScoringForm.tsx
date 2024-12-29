@@ -10,7 +10,7 @@ import {
   Employments,
 } from './form.consts';
 import { z } from 'zod';
-import {useScoringStore} from '@store';
+import { useScoringStore } from '@store';
 
 export const ScoringForm = ({ id }: { id: string }) => {
   const { forms, submitForm } = useScoringStore();

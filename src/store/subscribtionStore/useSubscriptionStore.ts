@@ -3,7 +3,6 @@ import axios from 'axios';
 import { SubscriptionState } from './useSubscribtion.types';
 import { apiUrl } from '@shared';
 
-
 const useSubscriptionStore = create<SubscriptionState>((set) => ({
   isSubscribed: Boolean(localStorage.getItem('isSubscribed')),
 

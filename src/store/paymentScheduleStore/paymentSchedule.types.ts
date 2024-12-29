@@ -7,7 +7,6 @@ type TSchedule = {
   totalPayment: number;
 };
 
-
 export interface PaymentScheduleState {
   data: TSchedule[];
   loading: boolean;

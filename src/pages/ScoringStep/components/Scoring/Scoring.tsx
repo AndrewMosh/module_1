@@ -1,14 +1,19 @@
 import { useParams } from 'react-router-dom';
 import './Scoring.scss';
 import { CardBase, Spinner, useApplicationData } from '@shared';
-import { ScoringForm, WaitForDecision,NotFound } from '@pages';
-import {useScoringStore} from '@store';
+import { ScoringForm, WaitForDecision, NotFound } from '@pages';
+import { useScoringStore } from '@store';
 import { formName } from '../ScoringForm/form.consts';
 
 export const Scoring = () => {
   const { id } = useParams();
   const { forms } = useScoringStore();
-  const { loading: isLoading, error, data, initialized } = useApplicationData(id ?? '');
+  const {
+    loading: isLoading,
+    error,
+    data,
+    initialized,
+  } = useApplicationData(id ?? '');
 
   const formState = forms[formName] || {
     isLoading: false,

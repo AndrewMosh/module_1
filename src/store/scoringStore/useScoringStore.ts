@@ -3,7 +3,6 @@ import axios from 'axios';
 import { ApiError } from '@store/newsStore/useNewsStore.types';
 import { FormStore } from './scoring.types';
 
-
 const useScoringStore = create<FormStore>((set, get) => ({
   forms: {},
 
@@ -23,7 +22,6 @@ const useScoringStore = create<FormStore>((set, get) => ({
 
     try {
       await axios.put(endpoint, data);
-
 
       set({
         forms: {

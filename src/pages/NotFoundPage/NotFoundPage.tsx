@@ -1,10 +1,10 @@
-import { Layout } from "@shared";
-import { NotFound } from "@pages";
+import { Layout } from '@shared';
+import { NotFound } from '@pages';
 
 export const NotFoundPage = () => {
   return (
-	<Layout>
-	  <NotFound />
-	</Layout>
+    <Layout>
+      <NotFound />
+    </Layout>
   );
-}
+};

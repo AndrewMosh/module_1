@@ -1,22 +1,25 @@
 import './News.scss';
 import { useNewsStore } from '@store';
-import {Spinner} from '@shared';
+import { Spinner } from '@shared';
 import useFetchNews from './hooks/useFetchNews';
 import usePagination from './hooks/usePagination';
 import useNewsSliderStyle from './hooks/useNewsSliderStyle';
-
 
 export const News: React.FC = () => {
   const { news, loading, error } = useNewsStore();
 
   useFetchNews();
 
-  const { currentIndex, handleNext, handlePrev } = usePagination(0, news.length - 1);
+  const { currentIndex, handleNext, handlePrev } = usePagination(
+    0,
+    news.length - 1,
+  );
   const sliderStyle = useNewsSliderStyle(currentIndex);
 
   if (loading) return <Spinner />;
   if (error) return <div className="news__error">{error}</div>;
-  if (!news.length) return <div className="news__error">No news available :(</div>;
+  if (!news.length)
+    return <div className="news__error">No news available :(</div>;
 
   return (
     <div className="news">
@@ -27,10 +30,7 @@ export const News: React.FC = () => {
       </p>
 
       <div className="news__slider">
-        <div
-          className="news__wrapper"
-          style={sliderStyle}
-        >
+        <div className="news__wrapper" style={sliderStyle}>
           {news.map((item, index) => (
             <a
               key={index}

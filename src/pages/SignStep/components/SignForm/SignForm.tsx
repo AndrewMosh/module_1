@@ -1,7 +1,7 @@
 import './SignForm.scss';
-import {Checkbox, Button, Spinner, apiUrl } from '@shared';
+import { Checkbox, Button, Spinner, apiUrl } from '@shared';
 import doc from '@assets/svg/doc.svg';
-import { useDocumentStore, useSignStore  } from '@store';
+import { useDocumentStore, useSignStore } from '@store';
 import pdf from '@assets/pdf/credit-card-offer.pdf';
 export const SignForm = ({ id }: { id: string }) => {
   const { isAgreed, setAgreement } = useDocumentStore();

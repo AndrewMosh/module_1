@@ -10,7 +10,7 @@ export const Completed = () => {
       <Success
         title="Congratulations! You have completed your new credit card."
         text="Your credit card will arrive soon. Thank you for choosing us!"
-		className='completed__success'
+        className="completed__success"
       />
       <Button onClick={() => nav('/')} className="completed__button">
         View other offers of our bank

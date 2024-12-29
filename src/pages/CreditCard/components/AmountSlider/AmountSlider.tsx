@@ -11,7 +11,7 @@ export const AmountSlider: React.FC = () => {
     setValue(newValue);
   };
 
-  useSliderBackground(value); 
+  useSliderBackground(value);
 
   return (
     <div className="slider">

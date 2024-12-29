@@ -1,12 +1,11 @@
-import { PrescoringForm, Offers, CustomizeCard  } from '@pages';
+import { PrescoringForm, Offers, CustomizeCard } from '@pages';
 import { CardBase, Spinner } from '@shared';
 import './Prescoring.scss';
 import { formName } from '../PrescoringForm/form.consts';
 import { useRestoreForm } from './hooks/useRestoreForm';
 
 export const Prescoring = () => {
-	const { forms, isRestored}= useRestoreForm()
-
+  const { forms, isRestored } = useRestoreForm();
 
   const formState = forms[formName] || {
     isLoading: false,
