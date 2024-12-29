@@ -10,7 +10,7 @@
 
 ## Architecture
 
-[Modular] (https://medium.com/@kemaltf_/modularizing-react-application-89557d4c3ca4)
+[Modular](https://medium.com/@kemaltf_/modularizing-react-application-89557d4c3ca4)
 
 ## Stack
 
