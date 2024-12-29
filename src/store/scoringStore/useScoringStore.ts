@@ -3,7 +3,7 @@ import axios from 'axios';
 import { ApiError } from '@store/newsStore/useNewsStore.types';
 import { FormStore } from './scoring.types';
 
-const useScoringStore = create<FormStore>((set, get) => ({
+export const useScoringStore = create<FormStore>((set, get) => ({
   forms: {},
 
   submitForm: async (formName, endpoint, data) => {
@@ -67,4 +67,3 @@ const useScoringStore = create<FormStore>((set, get) => ({
   },
 }));
 
-export default useScoringStore;

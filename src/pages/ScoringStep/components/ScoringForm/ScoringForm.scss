@@ -45,9 +45,9 @@
   }
 
   &__loading {
-    @mixin flex-center() {
+	@include flex-center;
       height: 100px;
-    }
+    
   }
 
   &__error {

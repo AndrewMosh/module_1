@@ -8,7 +8,7 @@ import {
 } from '@pages';
 import { Layout } from '@shared';
 
-export default function Home() {
+export const Home = () => {
   return (
     <Layout>
       <CardSelection />

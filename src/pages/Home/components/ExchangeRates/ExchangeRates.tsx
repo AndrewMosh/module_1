@@ -9,7 +9,7 @@ import useFetchExchangeRates from './hooks/useFetchExchangeRates';
 import { useCurrencyStore } from '@store';
 import { formatDate } from '@utils';
 
-const ExchangeRates = () => {
+export const ExchangeRates = () => {
   const today = formatDate(new Date());
   const { rates, isLoading, error } = useCurrencyStore();
 
@@ -71,5 +71,3 @@ const ExchangeRates = () => {
     </section>
   );
 };
-
-export default ExchangeRates;

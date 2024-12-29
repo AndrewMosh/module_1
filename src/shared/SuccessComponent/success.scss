@@ -1,10 +1,10 @@
 .success {
-  @mixin flex-center() {
+	@include flex-center;
     height: 60vh;
     flex-direction: column;
     letter-spacing: 2%;
     text-align: center;
-  }
+  
 
   &__title {
     font-size: 30px;

@@ -4,7 +4,7 @@ import { Button } from '@shared';
 import { menu } from './menu.consts';
 import { useMenuStore } from '@store';
 
-const Header = () => {
+export const Header = () => {
   const { isMenuOpen, toggleMenu, closeMenu } = useMenuStore();
 
   return (
@@ -52,5 +52,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

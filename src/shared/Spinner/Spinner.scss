@@ -1,6 +1,6 @@
 .spinner {
-  @mixin flex-center() {
+	@include flex-center;
     margin: 20px 0;
     min-height: 265px;
-  }
+  
 }

@@ -64,9 +64,9 @@
 
   &__nodata,
   &__error {
-    @mixin flex-center() {
+	@include flex-center;
       min-height: 30vh;
       color: red;
-    }
+    
   }
 }

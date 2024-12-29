@@ -1,10 +1,10 @@
 .completed {
- @mixin flex-center() {
+	@include flex-center;
 	flex-direction: column;
 	min-height: 60vh;
 	gap: 32px;
 	padding: 40px 0;
- }
+ 
   
   &__success {
     height: auto;

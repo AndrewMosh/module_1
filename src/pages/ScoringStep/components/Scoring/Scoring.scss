@@ -2,11 +2,11 @@
   margin: 24px 0 96px 0;
 
   &__error {
-    @mixin flex-center() {
+	@include flex-center;
       min-height: 40vh;
       text-align: center;
       font-size: 24px;
       color: red;
-    }
+    
   }
 }

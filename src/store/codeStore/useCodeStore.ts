@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import axios from 'axios';
 import { CodeState } from './code.types';
 import { apiUrl } from '@shared';
 
@@ -20,23 +21,23 @@ export const useCodeStore = create<CodeState>((set, get) => ({
     const confirmationCode = code.join('');
 
     try {
-      const response = await fetch(`${apiUrl}/document/${id}/sign/code`, {
-        method: 'POST',
+      const response = await axios.post(`${apiUrl}/document/${id}/sign/code`, confirmationCode, {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(confirmationCode),
       });
 
-      if (!response.ok) {
-        throw new Error(`Invalid confirmation code`);
+      if (response.status !== 200) {
+        throw new Error('Invalid confirmation code');
       }
 
       set({ loading: false, isSuccess: true });
     } catch (error) {
       set({
         loading: false,
-        error: error instanceof Error ? error.message : 'Unknown error',
+        error: axios.isAxiosError(error) && error.response?.data?.message
+          ? error.response.data.message
+          :  'Invalid confirmation code',
       });
       get().clearCode();
     }

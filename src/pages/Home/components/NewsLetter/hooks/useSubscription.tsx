@@ -1,4 +1,4 @@
-import useSubscriptionStore from '@store/subscribtionStore/useSubscriptionStore';
+import {useSubscriptionStore} from '@store';
 import { useState } from 'react';
 
 const useSubscription = () => {

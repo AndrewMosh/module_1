@@ -1,7 +1,7 @@
 .code {
-  @mixin flex-center() {
+  @include flex-center;
     min-height: 50vh;
-  }
+  
 
   &__wrapper {
     display: flex;
@@ -43,8 +43,8 @@
   }
 
   &__error2 {
-    @mixin flex-center() {
+	@include flex-center;
       min-height: 30vh;
-    }
+    
   }
 }

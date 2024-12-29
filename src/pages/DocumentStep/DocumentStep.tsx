@@ -13,7 +13,7 @@ export const DocumentStep = () => {
   } = useApplicationData(id ?? '');
 
   if (isLoading || !initialized) {
-    return <Spinner />;
+    return <Layout><Spinner /></Layout>;
   }
 
   const renderContent = () => {

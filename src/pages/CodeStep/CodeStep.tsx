@@ -13,8 +13,9 @@ export const CodeStep = () => {
     initialized,
   } = useApplicationData(id ?? '');
 
+
   if (isLoading || !initialized) {
-    return <Spinner />;
+    return <Layout><Spinner /></Layout>;
   }
 
   const prevStatus = 'DOCUMENT_CREATED';

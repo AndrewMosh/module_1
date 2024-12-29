@@ -1,4 +1,4 @@
-import usePrescoringStore from '@store/prescoringStore/usePrescoringStore';
+import {usePrescoringStore} from '@store';
 import { useEffect, useState } from 'react';
 
 export const useRestoreForm = () => {

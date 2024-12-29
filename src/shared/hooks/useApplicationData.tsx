@@ -1,7 +1,7 @@
 import { useApplicationStore } from '@store';
 import { useEffect } from 'react';
 
-const useApplicationData = (id: number | string) => {
+export const useApplicationData = (id: number | string) => {
   const { data, loading, error, fetchApplication, initialized } =
     useApplicationStore();
 
@@ -14,4 +14,3 @@ const useApplicationData = (id: number | string) => {
   return { data, loading, error, initialized };
 };
 
-export default useApplicationData;

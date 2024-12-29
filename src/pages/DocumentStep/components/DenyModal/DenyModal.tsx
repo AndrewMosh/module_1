@@ -4,7 +4,7 @@ import './DenyModal.scss';
 import { Button } from '@shared';
 import { useModalStore } from '@store';
 
-const DenyModal: React.FC<{ id: string }> = ({ id }) => {
+export const DenyModal: React.FC<{ id: string }> = ({ id }) => {
   const {
     showModal,
     isSuccess,
@@ -74,5 +74,3 @@ const DenyModal: React.FC<{ id: string }> = ({ id }) => {
     </>
   );
 };
-
-export default DenyModal;

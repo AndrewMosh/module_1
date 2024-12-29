@@ -1,6 +1,7 @@
-import { apiUrl } from '@shared';
 import { create } from 'zustand';
+import axios from 'axios';
 import { ModalState } from './modal.types';
+import { apiUrl } from '@shared';
 
 export const useModalStore = create<ModalState>((set) => ({
   showModal: false,
@@ -15,20 +16,21 @@ export const useModalStore = create<ModalState>((set) => ({
     set({ loading: true, error: null });
 
     try {
-      const response = await fetch(`${apiUrl}/application/${id}/deny`, {
-        method: 'POST',
+      const response = await axios.post(`${apiUrl}/application/${id}/deny`, null, {
         headers: { 'Content-Type': 'application/json' },
       });
 
-      if (!response.ok) {
+      if (response.status !== 200) {
         throw new Error('Failed to deny application');
       }
 
       set({ isSuccess: true });
-    } catch (err) {
-      if (err instanceof Error) {
-        set({ error: err.message });
-      }
+    } catch (error) {
+      set({
+        error: axios.isAxiosError(error) && error.response?.data?.message
+          ? error.response.data.message
+          : 'Unknown error',
+      });
     } finally {
       set({ loading: false });
     }

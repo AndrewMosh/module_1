@@ -17,7 +17,7 @@ interface FormStore {
 
 const STORAGE_KEY = 'formStore';
 
-const usePrescoringStore = create<FormStore>((set, get) => ({
+export const usePrescoringStore = create<FormStore>((set, get) => ({
   forms: {},
 
   submitForm: async (formName, data, endpoint) => {
@@ -99,4 +99,3 @@ const usePrescoringStore = create<FormStore>((set, get) => ({
   },
 }));
 
-export default usePrescoringStore;

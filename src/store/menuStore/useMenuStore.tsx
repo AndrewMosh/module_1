@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { MenuStore } from './menu.types';
 
-const useMenuStore = create<MenuStore>((set) => ({
+export const useMenuStore = create<MenuStore>((set) => ({
   isMenuOpen: false,
   toggleMenu: () =>
     set((state) => {
@@ -15,4 +15,3 @@ const useMenuStore = create<MenuStore>((set) => ({
   },
 }));
 
-export default useMenuStore;

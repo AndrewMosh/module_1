@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import axios from 'axios';
 import { PaymentScheduleState } from './paymentSchedule.types';
 import { apiUrl } from '@shared';
 
@@ -10,14 +11,13 @@ export const usePaymentScheduleStore = create<PaymentScheduleState>((set) => ({
   fetchPaymentSchedule: async (id) => {
     set({ loading: true, error: null });
     try {
-      const response = await fetch(`${apiUrl}/admin/application/${id}`);
-      if (!response.ok) throw new Error('Failed to fetch payment schedule');
-
-      const result = await response.json();
-      set({ data: result.credit.paymentSchedule || [] });
+      const response = await axios.get(`${apiUrl}/admin/application/${id}`);
+      set({ data: response.data.credit.paymentSchedule || [] });
     } catch (err) {
-      if (err instanceof Error) {
+      if (axios.isAxiosError(err)) {
         set({ error: err.message });
+      } else {
+        set({ error: 'An unexpected error occurred' });
       }
     } finally {
       set({ loading: false });

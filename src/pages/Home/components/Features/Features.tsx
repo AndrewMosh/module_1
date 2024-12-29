@@ -2,7 +2,7 @@ import './Features.scss';
 import { features } from './features.consts';
 import illustration from '@assets/svg/features.svg';
 
-const Features = () => {
+export const Features = () => {
   return (
     <section className="features" aria-label="Features Section">
       <div className="features__container">
@@ -28,5 +28,3 @@ const Features = () => {
     </section>
   );
 };
-
-export default Features;

@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import axios from 'axios';
 import { OffersStore } from './offers.types';
 
-const useOffersStore = create<OffersStore>((set, get) => ({
+export const useOffersStore = create<OffersStore>((set, get) => ({
   selectedOfferId: null,
   isSuccess: false,
   isLoading: false,
@@ -47,4 +47,3 @@ const useOffersStore = create<OffersStore>((set, get) => ({
   },
 }));
 
-export default useOffersStore;
