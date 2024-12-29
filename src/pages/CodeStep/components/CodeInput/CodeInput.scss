@@ -1,8 +1,7 @@
 .code {
-  display: flex;
-  align-items: center;
-  min-height: 50vh;
-  justify-content: center;
+  @mixin flex-center() {
+    min-height: 50vh;
+  }
 
   &__wrapper {
     display: flex;
@@ -44,9 +43,8 @@
   }
 
   &__error2 {
-    min-height: 30vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @mixin flex-center() {
+      min-height: 30vh;
+    }
   }
 }

@@ -1,6 +1,4 @@
 .scoring-form {
-  line-height: normal;
-
   &__header {
     display: flex;
     justify-content: flex-start;
@@ -47,10 +45,9 @@
   }
 
   &__loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
+    @mixin flex-center() {
+      height: 100px;
+    }
   }
 
   &__error {

@@ -1,12 +1,10 @@
 .success {
-  height: 60vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  line-height: normal;
-  letter-spacing: 2%;
-  text-align: center;
+  @mixin flex-center() {
+    height: 60vh;
+    flex-direction: column;
+    letter-spacing: 2%;
+    text-align: center;
+  }
 
   &__title {
     font-size: 30px;

@@ -29,6 +29,7 @@ export default defineConfig({
           @use '@styles/config/variables' as *;
           @use '@styles/config/normalize' as *;
           @use '@styles/mixins/flex-wrapper' as *;
+		  @use '@styles/mixins/flex-center' as *;
           @use '@styles/mixins/media' as *;
 		  @use '@styles/config/fonts' as *;
         `,

@@ -63,14 +63,13 @@
   &__text {
     font-size: $fs-16;
     font-family: 'Ubuntu Medium';
-    line-height: 17.92px;
+    line-height: 18px;
     color: $black;
     padding-bottom: 32px;
     max-width: 515px;
   }
 
   &__offers {
-    line-height: normal;
     max-width: 580px;
     display: flex;
     flex-wrap: wrap;

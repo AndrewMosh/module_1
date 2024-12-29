@@ -1,7 +1,6 @@
 .news {
   padding-bottom: 64px;
   text-align: center;
-  line-height: normal;
 
   @include respond-to(mobile) {
     padding: 48px 0;

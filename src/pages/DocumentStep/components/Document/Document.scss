@@ -1,5 +1,4 @@
 .document {
-  line-height: normal;
   &__header {
     display: flex;
     align-items: center;
@@ -65,10 +64,9 @@
 
   &__nodata,
   &__error {
-    min-height: 30vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: red;
+    @mixin flex-center() {
+      min-height: 30vh;
+      color: red;
+    }
   }
 }
