@@ -6,14 +6,14 @@ import Button from '@shared/UI/Button/Button';
 import pdf from '@assets/pdf/credit-card-offer.pdf';
 import { useSignStore } from '@store/signStore/useSignStore';
 import Spinner from '@shared/Spinner/Spinner';
-const api = import.meta.env.VITE_BASE_URL || 'http://localhost:8080';
+import { apiUrl } from '@shared/api/api.consts';
 export const SignForm = ({ id }: { id: string }) => {
   const { isAgreed, setAgreement } = useDocumentStore();
   const { isLoading, error, submitAgreement } = useSignStore();
 
   const handleSubmit = async () => {
     if (isAgreed) {
-      await submitAgreement(api, id);
+      await submitAgreement(apiUrl, id);
     }
   };
 

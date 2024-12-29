@@ -6,41 +6,44 @@ import useScoringStore from '@store/scoringStore/useScoringStore';
 import { formName } from '../ScoringForm/form.consts';
 import { WaitForDecision } from '@pages/ScoringStep/components/WaitForDecision/WaitForDecision';
 import Spinner from '@shared/Spinner/Spinner';
-import useApplicationData from '@hooks/useApplicationData';
+import useApplicationData from '@shared/hooks/useApplicationData';
 import { NotFound } from '@pages/NotFoundPage/components/NotFound/NotFound';
 
 export const Scoring = () => {
-	const { id } = useParams();
-	const { forms } = useScoringStore();
-	const { loading: isLoading, error, data, initialized } = useApplicationData(id ?? '');
-  
-	const formState = forms[formName] || {
-	  isLoading: false,
-	  success: false,
-	  error: null,
-	  data: null,
-	};
-  
-	if (isLoading || !initialized) {
-	  return <Spinner />;
-	}
-  
-	if (error) {
-	  return <div className="scoring__error">Error: {error}</div>;
-	}
-  
-	if (!isLoading && data?.status !== 'APPROVED') {
-	  return <NotFound />;
-	}
-  
-	return (
-	  <div className="scoring">
-		{formState.success ? (
-		  <WaitForDecision />
-		) : (
-		  <CardBase>{id ? <ScoringForm id={id} /> : null}</CardBase>
-		)}
-	  </div>
-	);
+  const { id } = useParams();
+  const { forms } = useScoringStore();
+  const { loading: isLoading, error, data, initialized } = useApplicationData(id ?? '');
+
+  const formState = forms[formName] || {
+    isLoading: false,
+    success: false,
+    error: null,
+    data: null,
   };
-  
+
+  if (isLoading || !initialized) {
+    return <Spinner />;
+  }
+
+  if (error) {
+    return <div className="scoring__error">Error: {error}</div>;
+  }
+
+  if (data?.status !== 'APPROVED') {
+    return <NotFound />;
+  }
+
+  const renderContent = () => {
+    if (formState.success) {
+      return <WaitForDecision />;
+    }
+
+    return id ? (
+      <CardBase>
+        <ScoringForm id={id} />
+      </CardBase>
+    ) : null;
+  };
+
+  return <div className="scoring">{renderContent()}</div>;
+};

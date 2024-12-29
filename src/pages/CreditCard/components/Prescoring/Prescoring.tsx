@@ -1,21 +1,15 @@
-import { useEffect, useState } from 'react';
 import { PrescoringForm } from '../PrescoringForm/PrescoringForm';
 import { CardBase } from '@shared/UI/Card/CardBase/CardBase';
 import './Prescoring.scss';
 import { CustomizeCard } from '../CustomizeCard/CustomizeCard';
 import { formName } from '../PrescoringForm/form.consts';
-import usePrescoringStore from '@store/prescoringStore/usePrescoringStore';
 import { Offers } from '../Offers/Offers';
 import Spinner from '@shared/Spinner/Spinner';
+import { useRestoreForm } from './hooks/useRestoreForm';
 
 export const Prescoring = () => {
-  const { forms, restoreFormState } = usePrescoringStore();
-  const [isRestored, setIsRestored] = useState(false);
+	const { forms, isRestored}= useRestoreForm()
 
-  useEffect(() => {
-    restoreFormState();
-    setIsRestored(true);
-  }, [restoreFormState]);
 
   const formState = forms[formName] || {
     isLoading: false,

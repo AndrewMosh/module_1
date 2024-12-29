@@ -13,10 +13,9 @@ import {
 } from './form.consts';
 import { z } from 'zod';
 import useScoringStore from '@store/scoringStore/useScoringStore';
+import { account_key, apiUrl } from '@shared/api/api.consts';
 
 export const ScoringForm = ({ id }: { id: string }) => {
-  const api = import.meta.env.VITE_BASE_URL || 'http://localhost:8080';
-  const account_key = import.meta.env.VITE_ACCOUNT_KEY;
   const { forms, submitForm } = useScoringStore();
 
   const formState = forms[formName] || {
@@ -87,7 +86,7 @@ export const ScoringForm = ({ id }: { id: string }) => {
       account: account_key,
     };
 
-    await submitForm(formName, `${api}${formEndpoint}${id}`, payload, id);
+    await submitForm(formName, `${apiUrl}${formEndpoint}${id}`, payload, id);
   };
 
   const renderFields = (fields: typeof scoringFields | typeof Employments) =>

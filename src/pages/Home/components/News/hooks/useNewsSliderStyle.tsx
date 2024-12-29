@@ -1,8 +1,8 @@
-import { useCalcScrollWidth } from '@hooks/useCalcScrollWidth';
+import { useCalcScrollWidth } from '@pages/Home/components/News/hooks/useCalcScrollWidth';
 
 const useNewsSliderStyle = (currentIndex: number) => {
   const calcScrollWidth = useCalcScrollWidth();
-  
+
   return {
     transform: `translateX(-${currentIndex * calcScrollWidth}%)`,
   };

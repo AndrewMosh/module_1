@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Spinner from '@shared/Spinner/Spinner';
 import { useSignStore } from '@store/signStore/useSignStore';
 import { Signed } from './components/Signed/Signed';
-import useApplicationData from '@hooks/useApplicationData';
+import useApplicationData from '@shared/hooks/useApplicationData';
 import { NotFound } from '@pages/NotFoundPage/components/NotFound/NotFound';
 
 export const SignStep = () => {
@@ -16,7 +16,7 @@ export const SignStep = () => {
     return <Spinner />;
   }
 
-  const isSigned = data?.sesCode || data?.signDate || data?.status==='CREDIT_ISSUED' || data?.status==='CC_APPROVED' || data?.status==='APPROVED' || data?.status==='DENIED' || data?.status==='CLIENT_DENIED' || data?.status==='CC_DENIED' || data?.status==='PREAPPROVED';
+  const isSigned = data?.sesCode || data?.signDate || data?.status==='CREDIT_ISSUED' || data?.status==='CC_APPROVED' || data?.status==='APPROVED' || data?.status==='DENIED' || data?.status==='CLIENT_DENIED' || data?.status==='CC_DENIED' || data?.status==='PREAPPROVAL';
 
   return (
     <Layout>
