@@ -1,4 +1,4 @@
-import { useTabsStore } from '@store/tabsStore/useTabsStore';
+import { useTabsStore } from '@store';
 import { TabsNavProps } from './tabs.types';
 import './Tabs.scss';
 

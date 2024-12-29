@@ -1,9 +1,7 @@
 import { Layout, Spinner, CardBase, useApplicationData  } from '@shared';
-import { Document } from './components/Document/Document';
+import { Document, Formed, NotFound } from '@pages';
 import { useParams } from 'react-router-dom';
-import { Formed } from './components/Formed/Formed';
 import { useDocumentStore } from '@store';
-import { NotFound } from '@pages/NotFoundPage/components/NotFound/NotFound';
 
 export const DocumentStep = () => {
   const { id } = useParams();

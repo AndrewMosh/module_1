@@ -1,10 +1,7 @@
-import { PrescoringForm } from '../PrescoringForm/PrescoringForm';
-import { CardBase } from '@shared/UI/Card/CardBase/CardBase';
+import { PrescoringForm, Offers, CustomizeCard  } from '@pages';
+import { CardBase, Spinner } from '@shared';
 import './Prescoring.scss';
-import { CustomizeCard } from '../CustomizeCard/CustomizeCard';
 import { formName } from '../PrescoringForm/form.consts';
-import { Offers } from '../Offers/Offers';
-import Spinner from '@shared/Spinner/Spinner';
 import { useRestoreForm } from './hooks/useRestoreForm';
 
 export const Prescoring = () => {

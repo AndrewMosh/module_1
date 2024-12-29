@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './Document.scss';
 import {Button,Table, Checkbox, Spinner }from '@shared';
 import { columns } from './document.consts';
-import DenyModal from '../DenyModal/DenyModal';
+import {DenyModal} from '@pages';
 import { usePaymentScheduleStore, useDocumentStore } from '@store';
 
 export const Document = ({ id }: { id: string }) => {

@@ -1,14 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { formSchema, FormData, TData } from './form.types';
-import { DynamicInput } from '@shared/UI/DynamicInput/DynamicInput';
-import usePrescoringStore from '@store/prescoringStore/usePrescoringStore';
+import { DynamicInput, Spinner, Button, apiUrl } from '@shared';
+import {usePrescoringStore, useSliderStore } from '@store';
 import { formEndpoint, formFields, formName } from './form.consts';
-import Spinner from '@shared/Spinner/Spinner';
 import './PrescoringForm.scss';
-import Button from '@shared/UI/Button/Button';
-import { useSliderStore } from '@store/sliderStore/useSliderStore';
-import { apiUrl } from '@shared/api/api.consts';
 
 export const PrescoringForm = () => {
   const { forms, submitForm } = usePrescoringStore();

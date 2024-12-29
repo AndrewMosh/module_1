@@ -1,5 +1,5 @@
 import { Layout } from '@shared';
-import { Scoring } from './components/Scoring/Scoring';
+import { Scoring } from '@pages';
 
 export const ScoringStep = () => {
   return (

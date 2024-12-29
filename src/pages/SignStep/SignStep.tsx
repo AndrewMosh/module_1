@@ -1,9 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useSignStore } from '@store';
-import { Signed } from './components/Signed/Signed';
-import { NotFound } from '@pages';
+import { Signed, NotFound,SignForm } from '@pages';
 import { Layout, Spinner, useApplicationData } from '@shared';
-import { SignForm } from './components/SignForm/SignForm';
 
 export const SignStep = () => {
   const { id } = useParams();

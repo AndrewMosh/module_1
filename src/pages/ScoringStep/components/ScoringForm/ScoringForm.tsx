@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { DynamicInput, Spinner, Button } from '@shared';
+import { DynamicInput, Spinner, Button, account_key, apiUrl } from '@shared';
 import './ScoringForm.scss';
 import { scoreData, scoreSchema } from './form.types';
 import {
@@ -10,8 +10,7 @@ import {
   Employments,
 } from './form.consts';
 import { z } from 'zod';
-import useScoringStore from '@store/scoringStore/useScoringStore';
-import { account_key, apiUrl } from '@shared/api/api.consts';
+import {useScoringStore} from '@store';
 
 export const ScoringForm = ({ id }: { id: string }) => {
   const { forms, submitForm } = useScoringStore();

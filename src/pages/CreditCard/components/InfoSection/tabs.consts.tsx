@@ -1,7 +1,4 @@
-import { AboutCard } from '@pages/CreditCard/components/AboutCard/AboutCard';
-import { Cashback } from '@pages/CreditCard/components/Cashback/Cashback';
-import { Faq } from '@pages/CreditCard/components/Faq/Faq';
-import { RatesAndConditions } from '@pages/CreditCard/components/RatesAndConditions/RatesAndConditions';
+import { AboutCard, Cashback, Faq, RatesAndConditions } from '@pages';
 
 export const tabs = [
   {

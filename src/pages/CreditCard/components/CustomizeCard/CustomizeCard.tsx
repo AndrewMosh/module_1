@@ -1,5 +1,5 @@
 import './CustomizeCard.scss';
-import { AmountSlider } from '../AmountSlider/AmountSlider';
+import { AmountSlider } from '@pages';
 import { useSliderStore } from '@store';
 import { formatNumber } from '@utils/formatNumber';
 
