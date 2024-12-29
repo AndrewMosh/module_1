@@ -31,12 +31,19 @@ export const Scoring = () => {
   }
 
   if (data?.status !== 'APPROVED') {
-    return <NotFound />;
-  }
+	switch (data?.status) {
+	  case 'CC_DENIED':
+		return <div className="scoring__error">Application denied</div>;
+	  case 'CC_APPROVED':
+		return <div className="scoring__success">Application approved</div>;
+	  default:
+		return <NotFound />;
+	}
+  }  
 
   const renderContent = () => {
     if (formState.success) {
-      return <WaitForDecision />;
+      return id && <WaitForDecision id={id} />;
     }
 
     return id ? (
