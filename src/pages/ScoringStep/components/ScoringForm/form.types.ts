@@ -1,4 +1,4 @@
-import { validatePassportIssueDate } from '@utils/validatePassportIssueDate';
+import { validatePassportIssueDate } from '@utils';
 import { z } from 'zod';
 
 const passportSeriesRegex = /^[0-9-]{7}$/;

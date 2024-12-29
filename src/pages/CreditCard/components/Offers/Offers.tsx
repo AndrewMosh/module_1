@@ -6,7 +6,7 @@ import pic from '@assets/images/offer.png';
 import success from '@assets/svg/success.svg';
 import error from '@assets/svg/error.svg';
 import './Offers.scss';
-import { formatNumber } from '@utils/formatNumber';
+import { formatNumber } from '@utils';
 import { v4 as uuidv4 } from 'uuid';
 import { SentToEmail } from '@pages';
 

@@ -1,4 +1,4 @@
-import { isOlderThan18 } from '@utils/ageValidation';
+import { isOlderThan18 } from '@utils';
 import { z } from 'zod';
 
 export const formSchema = z.object({

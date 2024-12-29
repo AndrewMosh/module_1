@@ -7,7 +7,7 @@ import {
 } from '@pages/Home/components/ExchangeRates/currency.consts';
 import useFetchExchangeRates from './hooks/useFetchExchangeRates';
 import { useCurrencyStore } from '@store';
-import { formatDate } from '@utils/formatDate';
+import { formatDate } from '@utils';
 
 const ExchangeRates = () => {
   const today = formatDate(new Date());

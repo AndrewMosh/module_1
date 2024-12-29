@@ -1,7 +1,7 @@
 import './CustomizeCard.scss';
 import { AmountSlider } from '@pages';
 import { useSliderStore } from '@store';
-import { formatNumber } from '@utils/formatNumber';
+import { formatNumber } from '@utils';
 
 export const CustomizeCard = () => {
   const { value } = useSliderStore();
