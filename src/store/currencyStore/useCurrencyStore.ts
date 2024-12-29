@@ -4,11 +4,6 @@ import { CurrencyState } from './useCurrencyStore.types';
 import { rates_api, ratesKey } from '@shared';
 
 
-
-if (!ratesKey) {
-  console.error('API key отсутствует, проверьте файл .env');
-}
-
 export const useCurrencyStore = create<CurrencyState>((set) => ({
   rates: null,
   isLoading: false,
