@@ -1,4 +1,4 @@
-import { useApplicationStore } from '@store/applicationStore/useApplicationStore';
+import { useApplicationStore } from '@store';
 import { useEffect } from 'react';
 
 const useApplicationData = (id: number | string) => {

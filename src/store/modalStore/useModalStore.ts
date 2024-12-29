@@ -1,4 +1,4 @@
-import { apiUrl } from '@shared/api/api.consts';
+import { apiUrl } from '@shared';
 import { create } from 'zustand';
 import { ModalState } from './modal.types';
 

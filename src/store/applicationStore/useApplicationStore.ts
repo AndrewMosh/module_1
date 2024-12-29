@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { ApplicationState } from "./application.types";
 import axios from "axios";
-import { apiUrl } from "@shared/api/api.consts";
+import { apiUrl } from "@shared";
 
 export const useApplicationStore = create<ApplicationState>((set) => ({
 	data: null,

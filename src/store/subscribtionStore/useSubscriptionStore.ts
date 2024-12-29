@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import axios from 'axios';
 import { SubscriptionState } from './useSubscribtion.types';
-import { apiUrl } from '@shared/api/api.consts';
+import { apiUrl } from '@shared';
 
 
 const useSubscriptionStore = create<SubscriptionState>((set) => ({

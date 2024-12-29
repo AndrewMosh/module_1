@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { apiUrl } from '@shared/api/api.consts';
+import { apiUrl } from '@shared';
 import { DocumentState } from './document.types';
 
 

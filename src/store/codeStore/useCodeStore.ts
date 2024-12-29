@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { CodeState } from './code.types';
-import { apiUrl } from '@shared/api/api.consts';
+import { apiUrl } from '@shared';
 
 
 export const useCodeStore = create<CodeState>((set, get) => ({

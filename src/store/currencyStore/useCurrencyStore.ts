@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import axios from 'axios';
 import { CurrencyState } from './useCurrencyStore.types';
-import { rates_api, ratesKey } from '@shared/api/api.consts';
+import { rates_api, ratesKey } from '@shared';
 
 
 

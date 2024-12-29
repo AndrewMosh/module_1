@@ -1,15 +1,17 @@
-import Home from '@pages/Home/Home';
+import {
+  Home,
+  CreditCard,
+  ScoringStep,
+  DocumentStep,
+  SignStep,
+  CodeStep,
+  NotFoundPage,
+} from '@pages';
 import {
   createBrowserRouter,
   RouterProvider,
   RouteObject,
 } from 'react-router-dom';
-import { CreditCard } from '@pages/CreditCard/CreditCard';
-import { ScoringStep } from '@pages/ScoringStep/ScoringStep';
-import { DocumentStep } from '@pages/DocumentStep/DocumentStep';
-import { SignStep } from '@pages/SignStep/SignStep';
-import { CodeStep } from '@pages/CodeStep/CodeStep';
-import { NotFoundPage } from '@pages/NotFoundPage/NotFoundPage';
 
 const routes: RouteObject[] = [
   {

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { NewsStore, NewsItem } from './useNewsStore.types';
 import { pages, endpoint } from './useNewsStore.consts';
 import { ApiError } from './useNewsStore.types';
-import { news_api, newsKey } from '@shared/api/api.consts';
+import { news_api, newsKey } from '@shared';
 
 
 
