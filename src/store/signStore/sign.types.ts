@@ -1,8 +1,5 @@
-export interface DocumentState {
-  isAgreed: boolean;
-  isLoading: boolean;
-  error: string | null;
-  isSuccess: boolean;
-  setAgreement: (value: boolean) => void;
+import { AsyncState } from '@shared';
+
+export interface DocumentState extends AsyncState {
   submitAgreement: (api: string, id: string) => Promise<void>;
 }

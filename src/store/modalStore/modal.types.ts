@@ -1,8 +1,7 @@
-export interface ModalState {
+import { AsyncState } from '@shared';
+
+export interface ModalState extends AsyncState {
   showModal: boolean;
-  isSuccess: boolean;
-  loading: boolean;
-  error: string | null;
   openModal: () => void;
   closeModal: () => void;
   denyApplication: (id: string) => Promise<void>;

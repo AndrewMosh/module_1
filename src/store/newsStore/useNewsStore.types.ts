@@ -1,3 +1,5 @@
+import { AsyncState } from '@shared';
+
 export type NewsItem = {
   title: string;
   description: string;
@@ -5,12 +7,10 @@ export type NewsItem = {
   url: string;
 };
 
-export type NewsStore = {
+export interface NewsStore extends AsyncState {
   news: NewsItem[];
-  loading: boolean;
-  error: string | null;
   fetchNews: () => void;
-};
+}
 
 export type ApiError = {
   response?: {

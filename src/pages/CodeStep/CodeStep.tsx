@@ -5,11 +5,11 @@ import { useCodeStore } from '@store';
 
 export const CodeStep = () => {
   const { id } = useParams();
-  const { isSuccess } = useCodeStore();
+  const { success } = useCodeStore();
 
   const currentStatus = 'DOCUMENT_CREATED';
   const renderContent = () => {
-    if (isSuccess) {
+    if (success) {
       return <Completed />;
     }
 

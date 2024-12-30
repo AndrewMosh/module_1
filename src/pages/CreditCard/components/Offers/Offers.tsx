@@ -17,9 +17,9 @@ export const Offers = () => {
     setSelectedOfferId,
     selectedOfferId,
     submitOffer,
-    isSuccess,
-    isError,
-    isLoading,
+    success: isSuccess,
+    error: isError,
+    loading: isLoading,
   } = useOffersStore();
 
   const renderIcon = (condition: boolean) => (

@@ -1,10 +1,8 @@
 import { TOffers } from '@pages/CreditCard/components/Offers/offers.types';
+import { AsyncState } from '@shared';
 
-export interface OffersStore {
+export interface NewsStore extends AsyncState {
   selectedOfferId: string | null;
-  isSuccess: boolean;
-  isLoading: boolean;
-  isError: boolean;
   submitOffer: (
     apiUrl: string | undefined,
     offers: TOffers[] | null,

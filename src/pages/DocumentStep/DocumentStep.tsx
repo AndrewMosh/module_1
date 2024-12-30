@@ -5,11 +5,11 @@ import { useDocumentStore } from '@store';
 
 export const DocumentStep = () => {
   const { id } = useParams();
-  const { isSuccess } = useDocumentStore();
+  const { success } = useDocumentStore();
 
   const currentStatus = 'CC_APPROVED';
   const renderContent = () => {
-    if (isSuccess) {
+    if (success) {
       return <Formed />;
     }
 

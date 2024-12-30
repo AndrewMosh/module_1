@@ -1,5 +1,4 @@
 .prescoring-form {
-  padding-top: 32px;
   display: flex;
   flex-direction: column;
 
@@ -7,7 +6,6 @@
     font-family: 'Ubuntu Medium';
     font-size: $fs-20;
     margin: 32px 0 26px 0;
-	
   }
 
   &__fields {

@@ -27,7 +27,7 @@ export const usePrescoringStore = create<FormStore>((set, get) => ({
       forms: {
         ...forms,
         [formName]: {
-          isLoading: true,
+          loading: true,
           success: false,
           error: null,
           data: null,
@@ -41,7 +41,7 @@ export const usePrescoringStore = create<FormStore>((set, get) => ({
       const updatedForms = {
         ...forms,
         [formName]: {
-          isLoading: false,
+          loading: false,
           success: true,
           error: null,
           data: response.data,
@@ -56,7 +56,7 @@ export const usePrescoringStore = create<FormStore>((set, get) => ({
       const updatedForms = {
         ...forms,
         [formName]: {
-          isLoading: false,
+          loading: false,
           success: false,
           data: null,
           error:
@@ -75,7 +75,7 @@ export const usePrescoringStore = create<FormStore>((set, get) => ({
     const updatedForms = {
       ...forms,
       [formName]: {
-        isLoading: false,
+        loading: false,
         success: false,
         error: null,
         data: null,

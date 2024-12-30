@@ -1,8 +1,9 @@
-export interface CodeState {
+import { AsyncState } from '@shared';
+
+export interface CodeState extends AsyncState {
   code: string[];
-  error: string | null;
-  loading: boolean;
-  isSuccess: boolean;
+  initialized: boolean;
+  fetchApplication: (id: number | string) => Promise<void>;
   setCode: (index: number, value: string) => void;
   clearCode: () => void;
   sendCode: (applicationId: string) => Promise<void>;

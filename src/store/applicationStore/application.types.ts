@@ -1,5 +1,6 @@
 import { TData as PrescoringData } from '@pages/CreditCard/components/PrescoringForm/form.types';
 import { TScore as ScoringData } from '@pages/ScoringStep/components/ScoringForm/form.types';
+import { AsyncState } from '@shared';
 
 interface StatusHistory {
   status:
@@ -25,10 +26,7 @@ export interface TData {
   statusHistory: StatusHistory[];
 }
 
-export interface ApplicationState {
-  data: null | TData;
-  loading: boolean;
-  error: string | null;
+export interface ApplicationState extends AsyncState<TData | null> {
   initialized: boolean;
   fetchApplication: (id: number | string) => Promise<void>;
 }

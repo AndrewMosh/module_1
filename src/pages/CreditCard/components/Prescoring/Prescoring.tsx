@@ -8,7 +8,7 @@ export const Prescoring = () => {
   const { forms, isRestored } = useRestoreForm();
 
   const formState = forms[formName] || {
-    isLoading: false,
+    loading: false,
     success: false,
     error: null,
     data: null,

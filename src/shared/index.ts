@@ -9,3 +9,4 @@ export { Error } from './Error/Error';
 export { ErrorBoundary } from './ErrorBoundary/ErrorBoundary';
 export * from './api/api.consts';
 export * from './UI';
+export * from './types/shared-types';

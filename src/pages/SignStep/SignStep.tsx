@@ -5,11 +5,11 @@ import { Layout, ErrorBoundary } from '@shared';
 
 export const SignStep = () => {
   const { id } = useParams();
-  const { isSuccess } = useSignStore();
+  const { success } = useSignStore();
 
   const currentStatus = 'DOCUMENT_CREATED';
   const renderContent = () => {
-    if (isSuccess) {
+    if (success) {
       return <Signed />;
     }
 

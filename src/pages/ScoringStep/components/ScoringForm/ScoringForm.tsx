@@ -16,7 +16,7 @@ export const ScoringForm = ({ id }: { id: string }) => {
   const { forms, submitForm } = useScoringStore();
 
   const formState = forms[formName] || {
-    isLoading: false,
+    loading: false,
     success: false,
     error: null,
   };
@@ -105,7 +105,7 @@ export const ScoringForm = ({ id }: { id: string }) => {
       />
     ));
 
-  if (formState.isLoading) {
+  if (formState.loading) {
     return (
       <div className="prescoring-form">
         <Spinner />

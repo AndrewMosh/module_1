@@ -7,7 +7,7 @@ import { useModalStore } from '@store';
 export const DenyModal: React.FC<{ id: string }> = ({ id }) => {
   const {
     showModal,
-    isSuccess,
+    success,
     loading,
     error,
     openModal,
@@ -34,7 +34,7 @@ export const DenyModal: React.FC<{ id: string }> = ({ id }) => {
       {showModal && (
         <div className="modal">
           <div className="modal__container">
-            {!isSuccess ? (
+            {!success ? (
               <>
                 <h2 className="modal__title">Deny application</h2>
                 <p className="modal__text">

@@ -10,7 +10,7 @@ export const PlatinumCard = () => {
   const { forms } = usePrescoringStore();
 
   const formState = forms[formName] || {
-    isLoading: false,
+    loading: false,
     success: false,
     error: null,
     data: null,

@@ -4,7 +4,7 @@ import { PaymentScheduleState } from './paymentSchedule.types';
 import { apiUrl } from '@shared';
 
 export const usePaymentScheduleStore = create<PaymentScheduleState>((set) => ({
-  data: [],
+  data: null,
   loading: false,
   error: null,
 

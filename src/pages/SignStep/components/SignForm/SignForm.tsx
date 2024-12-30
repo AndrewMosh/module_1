@@ -5,7 +5,7 @@ import { useDocumentStore, useSignStore } from '@store';
 import pdf from '@assets/pdf/credit-card-offer.pdf';
 export const SignForm = ({ id }: { id: string }) => {
   const { isAgreed, setAgreement } = useDocumentStore();
-  const { isLoading, error, submitAgreement } = useSignStore();
+  const { loading, error, submitAgreement } = useSignStore();
 
   const handleSubmit = async () => {
     if (isAgreed) {
@@ -13,7 +13,7 @@ export const SignForm = ({ id }: { id: string }) => {
     }
   };
 
-  if (isLoading) {
+  if (loading) {
     return <Spinner />;
   }
 

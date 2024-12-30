@@ -12,7 +12,7 @@ export const PrescoringForm = () => {
   const { value: amount } = useSliderStore();
 
   const formState = forms[formName] || {
-    isLoading: false,
+    loading: false,
     success: false,
     error: null,
   };
@@ -59,14 +59,14 @@ export const PrescoringForm = () => {
 
   return (
     <>
-      {formState.isLoading ? (
+      {formState.loading ? (
         <div className="prescoring-form">
           <Spinner />
         </div>
       ) : (
         !formState.success && (
           <form onSubmit={handleSubmit(onSubmit)} className="prescoring-form">
-			<CustomizeCard />
+            <CustomizeCard />
             <h2 className="prescoring-form__title">Contact Information</h2>
             <div className="prescoring-form__fields">
               {formFields.map(

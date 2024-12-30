@@ -13,9 +13,10 @@ export const useScoringStore = create<FormStore>((set, get) => ({
       forms: {
         ...forms,
         [formName]: {
-          isLoading: true,
+          loading: true,
           success: false,
           error: null,
+          data: null,
         },
       },
     });
@@ -27,9 +28,10 @@ export const useScoringStore = create<FormStore>((set, get) => ({
         forms: {
           ...forms,
           [formName]: {
-            isLoading: false,
+            loading: false,
             success: true,
             error: null,
+            data: null,
           },
         },
       });
@@ -40,11 +42,12 @@ export const useScoringStore = create<FormStore>((set, get) => ({
         forms: {
           ...forms,
           [formName]: {
-            isLoading: false,
+            loading: false,
             success: false,
             error:
               formError.response?.data?.message ||
               'Something went wrong, try again later',
+            data: null,
           },
         },
       });
@@ -58,9 +61,10 @@ export const useScoringStore = create<FormStore>((set, get) => ({
       forms: {
         ...forms,
         [formName]: {
-          isLoading: false,
+          loading: false,
           success: false,
           error: null,
+          data: null,
         },
       },
     });

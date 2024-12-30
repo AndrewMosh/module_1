@@ -12,7 +12,7 @@ export const Scoring = () => {
   const currentStatus = 'APPROVED';
 
   const formState = forms[formName] || {
-    isLoading: false,
+    loading: false,
     success: false,
     error: null,
     data: null,

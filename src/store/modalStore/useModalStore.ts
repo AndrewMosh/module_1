@@ -5,12 +5,12 @@ import { apiUrl } from '@shared';
 
 export const useModalStore = create<ModalState>((set) => ({
   showModal: false,
-  isSuccess: false,
+  success: false,
   loading: false,
   error: null,
 
   openModal: () => set({ showModal: true }),
-  closeModal: () => set({ showModal: false, isSuccess: false, error: null }),
+  closeModal: () => set({ showModal: false, success: false, error: null }),
 
   denyApplication: async (id: string) => {
     set({ loading: true, error: null });
@@ -28,7 +28,7 @@ export const useModalStore = create<ModalState>((set) => ({
         throw new Error('Failed to deny application');
       }
 
-      set({ isSuccess: true });
+      set({ success: true });
     } catch (error) {
       set({
         error:

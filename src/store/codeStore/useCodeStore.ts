@@ -7,16 +7,16 @@ export const useCodeStore = create<CodeState>((set, get) => ({
   code: ['', '', '', ''],
   error: null,
   loading: false,
-  isSuccess: false,
+  success: false,
   setCode: (index, value) =>
     set((state) => {
       const updatedCode = [...state.code];
       updatedCode[index] = value;
       return { code: updatedCode };
     }),
-  clearCode: () => set({ code: ['', '', '', ''], isSuccess: false }),
+  clearCode: () => set({ code: ['', '', '', ''], success: false }),
   sendCode: async (id) => {
-    set({ loading: true, error: null, isSuccess: false });
+    set({ loading: true, error: null, success: false });
     const { code } = get();
     const confirmationCode = code.join('');
 
@@ -35,7 +35,7 @@ export const useCodeStore = create<CodeState>((set, get) => ({
         throw new Error('Invalid confirmation code');
       }
 
-      set({ loading: false, isSuccess: true });
+      set({ loading: false, success: true });
     } catch (error) {
       set({
         loading: false,

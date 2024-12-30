@@ -10,14 +10,9 @@ export const ErrorBoundary = ({
   id: string;
   children: React.ReactNode;
 }) => {
-  const {
-    loading: isLoading,
-    error,
-    data,
-    initialized,
-  } = useApplicationData(id ?? '');
+  const { loading, error, data, initialized } = useApplicationData(id ?? '');
 
-  if (isLoading || !initialized) {
+  if (loading || !initialized) {
     return <Spinner />;
   }
 

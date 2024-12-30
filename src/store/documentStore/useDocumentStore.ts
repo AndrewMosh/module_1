@@ -7,7 +7,7 @@ export const useDocumentStore = create<DocumentState>((set) => ({
   isAgreed: false,
   loading: false,
   error: null,
-  isSuccess: false,
+  success: false,
 
   setAgreement: (agreed) => set({ isAgreed: agreed }),
 
@@ -24,7 +24,7 @@ export const useDocumentStore = create<DocumentState>((set) => ({
       );
 
       if (response.status === 200) {
-        set({ isSuccess: true });
+        set({ success: true });
       } else {
         throw new Error('Failed to submit agreement');
       }

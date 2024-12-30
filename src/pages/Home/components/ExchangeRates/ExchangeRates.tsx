@@ -11,7 +11,7 @@ import { formatDate } from '@utils';
 
 export const ExchangeRates = () => {
   const today = formatDate(new Date());
-  const { rates, isLoading, error } = useCurrencyStore();
+  const { rates, loading, error } = useCurrencyStore();
 
   useFetchExchangeRates(baseCurrency, requiredCurrencies, UPDATE_INTERVAL);
 
@@ -50,7 +50,7 @@ export const ExchangeRates = () => {
           <h3 className="exchange-rates__subtitle">Currency</h3>
           <div className="exchange-rates__inner">
             <div className="exchange-rates__table">
-              {isLoading || !rates
+              {loading || !rates
                 ? placeholderRows
                 : Object.entries(rates).map(([currency, rate]) => (
                     <div key={currency} className="exchange-rates__row">

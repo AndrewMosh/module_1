@@ -4,17 +4,17 @@ import { OffersStore } from './offers.types';
 
 export const useOffersStore = create<OffersStore>((set, get) => ({
   selectedOfferId: null,
-  isSuccess: false,
-  isLoading: false,
-  isError: false,
+  success: false,
+  loading: false,
+  error: false,
   setSelectedOfferId: (id) => {
     set((state) => ({
       selectedOfferId: state.selectedOfferId === id ? null : id,
     }));
   },
-  setSuccess: (value) => set({ isSuccess: value }),
+  setSuccess: (value) => set({ success: value }),
   submitOffer: async (apiUrl, offers) => {
-    set({ isLoading: true });
+    set({ loading: true });
     const { selectedOfferId } = get();
     if (selectedOfferId && offers) {
       const selectedOffer = offers?.find(
@@ -29,15 +29,15 @@ export const useOffersStore = create<OffersStore>((set, get) => ({
             offerToSend,
           );
           if (response.status === 200) {
-            set({ isSuccess: true });
-            set({ isError: false });
-            set({ isLoading: false });
+            set({ success: true });
+            set({ error: false });
+            set({ loading: false });
           } else {
-            set({ isError: true });
+            set({ error: true });
           }
         } catch (error) {
           if (error instanceof Error) {
-            set({ isError: true });
+            set({ error: true });
           }
         } finally {
           localStorage.removeItem('formStore');

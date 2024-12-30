@@ -8,8 +8,8 @@ import { usePaymentScheduleStore, useDocumentStore } from '@store';
 export const Document = ({ id }: { id: string }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const {
-    isAgreed,
-    setAgreement,
+    isAgreed = false,
+    setAgreement = () => {},
     loading: isSending,
     error,
     sendAgreement,
@@ -20,6 +20,8 @@ export const Document = ({ id }: { id: string }) => {
     loading: isFetching,
     fetchPaymentSchedule,
   } = usePaymentScheduleStore();
+
+  const dataToShow = Array.isArray(data) ? data : [];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +40,7 @@ export const Document = ({ id }: { id: string }) => {
 
   if (isSending || isFetching || !isLoaded) return <Spinner />;
   if (error) return <p className="document__error">Error: {error}</p>;
-  if (isLoaded && data.length === 0)
+  if (isLoaded && !data)
     return (
       <p className="document__nodata">No data found on application {id}</p>
     );
@@ -49,7 +51,7 @@ export const Document = ({ id }: { id: string }) => {
         <h2 className="document__title">Payment Schedule</h2>
         <p className="document__steps">Step 3 of 5</p>
       </div>
-      <Table columns={columns} data={data || []} />
+      <Table columns={columns} data={dataToShow} />
       <div className="document__footer">
         <DenyModal id={id} />
         <div className="document__accept">

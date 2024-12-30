@@ -5,12 +5,12 @@ import { rates_api, ratesKey } from '@shared';
 
 export const useCurrencyStore = create<CurrencyState>((set) => ({
   rates: null,
-  isLoading: false,
+  loading: false,
   error: null,
 
   fetchRates: async (baseCurrency: string, currencies: string[]) => {
     const apiUrl = `${rates_api}${ratesKey}/latest/${baseCurrency}`;
-    set({ isLoading: true, error: null });
+    set({ loading: true, error: null });
 
     try {
       const { data } = await axios.get(apiUrl);
@@ -21,15 +21,15 @@ export const useCurrencyStore = create<CurrencyState>((set) => ({
         ),
       ) as Record<string, number>;
 
-      set({ rates: filteredRates, isLoading: false });
+      set({ rates: filteredRates, loading: false });
     } catch (error) {
       if (axios.isAxiosError(error)) {
         set({
           error: error.response?.data?.error || error.message,
-          isLoading: false,
+          loading: false,
         });
       } else {
-        set({ error: 'Произошла ошибка', isLoading: false });
+        set({ error: 'Произошла ошибка', loading: false });
       }
     }
   },
