@@ -1,4 +1,5 @@
 export const statuses = {
+ PREAPPROVAL:'Your application is being processed',
   APPROVED: 'Your application has been preapproved',
   CC_APPROVED: 'Your application has been approved by the bank',
   CC_DENIED: ' Your application has been denied by the bank',

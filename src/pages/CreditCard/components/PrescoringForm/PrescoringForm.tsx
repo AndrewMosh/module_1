@@ -5,6 +5,7 @@ import { DynamicInput, Spinner, Button, apiUrl } from '@shared';
 import { usePrescoringStore, useSliderStore } from '@store';
 import { formEndpoint, formFields, formName } from './form.consts';
 import './PrescoringForm.scss';
+import { CustomizeCard } from '@pages';
 
 export const PrescoringForm = () => {
   const { forms, submitForm } = usePrescoringStore();
@@ -65,6 +66,7 @@ export const PrescoringForm = () => {
       ) : (
         !formState.success && (
           <form onSubmit={handleSubmit(onSubmit)} className="prescoring-form">
+			<CustomizeCard />
             <h2 className="prescoring-form__title">Contact Information</h2>
             <div className="prescoring-form__fields">
               {formFields.map(

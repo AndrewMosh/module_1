@@ -1,4 +1,4 @@
-import { PrescoringForm, Offers, CustomizeCard } from '@pages';
+import { PrescoringForm, Offers } from '@pages';
 import { CardBase, Spinner } from '@shared';
 import './Prescoring.scss';
 import { formName } from '../PrescoringForm/form.consts';
@@ -22,7 +22,6 @@ export const Prescoring = () => {
     <div id="prescoring" className="prescoring">
       {!formState.success && !formState.data && (
         <CardBase>
-          <CustomizeCard />
           <PrescoringForm />
         </CardBase>
       )}
