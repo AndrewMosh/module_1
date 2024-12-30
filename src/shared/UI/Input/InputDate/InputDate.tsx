@@ -5,7 +5,7 @@ export const InputDate: React.FC<InputDateProps> = ({ register }) => {
     <>
       <input
         {...register}
-        type="date"
+        type="text"
         className="input__input"
         placeholder="Select Date and Time"
         onFocus={(e) => (e.target.type = 'date')}
