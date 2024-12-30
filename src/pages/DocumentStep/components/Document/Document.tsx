@@ -21,7 +21,6 @@ export const Document = ({ id }: { id: string }) => {
     fetchPaymentSchedule,
   } = usePaymentScheduleStore();
 
-  const dataToShow = Array.isArray(data) ? data : [];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,7 +50,7 @@ export const Document = ({ id }: { id: string }) => {
         <h2 className="document__title">Payment Schedule</h2>
         <p className="document__steps">Step 3 of 5</p>
       </div>
-      <Table columns={columns} data={dataToShow} />
+      <Table columns={columns} data={Array.isArray(data) ? data : []} />
       <div className="document__footer">
         <DenyModal id={id} />
         <div className="document__accept">

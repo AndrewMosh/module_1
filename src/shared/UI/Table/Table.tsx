@@ -3,20 +3,21 @@ import './Table.scss';
 import { TableProps } from './table.types';
 import down from '@assets/svg/down-sort.svg';
 import up from '@assets/svg/up-sort.svg';
+import { TSchedule } from '@store/paymentScheduleStore/paymentSchedule.types';
 
-export const Table: React.FC<TableProps> = ({ columns, data, onSort }) => {
+export const Table: React.FC<TableProps> = ({ columns, data=[], onSort }) => {
   const [sortConfig, setSortConfig] = useState<{
-    key: string;
+    key: keyof TSchedule;
     direction: 'asc' | 'desc';
-  } | null>(null);
+  } | null >(null);
 
   const handleSort = (key: string) => {
     let direction: 'asc' | 'desc' = 'asc';
     if (sortConfig?.key === key) {
       direction = sortConfig.direction === 'asc' ? 'desc' : 'asc';
     }
-    setSortConfig({ key, direction });
-    onSort?.(key, direction);
+    setSortConfig({ key: key as keyof TSchedule, direction });
+    onSort?.(key as keyof TSchedule, direction);
   };
 
   const sortedData = React.useMemo(() => {
@@ -52,7 +53,7 @@ export const Table: React.FC<TableProps> = ({ columns, data, onSort }) => {
         ))}
       </div>
       <div className="table__body">
-        {sortedData.map((row, index) => (
+        {sortedData?.map((row, index) => (
           <div key={index} className="table__row">
             {columns.map((column) => (
               <div
@@ -60,7 +61,7 @@ export const Table: React.FC<TableProps> = ({ columns, data, onSort }) => {
                 key={column.key}
                 data-label={column.title}
               >
-                {row[column.key]}
+                {row[column.key] instanceof Date ? (row[column.key] as Date).toLocaleDateString() : String(row[column.key])}
               </div>
             ))}
           </div>

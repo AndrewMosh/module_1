@@ -1,6 +1,7 @@
 import { AsyncState } from '@shared';
 
 export type TSchedule = {
+  id: number;
   date: string | Date;
   debtPayment: number;
   interestPayment: number;
@@ -9,6 +10,6 @@ export type TSchedule = {
   totalPayment: number;
 };
 
-export interface PaymentScheduleState extends AsyncState<TSchedule | null> {
+export interface PaymentScheduleState extends AsyncState<TSchedule | []> {
   fetchPaymentSchedule: (id: string) => Promise<void>;
 }
