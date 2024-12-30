@@ -16,9 +16,13 @@ export const useModalStore = create<ModalState>((set) => ({
     set({ loading: true, error: null });
 
     try {
-      const response = await axios.post(`${apiUrl}/application/${id}/deny`, null, {
-        headers: { 'Content-Type': 'application/json' },
-      });
+      const response = await axios.post(
+        `${apiUrl}/application/${id}/deny`,
+        null,
+        {
+          headers: { 'Content-Type': 'application/json' },
+        },
+      );
 
       if (response.status !== 200) {
         throw new Error('Failed to deny application');
@@ -27,9 +31,10 @@ export const useModalStore = create<ModalState>((set) => ({
       set({ isSuccess: true });
     } catch (error) {
       set({
-        error: axios.isAxiosError(error) && error.response?.data?.message
-          ? error.response.data.message
-          : 'Unknown error',
+        error:
+          axios.isAxiosError(error) && error.response?.data?.message
+            ? error.response.data.message
+            : 'Unknown error',
       });
     } finally {
       set({ loading: false });

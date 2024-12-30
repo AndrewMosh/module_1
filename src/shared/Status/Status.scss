@@ -1,0 +1,7 @@
+.status {
+  @include flex-center;
+  min-height: 40vh;
+  text-align: center;
+  font-size: 24px;
+  color: rgb(17, 0, 255);
+}

@@ -1,7 +1,6 @@
 .code {
   @include flex-center;
-    min-height: 50vh;
-  
+  min-height: 50vh;
 
   &__wrapper {
     display: flex;
@@ -43,8 +42,7 @@
   }
 
   &__error2 {
-	@include flex-center;
-      min-height: 30vh;
-    
+    @include flex-center;
+    min-height: 30vh;
   }
 }

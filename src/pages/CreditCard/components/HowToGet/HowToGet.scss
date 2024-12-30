@@ -32,14 +32,14 @@
   }
 
   &__number {
-	@include flex-center;
-      background-color: #d9d9d9;
-      border-radius: 50%;
-      width: 40px;
-      height: 35px;
-      font-size: $fs-20;
-      font-family: 'Ubuntu Medium';
-    
+    @include flex-center;
+    background-color: #d9d9d9;
+    border-radius: 50%;
+    width: 40px;
+    height: 35px;
+    font-size: $fs-20;
+    font-family: 'Ubuntu Medium';
+
     @include respond-to(mobile) {
       font-size: $fs-16;
     }

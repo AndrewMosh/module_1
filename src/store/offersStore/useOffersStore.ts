@@ -46,4 +46,3 @@ export const useOffersStore = create<OffersStore>((set, get) => ({
     }
   },
 }));
-

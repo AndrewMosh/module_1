@@ -1,19 +1,15 @@
 import { useParams } from 'react-router-dom';
 import './Scoring.scss';
-import { CardBase, Spinner, useApplicationData } from '@shared';
-import { ScoringForm, WaitForDecision, NotFound } from '@pages';
+import { CardBase, ErrorBoundary } from '@shared';
+import { ScoringForm, WaitForDecision } from '@pages';
 import { useScoringStore } from '@store';
 import { formName } from '../ScoringForm/form.consts';
 
 export const Scoring = () => {
   const { id } = useParams();
   const { forms } = useScoringStore();
-  const {
-    loading: isLoading,
-    error,
-    data,
-    initialized,
-  } = useApplicationData(id ?? '');
+
+  const currentStatus = 'APPROVED';
 
   const formState = forms[formName] || {
     isLoading: false,
@@ -21,25 +17,6 @@ export const Scoring = () => {
     error: null,
     data: null,
   };
-
-  if (isLoading || !initialized) {
-    return <Spinner />;
-  }
-
-  if (error) {
-    return <div className="scoring__error">Error: {error}</div>;
-  }
-
-  if (data?.status !== 'APPROVED') {
-	switch (data?.status) {
-	  case 'CC_DENIED':
-		return <div className="scoring__error">Application denied</div>;
-	  case 'CC_APPROVED':
-		return <div className="scoring__success">Application approved</div>;
-	  default:
-		return <NotFound />;
-	}
-  }  
 
   const renderContent = () => {
     if (formState.success) {
@@ -53,5 +30,11 @@ export const Scoring = () => {
     ) : null;
   };
 
-  return <div className="scoring">{renderContent()}</div>;
+  return (
+    id && (
+      <ErrorBoundary status={currentStatus} id={id}>
+        <div className="scoring">{renderContent()}</div>
+      </ErrorBoundary>
+    )
+  );
 };

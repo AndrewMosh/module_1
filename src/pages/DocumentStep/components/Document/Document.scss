@@ -64,9 +64,8 @@
 
   &__nodata,
   &__error {
-	@include flex-center;
-      min-height: 30vh;
-      color: red;
-    
+    @include flex-center;
+    min-height: 30vh;
+    color: red;
   }
 }

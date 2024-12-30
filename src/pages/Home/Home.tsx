@@ -19,4 +19,4 @@ export const Home = () => {
       <NewsLetter />
     </Layout>
   );
-}
+};

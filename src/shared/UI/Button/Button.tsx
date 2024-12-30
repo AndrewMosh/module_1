@@ -1,7 +1,7 @@
 import { ButtonProps } from './button.types';
 import './Button.scss';
 
-const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<ButtonProps> = ({
   children,
   onClick,
   className = '',
@@ -15,5 +15,3 @@ const Button: React.FC<ButtonProps> = ({
     {children}
   </button>
 );
-
-export default Button;

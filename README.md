@@ -1,4 +1,5 @@
 # NeoBank online
+
 Данное приложение позволяет пользователям оформлять кредитные продукты, такие как кредитные карты.
 
 ### Основные функции:
@@ -10,23 +11,22 @@
 
 ## Architecture
 
-+ [Modular](https://medium.com/@kemaltf_/modularizing-react-application-89557d4c3ca4)
+- [Modular](https://medium.com/@kemaltf_/modularizing-react-application-89557d4c3ca4)
 
 ## Stack
 
-+ [React](https://react.dev/learn)
-+ [TypeScript](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+- [React](https://react.dev/learn)
+- [TypeScript](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
 
 ### Bundler
 
-+ [Vite](https://vitejs.dev/config/shared-options.html)
+- [Vite](https://vitejs.dev/config/shared-options.html)
 
 ### State
 
-+ [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) - Client state manager
-
+- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) - Client state manager
 
 ### Utils
 
-+ [Axios](https://axios-http.com/ru/docs/api_intro) - HTTP client
-+ [Zod](https://zod.dev/) - Schema validation
+- [Axios](https://axios-http.com/ru/docs/api_intro) - HTTP client
+- [Zod](https://zod.dev/) - Schema validation

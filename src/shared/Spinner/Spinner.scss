@@ -1,6 +1,5 @@
 .spinner {
-	@include flex-center;
-    margin: 20px 0;
-    min-height: 265px;
-  
+  @include flex-center;
+  margin: 20px 0;
+  min-height: 265px;
 }

@@ -16,7 +16,7 @@ export const useApplicationStore = create<ApplicationState>((set) => ({
     } catch (error) {
       if (error instanceof Error) {
         set({
-          error: error.message || 'Error fetching data',
+          error: 'Error fetching data or this application does not exist',
           loading: false,
           initialized: true,
         });

@@ -66,4 +66,3 @@ export const useScoringStore = create<FormStore>((set, get) => ({
     });
   },
 }));
-

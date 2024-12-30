@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TooltipProps } from './tooltip.types';
 import './Tooltips.scss';
 
-const Tooltip: React.FC<TooltipProps> = ({
+export const Tooltip: React.FC<TooltipProps> = ({
   content,
   position = 'bottom',
   delay = 0,
@@ -34,5 +34,3 @@ const Tooltip: React.FC<TooltipProps> = ({
     </div>
   );
 };
-
-export default Tooltip;

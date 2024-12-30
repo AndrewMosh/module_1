@@ -20,7 +20,7 @@ export const useDocumentStore = create<DocumentState>((set) => ({
         { agreement: true },
         {
           headers: { 'Content-Type': 'application/json' },
-        }
+        },
       );
 
       if (response.status === 200) {
@@ -30,9 +30,10 @@ export const useDocumentStore = create<DocumentState>((set) => ({
       }
     } catch (error) {
       set({
-        error: axios.isAxiosError(error) && error.response?.data?.message
-          ? error.response.data.message
-          : 'Unknown error',
+        error:
+          axios.isAxiosError(error) && error.response?.data?.message
+            ? error.response.data.message
+            : 'Unknown error',
       });
     } finally {
       set({ loading: false });

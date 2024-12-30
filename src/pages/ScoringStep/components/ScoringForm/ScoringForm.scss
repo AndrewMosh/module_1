@@ -45,9 +45,8 @@
   }
 
   &__loading {
-	@include flex-center;
-      height: 100px;
-    
+    @include flex-center;
+    height: 100px;
   }
 
   &__error {

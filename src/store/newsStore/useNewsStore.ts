@@ -24,7 +24,7 @@ export const useNewsStore = create<NewsStore>((set) => ({
 
     try {
       const response = await axios.get(
-        `${news_api}${endpoint}&pageSize=${pages}&apiKey=${newsKey}`
+        `${news_api}${endpoint}&pageSize=${pages}&apiKey=${newsKey}`,
       );
 
       const filteredArticles = await Promise.all(
@@ -40,19 +40,22 @@ export const useNewsStore = create<NewsStore>((set) => ({
               ? article.description.replace(/<\/?[^>]+(>|$)/g, '')
               : 'No description available',
           };
-        })
+        }),
       );
 
       set({
-        news: filteredArticles.filter((article: NewsItem) => article.urlToImage),
+        news: filteredArticles.filter(
+          (article: NewsItem) => article.urlToImage,
+        ),
         loading: false,
       });
     } catch (error: unknown) {
       const apiError = error as ApiError;
       set({
-        error: axios.isAxiosError(apiError) && apiError.response?.data?.message
-          ? apiError.response.data.message
-          : 'Failed to fetch news',
+        error:
+          axios.isAxiosError(apiError) && apiError.response?.data?.message
+            ? apiError.response.data.message
+            : 'Failed to fetch news',
         loading: false,
       });
     }

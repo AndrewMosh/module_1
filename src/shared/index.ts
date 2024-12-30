@@ -1,8 +1,11 @@
 export { Layout } from './Layout/Layout';
-export {  Header } from './Header/Header';
+export { Header } from './Header/Header';
 export { Footer } from './Footer/Footer';
 export { useApplicationData } from './hooks/useApplicationData';
 export { Success } from './SuccessComponent/Success';
 export { Spinner } from './Spinner/Spinner';
+export { Status } from './Status/Status';
+export { Error } from './Error/Error';
+export { ErrorBoundary } from './ErrorBoundary/ErrorBoundary';
 export * from './api/api.consts';
 export * from './UI';

@@ -14,4 +14,3 @@ export const useMenuStore = create<MenuStore>((set) => ({
     set({ isMenuOpen: false });
   },
 }));
-

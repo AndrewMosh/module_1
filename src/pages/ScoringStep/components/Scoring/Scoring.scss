@@ -1,19 +1,11 @@
 .scoring {
   margin: 24px 0 96px 0;
 
-  &__error {
-	@include flex-center;
-      min-height: 40vh;
-      text-align: center;
-      font-size: 24px;
-      color: red;
-  }
-
   &__success {
-	@include flex-center;
-	  min-height: 40vh;
-	  text-align: center;
-	  font-size: 24px;
-	  color: green;
+    @include flex-center;
+    min-height: 40vh;
+    text-align: center;
+    font-size: 24px;
+    color: green;
   }
 }

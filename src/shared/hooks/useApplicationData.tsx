@@ -13,4 +13,3 @@ export const useApplicationData = (id: number | string) => {
 
   return { data, loading, error, initialized };
 };
-

@@ -21,11 +21,15 @@ export const useCodeStore = create<CodeState>((set, get) => ({
     const confirmationCode = code.join('');
 
     try {
-      const response = await axios.post(`${apiUrl}/document/${id}/sign/code`, confirmationCode, {
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await axios.post(
+        `${apiUrl}/document/${id}/sign/code`,
+        confirmationCode,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
         },
-      });
+      );
 
       if (response.status !== 200) {
         throw new Error('Invalid confirmation code');
@@ -35,9 +39,10 @@ export const useCodeStore = create<CodeState>((set, get) => ({
     } catch (error) {
       set({
         loading: false,
-        error: axios.isAxiosError(error) && error.response?.data?.message
-          ? error.response.data.message
-          :  'Invalid confirmation code',
+        error:
+          axios.isAxiosError(error) && error.response?.data?.message
+            ? error.response.data.message
+            : 'Invalid confirmation code',
       });
       get().clearCode();
     }
