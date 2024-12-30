@@ -39,11 +39,7 @@ export const Document = ({ id }: { id: string }) => {
 
   if (isSending || isFetching || !isLoaded) return <Spinner />;
   if (error) return <p className="document__error">Error: {error}</p>;
-  if (isLoaded && !data)
-    return (
-      <p className="document__nodata">No data found on application {id}</p>
-    );
-
+ 
   return (
     <div className="document">
       <div className="document__header">
