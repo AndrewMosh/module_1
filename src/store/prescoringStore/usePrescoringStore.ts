@@ -3,6 +3,8 @@ import axios from 'axios';
 import { ApiError } from '@store/newsStore/useNewsStore.types';
 import { TData } from '@pages/CreditCard/components/PrescoringForm/form.types';
 import { FormState } from './prescoring.types';
+import { sortOffers } from './sort';
+import { TOffers } from '@pages/CreditCard/components/Offers/offers.types';
 
 interface FormStore {
   forms: Record<string, FormState>;
@@ -10,6 +12,7 @@ interface FormStore {
     formName: string,
     data: TData,
     endpoint: string,
+    criteria: { key: keyof TData; order: 'asc' | 'desc' }[]  
   ) => Promise<void>;
   resetFormState: (formName: string) => void;
   restoreFormState: () => void;
@@ -20,7 +23,7 @@ const STORAGE_KEY = 'formStore';
 export const usePrescoringStore = create<FormStore>((set, get) => ({
   forms: {},
 
-  submitForm: async (formName, data, endpoint) => {
+  submitForm: async (formName, data, endpoint, criteria) => {  
     const forms = get().forms;
 
     set({
@@ -38,13 +41,15 @@ export const usePrescoringStore = create<FormStore>((set, get) => ({
     try {
       const response = await axios.post(endpoint, data);
 
+      const sortedOffers = sortOffers(response.data, criteria);
+
       const updatedForms = {
         ...forms,
         [formName]: {
           loading: false,
           success: true,
           error: null,
-          data: response.data,
+          data: sortedOffers as unknown as TOffers[], 
         },
       };
 

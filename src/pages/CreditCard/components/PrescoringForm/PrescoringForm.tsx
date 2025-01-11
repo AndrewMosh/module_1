@@ -6,6 +6,7 @@ import { usePrescoringStore, useSliderStore } from '@store';
 import { formEndpoint, formFields, formName } from './form.consts';
 import './PrescoringForm.scss';
 import { CustomizeCard } from '@pages';
+import { criteria as rawCriteria } from '@store/prescoringStore/sort';
 
 export const PrescoringForm = () => {
   const { forms, submitForm } = usePrescoringStore();
@@ -54,7 +55,11 @@ export const PrescoringForm = () => {
       amount,
     };
 
-    await submitForm(formName, payload, `${apiUrl}${formEndpoint}`);
+    const criteria = rawCriteria.map(({ key, order }) => ({
+      key: key as keyof TData,
+      order: order as 'asc' | 'desc',
+    }));
+    await submitForm(formName, payload, `${apiUrl}${formEndpoint}`, criteria);
   };
 
   return (
