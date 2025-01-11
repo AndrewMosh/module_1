@@ -12,7 +12,7 @@ interface FormStore {
     formName: string,
     data: TData,
     endpoint: string,
-    criteria: { key: keyof TData; order: 'asc' | 'desc' }[]  
+    criteria: { key: keyof TData; order: 'asc' | 'desc' }[],
   ) => Promise<void>;
   resetFormState: (formName: string) => void;
   restoreFormState: () => void;
@@ -23,7 +23,7 @@ const STORAGE_KEY = 'formStore';
 export const usePrescoringStore = create<FormStore>((set, get) => ({
   forms: {},
 
-  submitForm: async (formName, data, endpoint, criteria) => {  
+  submitForm: async (formName, data, endpoint, criteria) => {
     const forms = get().forms;
 
     set({
@@ -49,7 +49,7 @@ export const usePrescoringStore = create<FormStore>((set, get) => ({
           loading: false,
           success: true,
           error: null,
-          data: sortedOffers as unknown as TOffers[], 
+          data: sortedOffers as unknown as TOffers[],
         },
       };
 

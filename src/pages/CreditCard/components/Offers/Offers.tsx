@@ -12,7 +12,9 @@ import { SentToEmail } from '@pages';
 
 export const Offers = () => {
   const { forms } = usePrescoringStore();
-  const offers: TOffers[] | null = Array.isArray(forms.contactForm.data) ? forms.contactForm.data : null;
+  const offers: TOffers[] | null = Array.isArray(forms.contactForm.data)
+    ? forms.contactForm.data
+    : null;
   const {
     setSelectedOfferId,
     selectedOfferId,

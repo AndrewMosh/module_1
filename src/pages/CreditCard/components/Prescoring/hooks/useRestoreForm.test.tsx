@@ -12,10 +12,12 @@ describe('useRestoreForm', () => {
     const mockRestoreFormState = vi.fn();
     const mockForms = { field1: 'value1', field2: 'value2' };
 
-    (usePrescoringStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
-      forms: mockForms,
-      restoreFormState: mockRestoreFormState,
-    });
+    (usePrescoringStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue(
+      {
+        forms: mockForms,
+        restoreFormState: mockRestoreFormState,
+      },
+    );
 
     renderHook(() => useRestoreForm());
 
@@ -26,10 +28,12 @@ describe('useRestoreForm', () => {
     const mockRestoreFormState = vi.fn();
     const mockForms = { field1: 'value1', field2: 'value2' };
 
-    (usePrescoringStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
-      forms: mockForms,
-      restoreFormState: mockRestoreFormState,
-    });
+    (usePrescoringStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue(
+      {
+        forms: mockForms,
+        restoreFormState: mockRestoreFormState,
+      },
+    );
 
     const { result } = renderHook(() => useRestoreForm());
 

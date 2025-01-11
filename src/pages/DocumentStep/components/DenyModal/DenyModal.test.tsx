@@ -16,7 +16,9 @@ describe('DenyModal', () => {
   const mockNavigate = vi.fn();
 
   beforeEach(() => {
-    (useNavigate as unknown as ReturnType<typeof vi.fn>).mockReturnValue(mockNavigate);
+    (useNavigate as unknown as ReturnType<typeof vi.fn>).mockReturnValue(
+      mockNavigate,
+    );
     (useModalStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
       showModal: false,
       success: false,
@@ -40,54 +42,53 @@ describe('DenyModal', () => {
   });
 
   it('opens modal when "Deny" button is clicked', () => {
-	const openModalMock = vi.fn();
-	let showModalState = false;
-  
-	(useModalStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
-	  ...useModalStore(),
-	  openModal: () => {
-		openModalMock();
-		showModalState = true; 
-	  },
-	  showModal: showModalState,
-	});
-  
-	const { rerender } = render(<DenyModal id="123" />);
-  
-	fireEvent.click(screen.getByText('Deny'));
-  
-	(useModalStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
-	  ...useModalStore(),
-	  showModal: showModalState,
-	});
-	rerender(<DenyModal id="123" />);
-  
-	expect(openModalMock).toHaveBeenCalled();
-	expect(screen.getByText('Deny application')).toBeInTheDocument();
+    const openModalMock = vi.fn();
+    let showModalState = false;
+
+    (useModalStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
+      ...useModalStore(),
+      openModal: () => {
+        openModalMock();
+        showModalState = true;
+      },
+      showModal: showModalState,
+    });
+
+    const { rerender } = render(<DenyModal id="123" />);
+
+    fireEvent.click(screen.getByText('Deny'));
+
+    (useModalStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
+      ...useModalStore(),
+      showModal: showModalState,
+    });
+    rerender(<DenyModal id="123" />);
+
+    expect(openModalMock).toHaveBeenCalled();
+    expect(screen.getByText('Deny application')).toBeInTheDocument();
   });
-  
 
   it('calls denyApplication when "Deny" button in modal is clicked', async () => {
-	const denyApplicationMock = vi.fn();
-  
-	(useModalStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
-	  ...useModalStore(),
-	  showModal: true,
-	  denyApplication: denyApplicationMock,
-	});
-  
-	render(<DenyModal id="123" />);
-  
-	const modalDenyButton = screen.getByText('Deny', { selector: '.modal__confirm-button' });
-  
-	fireEvent.click(modalDenyButton);
-  
-	await waitFor(() => {
-	  expect(denyApplicationMock).toHaveBeenCalledWith('123');
-	});
+    const denyApplicationMock = vi.fn();
+
+    (useModalStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
+      ...useModalStore(),
+      showModal: true,
+      denyApplication: denyApplicationMock,
+    });
+
+    render(<DenyModal id="123" />);
+
+    const modalDenyButton = screen.getByText('Deny', {
+      selector: '.modal__confirm-button',
+    });
+
+    fireEvent.click(modalDenyButton);
+
+    await waitFor(() => {
+      expect(denyApplicationMock).toHaveBeenCalledWith('123');
+    });
   });
-  
-  
 
   it('closes modal when "Cancel" button is clicked', () => {
     const closeModalMock = vi.fn();

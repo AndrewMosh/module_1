@@ -16,7 +16,7 @@ describe('CodeInput Component', () => {
     mockSendCode = vi.fn().mockResolvedValue(true);
 
     (useCodeStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
-      code: ['', '', '', ''], 
+      code: ['', '', '', ''],
       setCode: mockSetCode,
       sendCode: mockSendCode,
       error: '',
@@ -63,7 +63,7 @@ describe('CodeInput Component', () => {
     expect(mockSetCode).toHaveBeenCalledWith(0, '');
     expect(inputs[0]).toHaveFocus();
   });
- 
+
   it('displays error message when error is present', () => {
     (useCodeStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
       code: ['', '', '', ''],

@@ -28,7 +28,7 @@ describe('useFetchNews', () => {
 
     expect(mockFetchNews).toHaveBeenCalledTimes(1);
 
-    vi.advanceTimersByTime(UPDATE_INTERVAL); 
+    vi.advanceTimersByTime(UPDATE_INTERVAL);
     expect(mockFetchNews).toHaveBeenCalledTimes(2);
 
     vi.advanceTimersByTime(UPDATE_INTERVAL);
@@ -43,6 +43,6 @@ describe('useFetchNews', () => {
     unmount();
 
     vi.advanceTimersByTime(UPDATE_INTERVAL);
-    expect(mockFetchNews).toHaveBeenCalledTimes(1); 
+    expect(mockFetchNews).toHaveBeenCalledTimes(1);
   });
 });

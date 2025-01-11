@@ -9,8 +9,6 @@ export const CodeInput = ({ id }: { id: string }) => {
   const inputsRef = useRef<(HTMLInputElement | null)[]>([]);
   const [isFocused, setIsFocused] = useState<boolean[]>([]);
 
-
-
   const handleFocus = (index: number) => {
     const updatedFocus = [...isFocused];
     updatedFocus[index] = true;
@@ -59,8 +57,8 @@ export const CodeInput = ({ id }: { id: string }) => {
           {code.map((value, index) => (
             <div key={index} className="code__input-wrapper">
               {!isFocused[index] && !value && (
-                <img 
-                  src={circle} 
+                <img
+                  src={circle}
                   alt="Placeholder"
                   className="code__placeholder"
                 />
@@ -74,7 +72,7 @@ export const CodeInput = ({ id }: { id: string }) => {
                 onKeyDown={(e) => handleKeyDown(e, index)}
                 onFocus={() => handleFocus(index)}
                 onBlur={() => handleBlur(index)}
-                className={`code__input ${error? 'code__input--error' : ''}`}
+                className={`code__input ${error ? 'code__input--error' : ''}`}
               />
             </div>
           ))}

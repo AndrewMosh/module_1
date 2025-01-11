@@ -21,7 +21,6 @@ export const Document = ({ id }: { id: string }) => {
     fetchPaymentSchedule,
   } = usePaymentScheduleStore();
 
-
   useEffect(() => {
     const fetchData = async () => {
       await fetchPaymentSchedule(id);
@@ -39,7 +38,7 @@ export const Document = ({ id }: { id: string }) => {
 
   if (isSending || isFetching || !isLoaded) return <Spinner />;
   if (error) return <p className="document__error">Error: {error}</p>;
- 
+
   return (
     <div className="document">
       <div className="document__header">

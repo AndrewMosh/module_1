@@ -1,72 +1,71 @@
 .code {
-	@include flex-center;
-	min-height: 50vh;
-  
-	&__wrapper {
-	  display: flex;
-	  flex-direction: column;
-	  align-items: center;
-	  gap: 16px;
-	}
-  
-	&__label {
-	  font-size: $fs-30;
-	  text-align: center;
-	}
-  
-	&__inputs {
-	  display: flex;
-	  gap: 8px;
-	}
-  
-	&__input-wrapper {
-	  position: relative;
-	}
-  
-	&__input {
-	  width: 48px;
-	  height: 48px;
-	  text-align: center;
-	  font-size: 20px;
-	  border: 1px solid #808080 ;
-	  border-radius: 8px;
-	  outline: none;
-	  transition: border-color 0.3s;
+  @include flex-center;
+  min-height: 50vh;
 
-	  &--error {
-		border-color: #ff5631;
-	  }
-  
-	  &:focus {
-		border-color: #3182ce;
-	  }
-	}
-  
-	&__placeholder {
-	  position: absolute;
-	  top: 50%;
-	  left: 50%;
-	  transform: translate(-50%, -50%);
-	  pointer-events: none;
-	  opacity: 0.5;
-	  transition: opacity 0.3s;
-  
-	  .code__input:focus ~ &,
-	  .code__input:not(:placeholder-shown) ~ & {
-		opacity: 0;
-	  }
-	}
-  
-	&__error,
-	&__error2 {
-	  color: #ff5631;
-	  font-size: $fs-16;
-	  font-family: 'Ubuntu Medium';
-	}
-  
-	&__error2 {
-	  @include flex-center;
-	  min-height: 30vh;
-	}
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
   }
-  
+
+  &__label {
+    font-size: $fs-30;
+    text-align: center;
+  }
+
+  &__inputs {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__input-wrapper {
+    position: relative;
+  }
+
+  &__input {
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid #808080;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+
+    &--error {
+      border-color: #ff5631;
+    }
+
+    &:focus {
+      border-color: #3182ce;
+    }
+  }
+
+  &__placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+
+    .code__input:focus ~ &,
+    .code__input:not(:placeholder-shown) ~ & {
+      opacity: 0;
+    }
+  }
+
+  &__error,
+  &__error2 {
+    color: #ff5631;
+    font-size: $fs-16;
+    font-family: 'Ubuntu Medium';
+  }
+
+  &__error2 {
+    @include flex-center;
+    min-height: 30vh;
+  }
+}

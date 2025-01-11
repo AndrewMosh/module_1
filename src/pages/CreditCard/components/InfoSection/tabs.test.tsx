@@ -13,6 +13,6 @@ describe('tabs configuration', () => {
       'Rates and conditions',
       'Cashback',
       'FAQ',
-    ]); 
+    ]);
   });
 });

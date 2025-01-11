@@ -5,11 +5,11 @@ import down from '@assets/svg/down-sort.svg';
 import up from '@assets/svg/up-sort.svg';
 import { TSchedule } from '@store/paymentScheduleStore/paymentSchedule.types';
 
-export const Table: React.FC<TableProps> = ({ columns, data=[], onSort }) => {
+export const Table: React.FC<TableProps> = ({ columns, data = [], onSort }) => {
   const [sortConfig, setSortConfig] = useState<{
     key: keyof TSchedule;
     direction: 'asc' | 'desc';
-  } | null >(null);
+  } | null>(null);
 
   const handleSort = (key: string) => {
     let direction: 'asc' | 'desc' = 'asc';
@@ -61,7 +61,9 @@ export const Table: React.FC<TableProps> = ({ columns, data=[], onSort }) => {
                 key={column.key}
                 data-label={column.title}
               >
-                {row[column.key] instanceof Date ? (row[column.key] as Date).toLocaleDateString() : String(row[column.key])}
+                {row[column.key] instanceof Date
+                  ? (row[column.key] as Date).toLocaleDateString()
+                  : String(row[column.key])}
               </div>
             ))}
           </div>

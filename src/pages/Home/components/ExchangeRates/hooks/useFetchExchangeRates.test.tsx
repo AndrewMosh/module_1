@@ -31,7 +31,10 @@ describe('useFetchExchangeRates', () => {
       useFetchExchangeRates(baseCurrency, requiredCurrencies, updateInterval),
     );
 
-    expect(mockFetchRates).toHaveBeenCalledWith(baseCurrency, requiredCurrencies);
+    expect(mockFetchRates).toHaveBeenCalledWith(
+      baseCurrency,
+      requiredCurrencies,
+    );
 
     expect(mockFetchRates).toHaveBeenCalledTimes(1);
 
@@ -51,7 +54,10 @@ describe('useFetchExchangeRates', () => {
       useFetchExchangeRates(baseCurrency, requiredCurrencies, updateInterval),
     );
 
-    expect(mockFetchRates).toHaveBeenCalledWith(baseCurrency, requiredCurrencies);
+    expect(mockFetchRates).toHaveBeenCalledWith(
+      baseCurrency,
+      requiredCurrencies,
+    );
 
     unmount();
 
