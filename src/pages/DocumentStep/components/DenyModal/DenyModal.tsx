@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import './DenyModal.scss';
 import { Button } from '@shared';
 import { useModalStore } from '@store';
-import { removeActiveStep } from '@store/activeStepStore/useActiveStepStore';
 
 export const DenyModal: React.FC<{ id: string }> = ({ id }) => {
   const {
@@ -23,9 +22,7 @@ export const DenyModal: React.FC<{ id: string }> = ({ id }) => {
 
   const closeAndNavigate = () => {
     closeModal();
-	removeActiveStep()
-	localStorage.removeItem('currentId');
-    navigate('/');
+    navigate('/loan');
   };
 
   return (
