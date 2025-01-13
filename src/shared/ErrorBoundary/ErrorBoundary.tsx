@@ -1,5 +1,8 @@
-import { Spinner, useApplicationData, Error, Status } from '@shared';
+import React, { useState } from 'react';
+import { Spinner, useApplicationData, Error, Status, Button } from '@shared';
 import { statuses } from './boundary.consts';
+import './boundary.scss';
+import { useActiveStepStore } from '@store';
 
 export const ErrorBoundary = ({
   status,
@@ -11,8 +14,19 @@ export const ErrorBoundary = ({
   children: React.ReactNode;
 }) => {
   const { loading, error, data, initialized } = useApplicationData(id ?? '');
+  const applicationId = localStorage.getItem('currentId');
+  const { removeActiveStep } = useActiveStepStore();
 
-  if (loading || !initialized) {
+  const [isNavigating, setIsNavigating] = useState(false);
+
+  const handleNewApplication = () => {
+    setIsNavigating(true);
+    removeActiveStep();
+    localStorage.removeItem('currentId');
+    window.location.href = '/loan';
+  };
+
+  if (loading || !initialized || isNavigating) {
     return <Spinner />;
   }
 
@@ -20,9 +34,20 @@ export const ErrorBoundary = ({
     return error ? <Error message={error} /> : null;
   }
 
+  if (applicationId !== id) {
+    return <Error message="Application not found" />;
+  }
+
   if (data?.status && data.status !== status) {
     const statusMessage = statuses[data.status as keyof typeof statuses];
-    return <Status message={statusMessage || 'Unknown status'} />;
+    return (
+      <div className="boundary">
+        <Status message={statusMessage || 'Unknown status'} />
+        <Button className="boundary__button" onClick={handleNewApplication}>
+          Start a new application
+        </Button>
+      </div>
+    );
   }
 
   return <>{children}</>;

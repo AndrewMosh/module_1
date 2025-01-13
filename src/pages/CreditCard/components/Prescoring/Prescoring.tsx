@@ -1,11 +1,14 @@
-import { PrescoringForm, Offers } from '@pages';
-import { CardBase, Spinner } from '@shared';
+import { PrescoringForm, Offers, SentToEmail } from '@pages';
+import { CardBase, Spinner, useApplicationData } from '@shared';
 import './Prescoring.scss';
 import { formName } from '../PrescoringForm/form.consts';
 import { useRestoreForm } from './hooks/useRestoreForm';
 
 export const Prescoring = () => {
   const { forms, isRestored } = useRestoreForm();
+  const applicationId = localStorage.getItem('currentId')
+  const { data } = useApplicationData(applicationId ?? '');
+
 
   const formState = forms[formName] || {
     loading: false,
@@ -16,6 +19,14 @@ export const Prescoring = () => {
 
   if (!isRestored) {
     return <Spinner />;
+  }
+
+  if (applicationId && data && data?.status !== 'PREAPPROVAL') {
+    return (
+      <div className="prescoring">
+        <SentToEmail />
+      </div>
+    );
   }
 
   return (

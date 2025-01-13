@@ -1,0 +1,9 @@
+.boundary {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	&__button {
+		margin-bottom: 40px;
+	}
+}

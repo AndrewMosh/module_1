@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import './Completed.scss';
 export const Completed = () => {
   const nav = useNavigate();
+
+  const handleBackHome =()=> {
+	nav('/')
+  }
   return (
     <div className="completed">
       <img src={offer} alt="congratulations" />
@@ -12,7 +16,7 @@ export const Completed = () => {
         text="Your credit card will arrive soon. Thank you for choosing us!"
         className="completed__success"
       />
-      <Button onClick={() => nav('/')} className="completed__button">
+      <Button onClick={handleBackHome} className="completed__button">
         View other offers of our bank
       </Button>
     </div>

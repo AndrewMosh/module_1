@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import axios from 'axios';
 import { OffersStore } from './offers.types';
+import { setActiveStep } from '@store/activeStepStore/useActiveStepStore';
 
 export const useOffersStore = create<OffersStore>((set, get) => ({
   selectedOfferId: null,
@@ -32,6 +33,7 @@ export const useOffersStore = create<OffersStore>((set, get) => ({
             set({ success: true });
             set({ error: false });
             set({ loading: false });
+			setActiveStep(1)
           } else {
             set({ error: true });
           }

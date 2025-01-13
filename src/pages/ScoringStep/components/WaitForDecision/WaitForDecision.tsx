@@ -3,15 +3,21 @@ import { Success } from '@shared';
 import { useApplicationStore } from '@store';
 
 export const WaitForDecision = ({ id }: { id: string }) => {
-  const { fetchApplication } = useApplicationStore();
+  const { data, fetchApplication } = useApplicationStore();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      fetchApplication(id ?? '');
+    const timer = setInterval(() => {
+      fetchApplication(id);
     }, 10000);
 
-    return () => clearTimeout(timer);
-  }, [fetchApplication, id]);
+    return () => clearInterval(timer);
+  }, [id, fetchApplication]);
+
+  useEffect(() => {
+    if (data?.status === 'CC_DENIED') {
+      window.location.href = '/loan';
+    }
+  }, [data]);
 
   return (
     <Success
