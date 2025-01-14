@@ -5,9 +5,9 @@ import './Completed.scss';
 export const Completed = () => {
   const nav = useNavigate();
 
-  const handleBackHome =()=> {
-	nav('/')
-  }
+  const handleBackHome = () => {
+    nav('/');
+  };
   return (
     <div className="completed">
       <img src={offer} alt="congratulations" />

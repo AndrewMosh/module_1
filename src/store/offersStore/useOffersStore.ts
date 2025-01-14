@@ -33,7 +33,7 @@ export const useOffersStore = create<OffersStore>((set, get) => ({
             set({ success: true });
             set({ error: false });
             set({ loading: false });
-			setActiveStep(1)
+            setActiveStep(1);
           } else {
             set({ error: true });
           }

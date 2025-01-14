@@ -31,7 +31,6 @@ export const useCodeStore = create<CodeState>((set, get) => ({
         },
       );
 
-
       if (response.status !== 200) {
         throw new Error('Invalid confirmation code');
       }

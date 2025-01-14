@@ -42,7 +42,10 @@ export const usePrescoringStore = create<FormStore>((set, get) => ({
       const response = await axios.post(endpoint, data);
 
       const sortedOffers = sortOffers(response.data, criteria);
-	  localStorage.setItem('currentId', JSON.stringify(response.data[0].applicationId));
+      localStorage.setItem(
+        'currentId',
+        JSON.stringify(response.data[0].applicationId),
+      );
       const updatedForms = {
         ...forms,
         [formName]: {
@@ -50,14 +53,11 @@ export const usePrescoringStore = create<FormStore>((set, get) => ({
           success: true,
           error: null,
           data: sortedOffers as unknown as TOffers[],
-		  
         },
-		
       };
 
       set({ forms: updatedForms });
       localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedForms));
-	 
     } catch (error: unknown) {
       const formError = error as ApiError;
 

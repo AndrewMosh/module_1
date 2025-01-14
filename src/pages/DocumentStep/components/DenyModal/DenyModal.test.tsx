@@ -106,7 +106,7 @@ describe('DenyModal', () => {
     expect(closeModalMock).toHaveBeenCalled();
   });
 
-  it('navigates home when "Go Home" button is clicked', () => {
+  it('navigates home when "Go Back" button is clicked', () => {
     (useModalStore as unknown as ReturnType<typeof vi.fn>).mockReturnValue({
       ...useModalStore(),
       showModal: true,
@@ -115,10 +115,10 @@ describe('DenyModal', () => {
 
     render(<DenyModal id="123" />);
 
-    const goHomeButton = screen.getByText('Go Home');
+    const goHomeButton = screen.getByText('Go Back');
     fireEvent.click(goHomeButton);
 
-    expect(mockNavigate).toHaveBeenCalledWith('/');
+    expect(mockNavigate).toHaveBeenCalledWith('/loan');
   });
 
   it('displays error message if there is an error', () => {

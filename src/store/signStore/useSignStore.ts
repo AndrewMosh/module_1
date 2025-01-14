@@ -15,7 +15,7 @@ export const useSignStore = create<DocumentState>((set) => ({
       const url = `${api}/document/${id}/sign`;
       await axios.post(url, { agreed: true });
       set({ loading: false, success: true });
-	  setActiveStep(4)
+      setActiveStep(4);
     } catch (error) {
       if (axios.isAxiosError(error)) {
         set({

@@ -24,7 +24,7 @@ export const useScoringStore = create<FormStore>((set, get) => ({
 
     try {
       await axios.put(endpoint, data);
-	  set({
+      set({
         forms: {
           ...forms,
           [formName]: {
@@ -35,7 +35,7 @@ export const useScoringStore = create<FormStore>((set, get) => ({
           },
         },
       });
-	  setActiveStep(2)
+      setActiveStep(2);
     } catch (error: unknown) {
       const formError = error as ApiError;
 

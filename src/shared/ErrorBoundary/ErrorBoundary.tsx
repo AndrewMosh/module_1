@@ -38,17 +38,19 @@ export const ErrorBoundary = ({
     return <Error message="Application not found" />;
   }
 
-  const shouldShowButton = data?.status === 'CC_DENIED' || data?.status === 'CREDIT_ISSUED' ;
+  const shouldShowButton =
+    data?.status === 'CC_DENIED' || data?.status === 'CREDIT_ISSUED';
 
   if (data?.status && data.status !== status) {
     const statusMessage = statuses[data.status as keyof typeof statuses];
     return (
       <div className="boundary">
         <Status message={statusMessage || 'Unknown status'} />
-		{shouldShowButton && <Button className="boundary__button" onClick={handleNewApplication}>
-          Start a new application
-        </Button>}
-        
+        {shouldShowButton && (
+          <Button className="boundary__button" onClick={handleNewApplication}>
+            Start a new application
+          </Button>
+        )}
       </div>
     );
   }

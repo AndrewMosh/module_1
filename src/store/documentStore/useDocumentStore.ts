@@ -26,7 +26,7 @@ export const useDocumentStore = create<DocumentState>((set) => ({
 
       if (response.status === 200) {
         set({ success: true });
-		setActiveStep(3)
+        setActiveStep(3);
       } else {
         throw new Error('Failed to submit agreement');
       }

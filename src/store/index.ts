@@ -15,4 +15,4 @@ export { useStepStore } from './updateStep/useStepStore';
 export { useCurrencyStore } from './currencyStore/useCurrencyStore';
 export { useApplicationStore } from './applicationStore/useApplicationStore';
 export { useDocumentStore } from './documentStore/useDocumentStore';
-export {useActiveStepStore} from './activeStepStore/useActiveStepStore'
+export { useActiveStepStore } from './activeStepStore/useActiveStepStore';

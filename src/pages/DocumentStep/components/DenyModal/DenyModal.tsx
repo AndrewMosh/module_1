@@ -63,7 +63,7 @@ export const DenyModal: React.FC<{ id: string }> = ({ id }) => {
                     className="modal__close-button"
                     onClick={closeAndNavigate}
                   >
-                    Go Home
+                    Go Back
                   </Button>
                 </div>
               </>

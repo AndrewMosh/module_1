@@ -14,9 +14,6 @@ import { useScoringStore } from '@store';
 
 export const ScoringForm = ({ id }: { id: string }) => {
   const { forms, submitForm } = useScoringStore();
- 
-
- 
 
   const formState = forms[formName] || {
     loading: false,
@@ -88,8 +85,6 @@ export const ScoringForm = ({ id }: { id: string }) => {
 
     await submitForm(formName, `${apiUrl}${formEndpoint}${id}`, payload, id);
   };
-
-
 
   const renderFields = (fields: typeof scoringFields | typeof Employments) =>
     fields.map(({ name, label, type, placeholder, options, required }) => (

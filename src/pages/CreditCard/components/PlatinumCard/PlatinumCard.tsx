@@ -11,8 +11,7 @@ export const PlatinumCard = () => {
   const { forms } = usePrescoringStore();
   const { activeStep } = useActiveStepStore();
   const navigate = useNavigate();
- const applicationId = localStorage.getItem('currentId')
- 
+  const applicationId = localStorage.getItem('currentId');
 
   const formState = forms[formName] || {
     loading: false,
@@ -57,11 +56,10 @@ export const PlatinumCard = () => {
               </Tooltip>
             ))}
           </div>
-          <Button
-            className="platinum-card__button"
-            onClick={handleButtonClick}
-          >
-            {applicationId || formState.data ? 'Continue application' : 'Apply for card'}
+          <Button className="platinum-card__button" onClick={handleButtonClick}>
+            {applicationId || formState.data
+              ? 'Continue application'
+              : 'Apply for card'}
           </Button>
         </div>
         <div className="platinum-card__image">
