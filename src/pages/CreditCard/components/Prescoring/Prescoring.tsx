@@ -22,7 +22,7 @@ export const Prescoring = () => {
       localStorage.removeItem('currentId');
       window.location.href = '/loan';
     }
-  }, [applicationId, data]);
+  }, [data]);
 
   const formState = forms[formName] || {
     loading: false,
