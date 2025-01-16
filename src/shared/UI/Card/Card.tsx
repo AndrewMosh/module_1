@@ -9,9 +9,10 @@ export const Card: React.FC<CardProps> = ({
   percentage,
   offer,
   onClick,
+  role
 }) => {
   return (
-    <div className="card" style={{ backgroundColor }} onClick={onClick}>
+    <div className="card" style={{ backgroundColor }} onClick={onClick} role={role}>
       {icon && <img src={icon} alt="icon" />}
       {title && <h2 className="card__title">{title}</h2>}
       {description && <p className="card__description">{description}</p>}

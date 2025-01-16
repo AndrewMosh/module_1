@@ -7,4 +7,5 @@ export type CardProps = {
   backgroundColor?: string;
   onClick?: () => void;
   className?: string;
+  role?:string;
 };
