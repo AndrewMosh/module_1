@@ -14,6 +14,13 @@ export default defineConfig({
   },
   plugins: [react()],
   test: {
+	coverage: {
+    provider: 'v8', 
+		reportsDirectory: './coverage', 
+		reporter: ['text', 'html'], 
+		include: ['src/**/*.ts', 'src/**/*.tsx'], 
+		exclude: ['node_modules', 'tests/**/*.test.ts'],
+	  },
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/setupTests.ts',
